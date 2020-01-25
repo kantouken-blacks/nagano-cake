@@ -8,7 +8,7 @@
     <div class="row mt-5">
       <div class="col-sm-4">
         <%= f.label :商品画像 %>
-        <%= f.label :商品画像を選択 %>
+        <%= f.attachment_field :image %>
       </div>
 
       <div class="col-sm-5">
@@ -24,7 +24,7 @@
 
         <div class="row">
           <%= f.label :ジャンル %>
-          <%= f.label :ドロップダウン %>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name %>
         </div>
 
         <div class="row">
@@ -35,7 +35,7 @@
 
         <div class="row">
           <%= f.label :販売ステータス %>
-          <%= f.label :ドロップダウン %>
+          <%= f.select :sale_status, [["販売可",0], ["販売不可",1]] %>
         </div>
       </div>
 
