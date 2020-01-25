@@ -1,2 +1,52 @@
-<h1>Admins::Items#new</h1>
-<p>Find me in app/views/admins/items/new.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <h2>商品 新規登録画面</h2>
+  </div>
+
+  <%= form_for(@item) do |f| %>
+
+    <div class="row mt-5">
+      <div class="col-sm-4">
+        <%= f.label :商品画像 %>
+        <%= f.label :商品画像を選択 %>
+      </div>
+
+      <div class="col-sm-5">
+        <div class="row">
+          <%= f.label :商品名 %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="row">
+          <%= f.label :商品説明 %>
+          <%= f.text_area :description %>
+        </div>
+
+        <div class="row">
+          <%= f.label :ジャンル %>
+          <%= f.label :ドロップダウン %>
+        </div>
+
+        <div class="row">
+          <%= f.label :税抜き価格 %>
+          <%= f.text_field :price %>
+          <p>円</p>
+        </div>
+
+        <div class="row">
+          <%= f.label :販売ステータス %>
+          <%= f.label :ドロップダウン %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="offset-sm-9 col-sm-2">
+        <%= f.submit :新規登録 %>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
