@@ -5,14 +5,14 @@ devise_for :customers, controllers: {
     registrations: 'customers/registrations'
   }
   devise_for :admins, controllers: {
-    sessions: 'admins/sessions',
-    passwords: 'admins/passwords',
-    registrations: 'admins/registrations'
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords',
+    registrations: 'admin/registrations'
   }
   #admin
   namespace :admin do
     root 'homes#top'
-    resources :customer_datas, only: [:index, :edit, :update]
+    resources :customer_datas, only: [:show, :index, :edit, :update]
     resources :items, except: [:destroy]
     resources :genres, except: [:new, :show, :destroy]
     resources :orders, only: [:index, :show, :update]
@@ -20,7 +20,7 @@ devise_for :customers, controllers: {
   #customer
   root 'homes#top'
   get '/thanks' => 'homes#thanks'
-  resources :customers, only: [:index, :edit, :update]
+  resources :customers, only: [:edit, :update]
   resources :withdrow, only: [:edit, :update]
   resources :ship_addresses, except: [:new, :show]
   resources :cart_items, except: [:new, :show, :edit]
