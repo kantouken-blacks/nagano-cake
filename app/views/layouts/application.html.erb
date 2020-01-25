@@ -11,6 +11,29 @@
   </head>
 
   <body>
+    <header><!-- header -->
+    　<nav class="navbar navbar-inverse navbar-fixed-top">
+     　<div class="container">
+       <div class="navbar-header">
+     <p class="navbar-brand">ながのCAKE</p>
+       </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+          <%= link_to new_customer_registration_path do %>会員登録<% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_admin_session_path do %>ログイン<% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to items_path do %>商品一覧<% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '#' do %>店舗情報<% end %>
+        </li>
+      </ul>
+      </div>
+     </nav>
+   </header><!-- /header -->
     <%= yield %>
   </body>
 </html>
