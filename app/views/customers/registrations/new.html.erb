@@ -6,29 +6,29 @@
   <div class="field">
     <div class="last_name">
       <%= f.label :last_name %><br />
-      <%= f.textfield :last_name, placeholder:"例）長野" %><br />
-      <%= f.textfield :last_name_kana, placeholder:"例）ナガノ" %>
+      <%= f.text_field :last_name, placeholder:"例）長野" %><br />
+      <%= f.text_field :last_name_kana, placeholder:"例）ナガノ" %>
     </div>
     <div class="first_name">
       <%= f.label :first_name %><br />
-      <%= f.textfield :first_name, placeholder:"例）恵子" %><br />
-      <%= f.textfield :first_name_kana, placeholder:"例）ケイコ" %>
+      <%= f.text_field :first_name, placeholder:"例）恵子" %><br />
+      <%= f.text_field :first_name_kana, placeholder:"例）ケイコ" %>
     </div>
   </div>
   <!-- 郵便番号入力フォーム -->
   <div class="field">
     <%= f.label :post_code %><br />
-    <%= f.textfield :post_code %>
+    <%= f.text_field :post_code %>
   </div>
   <!-- 住所入力フォーム -->
   <div class="field">
     <%= f.label :address %><br />
-    <%= f.textfield :address %>
+    <%= f.text_field :address %>
   </div>
   <!-- 電話番号入力フォーム -->
   <div class="field">
     <%= f.label :phone_number %><br />
-    <%= f.textfield :phone_number %>
+    <%= f.text_field :phone_number %>
   </div>
   <!--email入力フォーム -->
   <div class="field">
