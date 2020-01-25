@@ -1,16 +1,18 @@
-<h2>アカウントを作成</h2>
-
+<div class="conrainer">
+<div class="col text-center">
+  <h2>アカウントを作成</h2>
+</div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <!-- 漢字カナ名前入力フォーム -->
-  <div class="field">
+  <div class="row">
     <h6>お名前</h6>
-    <div class="last_name">
+    <div class="col-md-3">
       <%= f.label :'姓 last name' %><br />
       <%= f.text_field :last_name, placeholder:"例）長野" %><br />
       <%= f.text_field :last_name_kana, placeholder:"例）ナガノ" %>
     </div>
-    <div class="first_name">
+    <div class="col-md-3">
       <%= f.label :'名 first name' %><br />
       <%= f.text_field :first_name, placeholder:"例）恵子" %><br />
       <%= f.text_field :first_name_kana, placeholder:"例）ケイコ" %>
@@ -19,37 +21,39 @@
   <!-- 郵便番号入力フォーム -->
   <div class="field">
     <%= f.label :'郵便番号' %><br />
-    <%= f.text_field :post_code %>
+    <%= f.text_field :post_code, class:"col-md-12" %>
   </div>
   <!-- 住所入力フォーム -->
   <div class="field">
     <%= f.label :'住所' %><br />
-    <%= f.text_field :address %>
+    <%= f.text_field :address, class:"col-md-12" %>
   </div>
   <!-- 電話番号入力フォーム -->
   <div class="field">
     <%= f.label :'電話番号' %><br />
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number, class:"col-md-12" %>
   </div>
   <!--email入力フォーム -->
   <div class="field">
     <%= f.label :'メールアドレス' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-md-12" %>
   </div>
   <!-- password入力フォーム -->
   <div class="field">
     <%= f.label :'パスワード' %><br />
-    <%= f.password_field :password, placeholder:"最低６文字必要です。", autocomplete: "new-password" %>
+    <%= f.password_field :password, placeholder:"最低６文字必要です。", autocomplete: "new-password", class:"col-md-12" %>
   </div>
   <!-- password確認フォーム -->
   <div class="field">
     <%= f.label :'もう一度パスワードを入力してください。' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"col-md-12" %>
   </div>
   <!-- Sign upボタン -->
   <div class="actions">
-    <%= f.submit "会員登録" %>
+    <%= f.submit "会員登録", class:"col-md-12" %>
   </div>
 <% end %>
 
 <%= render "customers/shared/links" %>
+
+</div>
