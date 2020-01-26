@@ -1,0 +1,48 @@
+<div class="coainer">
+  <div class="row">
+    <h2>商品詳細</h2>
+  </div>
+
+  <div class="row">
+    <div class="offset-sm-1 col-sm-3">
+      <%= iage_tag attachment_url(@item, :image, :fill, 100, 100, format: "jpeg") %>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="row">
+        <p>商品名</p>
+        <p>洋梨のチーズタルト</p>
+      </div>
+
+      <div class="row">
+        <p>商品説明</p>
+        <p>北海道産の最高級カッテージチーズ＆最高級生クリームを贅沢に使用。</p>
+      </div>
+
+      <div class="row">
+        <p>ジャンル</p>
+        <p>ケーキ</p>
+      </div>
+
+      <div class="row">
+        <p>税込価格(税抜価格)</p>
+        <p>1,100(1,000)</p>
+        <p>円</p>
+      </div>
+
+      <div class="row">
+        <p>販売ステータス</p>
+        <p>販売中</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="offset-sm-9 col-sm-2">
+      <%= link_to "編集する", edit_admin_item_path %>
+    </div>
+  </div>
+</div>
+
+
+
