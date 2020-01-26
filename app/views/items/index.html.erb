@@ -1,7 +1,7 @@
 <!-- <div class="genre box"> -->
 <div class="container">
  <div class="row">
-  <div class="col-3 col-offset-1">
+  <div class="col-3 col-offset-1 mt-4">
    <table frame="box">
 	 <tr>
 	  <th>ジャンル検索</th>
@@ -27,22 +27,22 @@
 	<!-- サンプル表示 -->
   </table>
 </div>
-	<div class="col-9 my-3">
+	<div class="col-8 my-3">
 	<h2>ケーキ</h2><!--動的ジャンル名設定する-->
 	 <div class="row">
 	  <div class="col-lg-3 mb-4">
-	   <% @items.each do |item| %>
 	    <div class="card">
+	      <% @items.each do |item| %>
 	      <%= link to item_path(item) do %>
 	      <%= attachment_image_tag item, :image, class: 'card-img-top' %>
 	      <% end %>
-	      <div class="card-body">
+	        <div class="card-body">
 	        <h5 class="card-title"><%= item.name %></h5>
 	        <p class="card-price"><%= item.price %></p>
 	      </div>
 	    </div>
 	  <% end %>
-
+       <!--サンプル表示  -->
 	      <%= image_tag 'cookie_sample.jpg', class: 'card-img-top' %>
 	      <div class="card-body">
 	        <h5 class="card-title">クッキー</h5>
@@ -77,7 +77,34 @@
 	      </div>
 	    </div>
 	  </div>
-
+	  	  <div class="col-lg-3 mb-4">
+	  <div class="card">
+	      <%= image_tag 'cookie_sample.jpg', class: 'card-img-top' %>
+	      <div class="card-body">
+	        <h5 class="card-title">クッキー</h5>
+	        <p class="card-price">プライス</p>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-lg-3 mb-4">
+	  <div class="card">
+	     <%= image_tag 'cookie_sample.jpg', class: 'card-img-top' %>
+	      <div class="card-body">
+	        <h5 class="card-title">クッキー</h5>
+	        <p class="card-price">プライス</p>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-lg-3 mb-4">
+	  <div class="card">
+	      <%= image_tag 'cookie_sample.jpg', class: 'card-img-top' %>
+	      <div class="card-body">
+	        <h5 class="card-title">クッキー</h5>
+	        <p class="card-price">プライス</p>
+	      </div>
+	    </div>
+	  </div>
+	<!--サンプル表示  -->
 
    </div>
   </div>
