@@ -7,5 +7,5 @@ class Item < ApplicationRecord
 	has_many :cart_items, dependent: :destroy
 	belongs_to :genre
 	attachment :image
-	enum sale_status: [['販売可',0],['販売不可',1]]
+	enum sale_status: [:販売可, :販売不可]
 end

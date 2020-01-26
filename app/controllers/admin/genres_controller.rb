@@ -30,3 +30,4 @@ class Admin::GenresController < ApplicationController
     params.require(:genre).permit(:name, :is_enabled)
   end
 end
+

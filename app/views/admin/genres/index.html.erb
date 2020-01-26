@@ -48,7 +48,8 @@
             <tr>
               <td><%= genre.name %></td>
               <td><%= genre.is_enabled %></td>
-              <td><%= link_to "編集する", edit_admin_genre_path %></td>
+              <!-- status表示が true/falseのまま -->
+              <td><%= link_to "編集する", edit_admin_genre_path(genre) %></td>
             </tr>
           <% end %>
         </tbody>
