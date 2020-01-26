@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <h2>ジャンル編集画面</h2>
+  </div>
+
+  <div class="row">
+    <%= form_for (@genre url: admin_genres_path) do |f| %>
+      <div class="form-group">
+        <%= f.label :ジャンル名 %>
+        <%= f.text_field :name class: "form-control" %>
+      </div>
+
+      <div class="form-check">
+        <%= f.radio_button :is_enabled, :true %>
+        <%= f.label :is_enabled, "有効" %>
+        <%= f.radio_button :is_enabled, :false %>
+        <%= f.label :is_enabled, "無効" %>
+      </div>
+
+      <%= f.submit "更新する" %>
+    <% end %>
+  </div>
+</div>
+
+
