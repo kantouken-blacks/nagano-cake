@@ -1,6 +1,6 @@
 class SessionController < ApplicationController
   def new
-    # ship_address = Ship_address.new
+    # @ship_address = Ship_address.new
   end
 
   def create
