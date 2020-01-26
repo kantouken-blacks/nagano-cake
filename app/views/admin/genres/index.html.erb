@@ -22,6 +22,29 @@
         <%= f.submit "追加" %>
       <% end %>
     </div>
+
+    <div class="offset-sm-1 col-sm-4">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ジャンル</th>
+            <th>状態</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @genres.each do |genre| %>
+            <tr>
+              <td><%= genre.name %></td>
+              <td><%= genre.is_enabled %></td>
+              <td><%= link_to "編集する", edit_admin_genre_path %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </div>
 
