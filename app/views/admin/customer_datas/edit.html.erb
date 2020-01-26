@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+
+    <h2>会員編集画面</h2>
+
+    <div class="row">
+      <p>会員ID</p>
+      <p><%= @customer.id %></p>
+    </div>
+
+
+    <%= form_for (@customer url: admin_customer_data_path) do |f| %>
+      <div class="row">
+        <%= f.label :氏名 %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="row">
+        <%= f.label :氏名 %>
+        <%= f.text_field :last_name %>
+        <%= f.text_field :first_name %>
+      </div>
+
+      <div class="row">
+        <%= f.label :フリガナ %>
+        <%= f.text_field :last_name_kana %>
+        <%= f.text_field :first_name_kana %>
+      </div>
+
+      <div class="row">
+        <%= f.label :郵便番号 %>
+        <%= f.text_field :post_code %>
+      </div>
+
+      <div class="row">
+        <%= f.label :住所 %>
+        <%= f.text_field :address %>
+      </div>
+
+      <div class="row">
+        <%= f.label :電話番号 %>
+        <%= f.text_field :phone_number %>
+      </div>
+
+      <div class="row">
+        <%= f.label :メールアドレス %>
+        <%= f.text_field :email %>
+      </div>
+
+      <div class="row">
+        <%= f.radio_button :is_enabled, :true %>
+        <%= f.label :is_enabled, "有効" %>
+        <%= f.radio_button :is_enabled, :false %>
+        <%= f.label :is_enabled, "退会済み" %>
+      </div>
+
+      <div class="row">
+        <%= f.submit "変更を保存する" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
