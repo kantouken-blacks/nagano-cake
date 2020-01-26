@@ -3,7 +3,7 @@
     <h2>商品 新規登録画面</h2>
   </div>
 
-  <%= form_for(@item) do |f| %>
+  <%= form_for(@item, url: admin_items_path) do |f| %>
 
     <div class="row mt-5">
       <div class="col-sm-4">
@@ -35,7 +35,7 @@
 
         <div class="form-group">
           <%= f.label :販売ステータス %>
-          <%= f.select :sale_status, [["販売可",0], ["販売不可",1]], class: "form-control" %>
+          <%= f.select :sale_status, [["販売可", "販売可"], ["販売不可","販売不可"]], class: "form-control" %>
         </div>
       </div>
 
