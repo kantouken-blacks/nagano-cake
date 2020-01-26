@@ -1,10 +1,30 @@
   <div class="container-fulied img-hidden">
-    <div class="row">
-    <div class="col">
-    <%= image_tag 'sample_image1.jpg', class: 'img-fulied' %>
-    </div>
-  </div>
-</div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <!-- インジケータの設定 -->
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    </ol>
+    <!-- スライドさせる画像の設定 -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag 'sample_image1.jpg', class: 'd-block w-100' %>
+      </div><!-- /.carousel-item -->
+      <div class="carousel-item">
+        <%= image_tag 'sample_image2.jpg', class: 'd-block w-100' %>
+      </div><!-- /.carousel-item -->
+    <!-- /.carousel-item -->
+    </div><!-- /.carousel-inner -->
+    <!-- スライドコントロールの設定 -->
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      >
+    </a>
+  </div><!-- /.carousel -->
+
+ </div>
 
 <div class="container　container text-center">
  <p>pick up</p>
