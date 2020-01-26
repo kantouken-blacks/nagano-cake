@@ -8,5 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+  	@genres = Genre.all
+  	
   end
 end
