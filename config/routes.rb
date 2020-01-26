@@ -20,7 +20,7 @@ devise_for :customers, controllers: {
   #customer
   root 'homes#top'
   get '/thanks' => 'homes#thanks'
-  resources :customers, only: [:edit, :update]
+  resources :customers, only: [:show, :edit, :update]
   resources :withdrow, only: [:edit, :update]
   resources :ship_addresses, except: [:new, :show]
   resources :cart_items, except: [:new, :show, :edit]
