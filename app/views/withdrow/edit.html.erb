@@ -1,2 +1,16 @@
-<h1>Withdrow#edit</h1>
-<p>Find me in app/views/withdrow/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+	<h1>本当に退会しますか？</h1>
+	<p>退会すると、会員登録情報やこれまでの購入履歴が閲覧できなくなります。退会する場合は、「退会する」をクリックしてください。</p>
+  </div>
+
+  <div class="row">
+          <div class="col-3">
+           <%= link_to "退会しない" , '#', class: "btn btn-primary" %>
+          </div>
+          <div class="col-3">
+           <%= link_to "退会する" , '#', class: "btn btn-danger" %>
+          </div>
+
+  </div>
+</div>
