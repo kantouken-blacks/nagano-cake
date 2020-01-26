@@ -9,6 +9,10 @@ class ItemsController < ApplicationController
 
   def show
   	@genres = Genre.all
-  	
+  	# @item = Item.find(params[:id])
+  end
+  private
+  def item_params
+  	  params.require(:item)
   end
 end
