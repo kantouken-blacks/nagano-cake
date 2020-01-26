@@ -13,3 +13,10 @@
  */
 
  @import "bootstrap";
+
+
+ // ヘッダーの画像サイズ調整
+ div.img-hidden {
+  height: 500px;
+  overflow: hidden;
+}

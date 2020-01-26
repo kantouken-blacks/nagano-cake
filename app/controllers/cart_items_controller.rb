@@ -1,5 +1,6 @@
 class CartItemsController < ApplicationController
   def index
+    @item = Item.find(params[:id])
   end
 
   def create
@@ -9,5 +10,8 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to cart_items_path
   end
 end
