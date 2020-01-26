@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <h2>会員情報 詳細</h2>
+  </div>
+
+  <div class="row">
+    <p>顧客ID</p>
+    <p><%= @customer.id %></p>
+  </div>
+
+  <div class="row">
+    <p>氏名</p>
+    <p><%= @customer.last_name %></p>
+    <p><%= @customer.first_name %></p>
+  </div>
+
+  <div class="row">
+    <p>フリガナ</p>
+    <p><%= @customer.last_name_kana %></p>
+    <p><%= @customer.first_name_kana %></p>
+  </div>
+
+  <div class="row">
+    <p>郵便番号</p>
+    <p><%= @customer.post_code %></p>
+  </div>
+
+  <div class="row">
+    <p>住所</p>
+    <p><%= @customer.address %></p>
+  </div>
+
+  <div class="row">
+    <p>電話番号</p>
+    <p><%= @customer.phone_number %></p>
+  </div>
+
+  <div class="row">
+    <p>メールアドレス</p>
+    <p><%= @customer.email %></p>
+  </div>
+
+  <div class="row">
+    <%= link_to "編集する", edit_admin_customer_data_path %>
+    <%= link_to "注文履歴一覧を見る", admin_orders_path %>
+  </div>
+</div>
