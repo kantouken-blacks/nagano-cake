@@ -3,6 +3,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -16,9 +17,17 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.save
+      redirect_to admin_item_path
+    else
+      @item = Item.find(params[:id])
+      render :edit
+    end
   end
 
   private

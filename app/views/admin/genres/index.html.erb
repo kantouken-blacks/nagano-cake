@@ -1,4 +1,14 @@
 <div class="container">
+
+  <div class="error">
+    <% if @genre.errors.any? %>
+      <h2><%= pluralize(@genre.errors.count,"error")  %> prohibited this genre from being saved:</h2>
+      <% @genre.errors.full_messages.each do |message| %>
+          <p><%= message %></p>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="row mt-5">
     <h2>ジャンル追加・一覧</h2>
   </div>
