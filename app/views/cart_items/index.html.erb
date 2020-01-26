@@ -1,2 +1,29 @@
-<h1>CartItems#index</h1>
+<h1>ショッピングカート</h1>
 <p>Find me in app/views/cart_items/index.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">商品名</th>
+          <th scope="col">単価(税込)</th>
+          <th scope="col">数量</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <%# <% 変数.each do |item| %> %>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>いちごのケーキ</td>
+          <td>1,100</td>
+          <td>1個</td>
+          <td>1,100</td>
+          <!-- <td><%= link_to "削除する", cart_items_path(@item), method: :delete, class: "btn btn-default" %></td> -->
+        </tr>
+      </tbody>
+      <%# <% end %> %>
+    </table>
+  </div>
+</div>
