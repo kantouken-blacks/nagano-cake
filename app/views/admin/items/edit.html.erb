@@ -4,7 +4,7 @@
   </div>
 
   <div class="row">
-    <%= form_for(@item) do |f| %>
+    <%= form_for(@item, url: admin_item_path) do |f| %>
 
     <div class="row mt-5">
       <div class="col-sm-4">
@@ -36,7 +36,7 @@
 
         <div class="form-group">
           <%= f.label :販売ステータス %>
-          <%= f.select :sale_status, [["販売可",0], ["販売不可",1]], class: "form-control" %>
+          <%= f.select :sale_status, [["販売可","販売可"], ["販売不可","販売不可"]], class: "form-control" %>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
 
     <div class="row">
       <div class="offset-sm-9 col-sm-2">
-        <%= f.submit :新規登録 %>
+        <%= f.submit :編集する %>
       </div>
     </div>
 

@@ -4,8 +4,7 @@
   </div>
 
   <div class="row">
-
-    <%= form_for (@genre, url: admin_genres_path) do |f| %>
+    <%= form_for(@genre, url: admin_genre_path) do |f| %>
       <div class="form-group">
         <%= f.label :ジャンル名 %>
         <%= f.text_field :name, class: "form-control" %>
@@ -23,3 +22,4 @@
   </div>
 
 </div>
+

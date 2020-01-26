@@ -19,29 +19,15 @@
       </thead>
 
       <tbody>
-        <tr>
-          <td>1</td>
-          <td><%= link_to "洋ナシのタルト", new_admin_item_path %></td>
-          <td>1,200</td>
-          <td>ケーキ</td>
-          <td>販売中</td>
-        </tr>
-
-        <tr>
-          <td>1</td>
-          <td>洋ナシのタルト</td>
-          <td>1,200</td>
-          <td>ケーキ</td>
-          <td>販売中</td>
-        </tr>
-
-        <tr>
-          <td>1</td>
-          <td>洋ナシのタルト</td>
-          <td>1,200</td>
-          <td>ケーキ</td>
-          <td>販売中</td>
-        </tr>
+        <% @items&.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td><%= item.price %></td>
+            <td><%= item.genre.name %></td>
+            <td><%= item.sale_status %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
