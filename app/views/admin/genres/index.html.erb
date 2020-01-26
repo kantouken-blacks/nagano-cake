@@ -6,7 +6,7 @@
   <div class="row mt-5">
     <div class="offset-sm-1 col-sm-3">
 
-      <%= form_for(@genre, url: admin_genres_path ) do |f| %>
+      <%= form_for(@genre, url: admin_genres_path) do |f| %>
         <div class="form-group">
           <%= f.label :ジャンル %>
           <%= f.text_field :name, class: "form-control" %>
@@ -28,7 +28,7 @@
         <thead>
           <tr>
             <th>ジャンル</th>
-            <th>状態</th>
+            <th>ステータス</th>
             <th colspan="1"></th>
           </tr>
         </thead>

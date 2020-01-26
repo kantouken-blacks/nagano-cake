@@ -4,10 +4,11 @@
   </div>
 
   <div class="row">
-    <%= form_for (@genre url: admin_genres_path) do |f| %>
+    <!-- syntax error =が必要らしいけど分からない -->
+    <%= form_for (@genre, url: admin_genres_path) do |f| %>
       <div class="form-group">
         <%= f.label :ジャンル名 %>
-        <%= f.text_field :name class: "form-control" %>
+        <%= f.text_field :name, class: "form-control" %>
       </div>
 
       <div class="form-check">
@@ -20,6 +21,6 @@
       <%= f.submit "更新する" %>
     <% end %>
   </div>
+
 </div>
-
-
+<!-- syntax error 何かの終わりを期待されているけど分からない -->
