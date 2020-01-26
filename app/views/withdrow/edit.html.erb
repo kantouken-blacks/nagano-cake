@@ -6,10 +6,12 @@
 
   <div class="row">
           <div class="col-3">
-           <%= link_to "退会しない" , '#', class: "btn btn-primary" %>
+           <%= link_to "退会しない" ,orders_path, class: "btn btn-primary" %>
+           <!-- 注文履歴一覧へ-->
           </div>
           <div class="col-3">
-           <%= link_to "退会する" , '#', class: "btn btn-danger" %>
+           <%= link_to "退会する" , root_path, class: "btn btn-danger" %>
+           <!-- トップページへ(ログアウトするのと退会済みに切り替えるアクションが必要）-->
           </div>
 
   </div>

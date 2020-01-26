@@ -1,21 +1,21 @@
-<!-- <div class="genre box"> -->
 <div class="container">
  <div class="row">
-  <div class="col-3 col-offset-1 mt-4">
-  <%= render 'genrebox', genres: @genres %>
-  </div>
-  <div class="col-8 my-3">
-   <div class="item-box">
-  	<div class="row">
-	  <div class="col-5 mb-4"> <!--item image box-->
+      <div class="col-3 col-offset-1 mt-4">
+      <%= render 'genrebox', genres: @genres %> <!--ジャンル検索-->
+      </div>
+
+   <div class="col-8 my-3">
+    <div class="item-box">
+  	 <div class="row">
+	    <div class="col-5 mb-4">
 	  <!--サンプル表示  -->
-	      <%= image_tag 'cookie_sample.jpg', class: 'card-img-top' %>
-	  </div>
-	  <div class="col-7 mb-4"> <!--item spec box-->
+	     <%= attachment_image_tag @item, :image, :fill, 100, 100, format: "jpeg", fallback: 'noimage.jpg', size: '300x300' %>
+	    </div>
+	   <div class="col-7 mb-4"> <!--item spec box-->
 	    <div class="card-body">
-            <h4 class="card-title">焼き菓子</h4>
-            <p class="card-text">商品の説明文です。おいしいです。商品の説明文です。おいしいです。商品の説明文です。おいしいです。商品の説明文です。おいしいです。商品の説明文です。おいしいです。商品の説明文です。おいしいです。</p>
-            <h4 class="card-price">¥１０００<span>(税込)</span></h4>
+            <h4 class="card-title"><%= @item.name %></h4>
+            <p class="card-text"><%= @item.description %></p>
+            <h4 class="card-price"><%= @item.price %><span>(税込)</span></h4>
 
             <div class="row">
              <div class="col-3">数量</div> <!--数量ボタン入れる-->
