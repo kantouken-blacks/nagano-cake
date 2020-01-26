@@ -3,7 +3,7 @@
     <h2>注文一覧画面</h2>
   </div>
 
-  <div class="row mt-1">
+  <div class="row">
     <table class="table table-hover">
       <thead>
         <tr>
@@ -17,7 +17,7 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <td><%= order.created_at %></td>
+            <td><%= link_to order.created_at, admin_order(order) %></td>
             <td><%= order.customer.name %></td>
             <td><%= order.order_detail.quantity %></td>
             <td><%= order.order.status %></td>
@@ -26,5 +26,7 @@
       </tbody>
     </table>
   </div>
+
+  <!-- ページネーション -->
 
 </div>
