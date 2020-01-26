@@ -9,7 +9,10 @@
     </div>
 
     <div class="col-sm-3">
-      <p><%= link_to "8", admin_items_path %>件</p>
+      <p><%= link_to admin_orders_path do %>
+        <%= Order.where(created_at: :today).count %>
+        <% end %>件</p>
+      <!-- 表示件数 => 今日1日のデータ数をカウント。今日オーダーが入ったら更新されちゃいそう。やり方は理解できていない。 -->
     </div>
 
   </div>
