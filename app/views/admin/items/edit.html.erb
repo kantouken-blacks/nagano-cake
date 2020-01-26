@@ -1,2 +1,13 @@
-<h1>Admins::Items#edit</h1>
-<p>Find me in app/views/admins/items/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h2>商品編集</h2>
+  </div>
+
+  <div class="row">
+    <%= form_for (@item) do |f| %>
+
+      <div class="offset-sm-1 col-sm-3">
+        <%= f.label :商品画像 %>
+        <%= f.attachment_field :image %>
+      </div>
+  </div>
