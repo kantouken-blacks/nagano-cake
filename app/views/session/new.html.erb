@@ -1,6 +1,6 @@
 <h2>購入情報入力</h2>
 <div class="container">
-  <div class="row">
+
     <div class="payment method">
       <h4>支払い方法</h4>
       <div class="form-check">
@@ -16,16 +16,35 @@
       <h4>お届け先</h4>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-        <label class="form-check-label" for="exampleRadios1">ご自身の住所</label>
+        <label class="form-check-label" for="exampleRadios1">ご自身の住所</label><br />
+        <p>〒150-0041 東京都渋谷区神南１丁目１９−１１ パークスクエア２４階<br />山田花子</p>
       </div>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
         <label class="form-check-label" for="exampleRadios2">登録済住所から選択</label>
+        <select class="custom-select">
+          <option selected>この選択メニューを開く</option>
+          <option value="1">〒150-0041 東京都渋谷区神南１丁目１９−１１ パークスクエア２４階 山田花子</option>
+          <option value="2">その2</option>
+          <option value="3">その3</option>
+        </select>
       </div>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
         <label class="form-check-label" for="exampleRadios3">新しいお届け先</label>
+
+        <%# <%= form_for(@ship_address) do |f| %> %>
+        <%# <%= f.label :'郵便番号' %> %>
+        <%# <%= f.text_field : post_code %><br /> %>
+        <%# <%= f.label :'住所' %> %>
+        <%# <%= f.text_field : address %><br /> %>
+        <%# <%= f.label :'宛名 苗字' %> %>
+        <%# <%= f.text_field : last_name %><br /> %>
+        <%# <%= f.label :'宛名 名前' %> %>
+        <%# <%= f.text_field : first_name %> %>
+        <%# <% end %> %>
       </div>
+      <%= link_to "確認画面へ進む", new_order_path, class: "btn btn-primary" %>
     </div>
-  </div>
+
 </div>
