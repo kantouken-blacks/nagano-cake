@@ -1,0 +1,2 @@
+module Customers::SessionHelper
+end
