@@ -1,8 +1,14 @@
 <div class="container">
   <h2>注文履歴詳細</h2>
   <div class="row">
-    <table class="table col-6">
-      <h5>注文情報</h5>
+    <h5 class="col-8">注文情報</h5>
+
+    <h5 class="col-4">請求情報</h5>
+  </div>
+  <div class="row">
+
+    <table class="table col-8">
+
       <% @orders.each do |order| %>
       <tbody>
         <tr>
@@ -24,8 +30,8 @@
       </tbody>
       <% end %>
     </table>
+
     <table class="table col-4">
-      <h5>請求情報</h5>
       <tbody>
         <tr>
           <td>商品合計</td>
