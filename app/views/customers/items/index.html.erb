@@ -1,0 +1,48 @@
+
+<!-- <div class="genre box"> -->
+<div class="container">
+ <div class="row">
+      <div class="col-3 col-offset-1 mt-4">
+      <%= render 'genrebox', genres: @genres %>
+      </div>
+  <div class="col-8 my-3">
+  <h2>ケーキ</h2><!--動的ジャンル名設定する-->
+  <p class="genres-count">(全x件)</p><!--動的ジャンル登録アイテム数設定する-->
+      <div class="row">
+      <div class="col-3">
+        <% @items.each do |item| %>
+          <%= link_to item_path(item) do %>
+          <%= attachment_image_tag item, :image, format: 'jpeg', fallback: "noimage.jpg", class: 'card-img-top' %>
+          <% end %>
+          <h5 class="card-title"><%= item.name %></h5>
+          <p class="card-price"><%= item.price %></p>
+          <% end %>
+      </div>
+  </div>
+   </div>
+  </div>  <!--eachメソッドの動き確認済み、横に並べたいのですが・・・-->
+
+
+
+
+
+    <!-- ページネーション -->
+  <div class="container">
+  <div class="row">
+   <div class="col-md-4 offset-md-4 py-2">
+   <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+   </nav>
+   </div>
+  </div>
+ </div>
+  <!-- ページネーション -->
+</div>
+
+
