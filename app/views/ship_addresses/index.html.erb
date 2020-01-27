@@ -4,7 +4,7 @@
 	</div>
 
 	<div class="row">
-	 <%= form_for(@shipaddress_new) do |f| %>
+	 <%= form_for(@ship_address_new) do |f| %>
 		<%= f.label :"郵便番号" %>
 		<%= f.text_field :post_code %><br>
 		<%= f.label :"住所" %>
@@ -16,5 +16,30 @@
 	<% end %>
     </div>
 
+
+   <div class="row">
+    <table class="table table-striped">
+      <thead>
+       <tr>
+         <th>郵便番号</th>
+         <th>住所</th>
+         <th>宛名</th>
+         <th></th>
+       <tr>
+      </thead>
+
+     <tbody>
+      <% @ship_addresses.each do |ship_address| %>
+       <tr>
+     	<td><%= ship_address.post_code %></td>
+     	<td><%= ship_address.address %></td>
+     	<td><%= ship_address.last_name %></td>
+     	<td>編集する削除する</td>
+       </tr>
+      <% end %>
+     </tbody>
+    </table>
+
+   </div>
 </div>
 
