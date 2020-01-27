@@ -35,13 +35,13 @@
       </ul>
 　　　　<!-- 会員ログイン時 -->
 
-<!--       <li class="welcome-guest list-inline-item text-white">ようこそ会員名さん</li>
+      <li class="welcome-guest list-inline-item text-white">ようこそ会員名さん</li>
       <ul class="navbar-right list-inline">
         <li class="list-inline-item">
           <%= link_to '#' do %>マイページ<% end %>
         </li>
         <li class="list-inline-item">
-          <%= link_to destroy_customer_session_path do %>ログアウト<% end %>
+          <%= link_to destroy_customer_session_path, method: :delete do %>ログアウト<% end %>
         </li>
         <li class="list-inline-item">
           <%= link_to items_path do %>商品一覧<% end %>
@@ -49,7 +49,7 @@
         <li class="list-inline-item">
           <%= link_to '#' do %>カート<% end %>
         </li>
-      </ul> -->
+      </ul>
     </div>
      </nav>
    </header><!-- /header -->
