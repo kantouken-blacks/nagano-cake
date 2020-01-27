@@ -12,13 +12,21 @@ class ShipAddressesController < ApplicationController
   end
 
   def edit
+    @ship_address = ShipAddress.find(params[:id])
   end
 
   def update
+    ship_address = ShipAddress.find(params[:id])
+    ship_address.update(ship_address_params)
+    redirect_to ship_addresses_path
   end
 
   def destroy
+    ship_address = ShipAddress.find(params[:id])
+    ship_address.destroy
+    redirect_to ship_addresses_path
   end
+
   private
   def ship_address_params
       params.require(:ship_address).permit(:last_name, :first_name, :post_code, :address)

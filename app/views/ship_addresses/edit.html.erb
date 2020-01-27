@@ -1,2 +1,16 @@
-<h1>ShipAddresses#edit</h1>
-<p>Find me in app/views/ship_addresses/edit.html.erb</p>
+<div class="container">
+ <div class="row">
+ 	<h2>配送先編集</h2>
+
+	 <%= form_for(@ship_address) do |f| %>
+		<%= f.label :"郵便番号" %>
+		<%= f.text_field :post_code %><br>
+		<%= f.label :"住所" %>
+		<%= f.text_field :address %><br>
+		<%= f.label :"宛名" %>
+		<%= f.text_field :last_name %>
+		<%= f.text_field :first_name %>
+		<%= f.submit "編集する", class: "btn btn-primary" %>
+	<% end %>
+ </div>
+</div>

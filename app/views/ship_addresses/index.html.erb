@@ -29,16 +29,19 @@
       </thead>
 
      <tbody>
-      <% @ship_addresses.each do |ship_address| %>
-       <tr>
+    <% @ship_addresses.each do |ship_address| %>
+    <tr>
      	<td><%= ship_address.post_code %></td>
      	<td><%= ship_address.address %></td>
-     	<td><%= ship_address.last_name %></td>
-     	<td>編集する削除する</td>
-       </tr>
-      <% end %>
+     	<td><%= ship_address.last_name %><%= ship_address.first_name %></td>
+     	<td><%= link_to "編集する", edit_ship_address_path(ship_address),  class: "btn btn-primary" %>
+          <%= link_to "削除する", ship_address_path(ship_address), method: :delete ,data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </td>
+     </tr>
+  <% end %>
      </tbody>
     </table>
+
 
    </div>
 </div>
