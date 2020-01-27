@@ -1,8 +1,6 @@
 class ShipAddressesController < ApplicationController
   def index
-    @shipaddress = Shipaddress.new
-    @shipaddress = Shipaddress.find(params[:id])
-    @shipaddresses = @customer.shipaddress
+    @shipaddress_new = ShipAddress.new
   end
 
   def create
@@ -16,4 +14,5 @@ class ShipAddressesController < ApplicationController
 
   def destroy
   end
+  private
 end
