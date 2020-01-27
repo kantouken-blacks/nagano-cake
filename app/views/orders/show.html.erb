@@ -1,7 +1,7 @@
 <div class="container">
   <h2>注文履歴詳細</h2>
   <div class="row">
-    <table>
+    <table class="table col-6">
       <h5>注文情報</h5>
       <% @orders.each do |order| %>
       <tbody>
@@ -24,12 +24,12 @@
       </tbody>
       <% end %>
     </table>
-    <table>
+    <table class="table col-4">
       <h5>請求情報</h5>
       <tbody>
         <tr>
           <td>商品合計</td>
-          <td><%= @order_detail.item_price x @order_detail.quantity %></td>
+          <td><%= @total_price %></td>
         </tr>
         <tr>
           <td>配送料</td>
@@ -43,7 +43,7 @@
     </table>
   </div>
   <div class="row">
-    <table>
+    <table class="table col-12">
       <h5>注文内容</h5>
       <thead class="thead-light">
         <tr>
@@ -59,7 +59,7 @@
           <td><%= d.item_name %></td>
           <td><%= d.item_price %></td>
           <td><%= d.quantity %></td>
-          <td><%= d.item_pric x d.quantity %></td>
+          <td><%= d.item_price * d.quantity %></td>
         </tr>
       </tbody>
       <% end %>

@@ -71,7 +71,7 @@ Genre.create!(
 
 # ItemModel
 Item.create!(
-              genre_id: 5,
+              genre_id: 1,
               image_id: nil,
               name: "洋梨のチーズタルト",
               description: "北海道産の最高級カッテージチーズ＆最高級生クリームを贅沢に使用。",
@@ -79,7 +79,7 @@ Item.create!(
               sale_status: "販売不可"
               )
 Item.create!(
-              genre_id: 5,
+              genre_id: 1,
               image_id: nil,
               name: "いちごのショートケーキ",
               description: "あまおうを贅沢に使用。",
@@ -87,7 +87,7 @@ Item.create!(
               sale_status: "販売可"
               )
 Item.create!(
-              genre_id: 8,
+              genre_id: 4,
               image_id: nil,
               name: "漢方のどあめ",
               description: "のどの痛みを緩和。",
@@ -95,7 +95,7 @@ Item.create!(
               sale_status: "販売不可"
               )
 Item.create!(
-              genre_id: 7,
+              genre_id: 3,
               image_id: nil,
               name: "シェフの気まぐれマドレーヌ",
               description: "フランス産 最高級バターを贅沢に使用。",
@@ -103,7 +103,7 @@ Item.create!(
               sale_status: "販売不可"
               )
 Item.create!(
-              genre_id: 6,
+              genre_id: 2,
               image_id: nil,
               name: "焼きプリン",
               description: "卵の風味が強いプリンを香ばしく焼き上げました。",
