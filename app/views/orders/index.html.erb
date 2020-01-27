@@ -3,7 +3,7 @@
     <h2>注文履歴一覧</h2>
   </div>
   <div class="row">
-    <table>
+    <table class="table">
       <thead class="thead-light">
         <tr>
           <th scope="col">注文日</th>
@@ -19,8 +19,11 @@
         <tr>
           <td><%= order.created_at %></td>
           <td><%= order.address %></td>
-          <!-- 怪しい -->
-          <td><%= order.items.name %></td>
+          <td>
+            <% order.order_details.each do |f| %>
+            <%= f.item_name %><br>
+            <% end %>
+          </td>
           <td><%= order.total_price %></td>
           <td><%= order.order_status %></td>
           <td><%=link_to "表示する", order_path(order) %></td>
