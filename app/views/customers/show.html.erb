@@ -6,8 +6,8 @@
 	  <table>
 	   <tr>
 	  	<th>登録情報</th>
-	    <td>編集する</td>
-	    <td>パスワードを変更する</td>
+	    <td><%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-primary" %></td>
+	    <td><%= link_to "パスワードを変更する", edit_customer_path(@customer), class: "btn btn-primary" %></td>
 	   </tr>
 	  </table>
 	</div>
