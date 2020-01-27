@@ -1,2 +1,68 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<div class="container">
+  <h2>注文履歴詳細</h2>
+  <div class="row">
+    <table>
+      <h5>注文情報</h5>
+      <% @orders.each do |order| %>
+      <tbody>
+        <tr>
+          <td>注文日</td>
+          <td><%= order.created_at %></td>
+        </tr>
+        <tr>
+          <td>配送先</td>
+          <td><%= order.address %></td>
+        </tr>
+        <tr>
+          <td>支払い方法</td>
+          <td><%= order.payment %></td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
+          <td><%= order.order_status %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+    <table>
+      <h5>請求情報</h5>
+      <tbody>
+        <tr>
+          <td>商品合計</td>
+          <td><%= @order_detail.item_price x @order_detail.quantity %></td>
+        </tr>
+        <tr>
+          <td>配送料</td>
+          <td><%= @order.carriage %></td>
+        </tr>
+        <tr>
+          <td>ご請求額</td>
+          <td><%= @order.total_price %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <table>
+      <h5>注文内容</h5>
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">商品</th>
+          <th scope="col">単価(税込)</th>
+          <th scope="col">個数</th>
+          <th scope="col">小計</th>
+        </tr>
+      </thead>
+      <% @order_details.each do |d| %>
+      <tbody>
+        <tr>
+          <td><%= d.item_name %></td>
+          <td><%= d.item_price %></td>
+          <td><%= d.quantity %></td>
+          <td><%= d.item_pric x d.quantity %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
