@@ -1,2 +1,65 @@
-<h1>Admins::Orders#show</h1>
-<p>Find me in app/views/admins/orders/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h2>注文詳細</h2>
+  </div>
+
+  <div class="row">
+    <p>購入者</p>
+    <%= link_to admin_customer_data(@order.customer) do %>
+    <%= @order.last_name %>
+    <%= @order.first_name %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <p>配送先</p>
+    <%= @order.address %>
+  </div>
+
+  <div class="row">
+    <p>支払方法</p>
+    <%= @order.payment %>
+  </div>
+
+  <div class="row">
+    <p>注文ステータス</p>
+    <%= form_for (@order) do |f| %>
+      <%= f.select :sale_status, [["入金待ち", "入金待ち"], ["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"]], class: "form-control" %>
+      <%= f.submit "更新" %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <table class="table table-hover">
+      
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th>製作ステータス</th>
+          <th>臨時の更新ボタン</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= @order_details.each do |order_detail| %>
+          <tr>
+            <td><%= order_detail.item_name %></td>
+            <td><%= order_detail.item_price * 1.1 %></td>
+            <td><%= order_detail.quentity %></td>
+            <td><%= order_detail.item_price * quentity * 1.1 %></td>
+            <!-- jQueryのやつ :( -->
+            <td><%= form_for (@order_detail) do |f| %>
+              <%= f.select :item_status, [["着手不可", "着手不可"], ["製作待ち","製作待ち"], ["製作中","製作中"], ["製作完了","製作完了"]] %>
+            </td>
+            <td><%= f.submit "更新" %></td>
+              <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+  </div>
+</div>
