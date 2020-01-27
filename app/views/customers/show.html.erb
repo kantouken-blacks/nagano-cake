@@ -7,10 +7,12 @@
 	   <tr>
 	  	<th>登録情報</th>
 	    <td><%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-primary" %></td>
-	    <td><%= link_to "パスワードを変更する", edit_customer_path(@customer), class: "btn btn-primary" %></td>
+	    <td><%= link_to "パスワードを変更する", edit_customer_password_path(@customer), class: "btn btn-primary" %></td>
 	   </tr>
 	  </table>
 	</div>
+
+
 	<div class="row">
 	    <table class="table table-bordered">
 	       <tr>
