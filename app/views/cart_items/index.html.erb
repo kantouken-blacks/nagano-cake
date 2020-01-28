@@ -15,8 +15,13 @@
       <tbody>
         <tr>
           <td><%= cart_item.item.name %></td>
-          <td>1,100</td>
-          <td><%= cart_item.quantity %></td>
+          <td><%= cart_item.item.price %></td>
+          <%= form_for(cart_item) do |f| %>
+          <td>
+            <%= f.number_field :quantity, min:1 %>
+            <%= f.submit "変更", class:"btn btn-primary" %>
+          </td>
+          <% end %>
           <td></td>
           <td><%= link_to "削除する", cart_items_path(@item), method: :delete, class: "btn btn-default" %></td>
         </tr>
