@@ -1,11 +1,11 @@
 <!-- <div class="genre box"> -->
 <div class="container">
  <div class="row">
-      <div class="col-3 col-offset-1 mt-4">
+      <div class="col-3 mt-4">
       <%= render 'genrebox', genres: @genres %>
       </div>
       
-	<div class="col-8 my-3">
+	<div class="col-9 my-3">
 	<h2>全ての商品</h2><!--動的ジャンル名設定する-->
 	<p>全<%= Item.all.order(id: "asc").count %>件
 	</p>
@@ -17,7 +17,7 @@
 		        <%= attachment_image_tag item, :image, :fill, 160, 160, format: 'jpeg', fallback: "noimage.jpg", class: 'card-img-top' %>
 		        <% end %>
 		        <p class="text-muted"><%= item.genre.name %>
-		        <h5 class="card-title"><%= item.name %></h5>
+		        <h6 class="card-title"><%= item.name %></h6>
 		        <p class="card-price"><%= item.price %></p>
 		     </div>
 	        <% end %>
