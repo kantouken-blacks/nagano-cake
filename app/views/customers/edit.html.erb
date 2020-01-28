@@ -1,88 +1,63 @@
 <div class="container">
   <div class="row">
     <h2>登録情報編集</h2>
+    <%= link_to "退会する" , edit_withdrow_path(@customer), class: "btn btn-danger" %>
   </div>
-  <div class="row">
-    <table class="table">
-      <tbody>
-        <tr>
-          <td>氏名</td>
-          <td>
-            <form>
-              <div class="form-row">
-                <div class="col-4">
-                  <input type="text" class="form-control" placeholder="山田">
-                </div>
-                <div class="col-4">
-                  <input type="text" class="form-control" placeholder="花子">
-                </div>
-              </div>
-            </form>
-          </td>
-        </tr>
-        <tr>
-          <td>カナ</td>
-          <td>
-            <form>
-              <div class="form-row">
-                <div class="col-4">
-                  <input type="text" class="form-control" placeholder="ヤマダ">
-                </div>
-                <div class="col-4">
-                  <input type="text" class="form-control" placeholder="ハナコ">
-                </div>
-              </div>
-            </form>
-          </td>
-        </tr>
-        <tr>
-          <td>郵便番号</td>
-          <td>
-            <form>
-              <div class="form-row">
-                <div class="form-group col-md-2">
-                  <input type="string" class="form-control" id="inputZip" placeholder="150-0041">
-                </div>
-              </div>
-            </form>
-          </td>
-        </tr>
-        <tr>
-          <td>住所</td>
-          <td>
-            <div class="form-row">
-              <div class="col-8">
-                <input type="text" class="form-control" placeholder="市町村">
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>電話番号</td>
-          <td>
-            <div class="form-row">
-              <div class="col-6">
-                <input type="string" class="form-control" placeholder="0368694700">
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>メールアドレス</td>
-          <td>
-            <div class="form-row">
-              <div class="col-sm-8">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Eメール">
-              </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="row">
-    <!-- エラー -->
-    <%#= link_to "編集内容を保存する", customers_path(@customer), class: "btn btn-primary" %>
-  </div>
-
+  <%= form_for(@customer) do |f| %>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>氏名</td>
+        <td>
+          <div class="form-row">
+            <%= f.text_field :last_name, class: "form-control col-4"%>
+            <%= f.text_field :first_name, class: "form-control col-4"%>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>カナ</td>
+        <td>
+          <div class="form-row">
+            <%= f.text_field :last_name_kana, class: "form-control col-4"%>
+            <%= f.text_field :first_name_kana, class: "form-control col-4"%>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>郵便番号</td>
+        <td>
+          <div class="form-row">
+            <%= f.text_field :post_code, class: "form-control col-2"%>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td>
+          <div class="form-row">
+            <%= f.text_field :address, class: "form-control col-8"%>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>電話番号</td>
+        <td>
+          <div class="form-row">
+            <%= f.text_field :phone_number, class: "form-control col-8"%>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td>
+          <div class="form-row">
+            <%= f.email_field :email, class: "form-control col-8"%>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%= f.submit "編集内容を保存する", class:"btn btn-primary col-md-3" %>
+  <% end %>
 </div>
