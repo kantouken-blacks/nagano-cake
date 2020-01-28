@@ -17,10 +17,12 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <td><%= link_to order.created_at, admin_order(order) %></td>
-            <td><%= order.customer.name %></td>
-            <td><%= order.order_detail.quantity %></td>
-            <td><%= order.order.status %></td>
+            <td><%= link_to order.created_at, admin_order_path(order) %></td>
+            <td><%= order.last_name %>
+              <%= order.first_name %>
+            </td>
+            <td><%= order.order_details.sum(:quantity) %></td>
+            <td><%= order.order_status %></td>
           </tr>
         <% end %>
       </tbody>
