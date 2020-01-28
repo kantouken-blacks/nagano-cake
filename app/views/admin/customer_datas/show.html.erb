@@ -11,11 +11,12 @@
           <td>顧客ID</td>
           <td><%= @customer.id %>
             <div class="bg-info d-inline text-white p-1 ml-3 rounded">
-            <% if @customer.is_enabled = true %>
+            <% if @customer.is_enabled == true %>
               有効会員
-            <% else @customer.is_enabled = false %>
+            <% elsif @customer.is_enabled == false %>
               退会済み
             <% end %>
+
           </div>
           </td>
         </tr>
