@@ -15,12 +15,20 @@
       </thead>
 
       <tbody>
-          <tr>
-            <td>1</td>
-            <td>上野 栞音</td>
-            <td>kanon@mail</td>
-            <td>有効</td>
-          </tr>
+        <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%= customer.last_name %>
+            <%= customer.first_name %></td>
+          <td><%= customer.email %></td>
+          <td><% if customer.is_enabled = true %>
+              有効会員
+              <% else %>
+              退会済み
+              <% end %>
+          </td>
+        </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
