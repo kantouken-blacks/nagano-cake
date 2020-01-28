@@ -4,21 +4,9 @@
 	 </tr>
 	<% genres.each do |genre| %>
 	 <tr>
-	   <td><%= genre.name %></td>
+	   <td><%= link_to items_path do %>
+	   	   <%= genre.name %></td>
+	   	   <% end %>
 	 </tr>
 	 <% end %>
-	 <!-- サンプル表示 -->
-	 <tr>
-	 <td>ケーキ</td>
-	 </tr>
-	  <tr>
-	 <td>焼き菓子</td>
-	 </tr>
-	 <tr>
-	 <td>プリン</td>
-	</tr>
-	 <tr>
-	 <td>キャンディ</td>
-	</tr>
-	<!-- サンプル表示 -->
 </table>
