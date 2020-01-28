@@ -11,8 +11,8 @@ class Customer < ApplicationRecord
   # カタカナ制限
   validates :phone_number, presence: true
   # ！！！電話番号の検証は現状空白のみ！！！
-  validates :post_code, presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
-  # 郵便番号のフォーマット指定 ３桁の数字 + ハイフン + ４桁の数字 Viewのフォーム設定
+  validates :post_code,  presence: true, format: {with: /\A\d{7}\z/}
+   # 郵便番号のフォーマット指定 ハイフン無し７桁固定 Viewのフォーム設定
   validates :address, presence: true
   has_many :cart_items, dependent: :destroy
   has_many :ship_addresses, dependent: :destroy

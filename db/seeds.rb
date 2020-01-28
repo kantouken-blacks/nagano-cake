@@ -11,8 +11,10 @@
 #               email: "masaharu@mail",
 #               password: "masaharu",
 #               )
-#
-# # # CustomerModel(3)
+
+
+# # CustomerModel(3)
+
 # Customer.create!(
 #                   is_enabled: "true",
 #                   last_name: "赤羽",
@@ -22,7 +24,9 @@
 #                   phone_number: "000-0000-0000",
 #                   email: "akaharyou@mail",
 #                   password: "akaharyou",
-#                   post_code: "000-0000",
+
+#                   post_code: "0000000",
+
 #                   address: "東京都 新宿区 新宿3丁目",
 #                   )
 # Customer.create!(
@@ -34,7 +38,9 @@
 #                   phone_number: "111-1111-1111",
 #                   email: "satoukaito@mail",
 #                   password: "satoukaito",
-#                   post_code: "111-1111",
+
+#                   post_code: "1111111",
+
 #                   address: "東京都 新宿区 新宿2丁目",
 #                   )
 # Customer.create!(
@@ -46,6 +52,7 @@
 #                   phone_number: "222-2222-2222",
 #                   email: "uenokanon@mail",
 #                   password: "uenokanon",
+
 #                   post_code: "222-2222",
 #                   address: "東京都 新宿区 新宿1丁目",
 #                   )
@@ -162,5 +169,4 @@ CartItem.create!(
   customer_id: 1,
   item_id: 3,
   quantity: 4,
-
 )
