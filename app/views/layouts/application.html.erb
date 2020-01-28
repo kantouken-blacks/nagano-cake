@@ -18,6 +18,7 @@
            <p class="navbar-brand">ながのCAKE</p>
          </div>
        <!-- 会員ログアウト時 -->
+
       <ul class="navbar-right list-inline">
         <li class="welcome-guest list-inline-item text-white">ようこそゲストさん</li>
         <li class="list-inline-item">
@@ -32,7 +33,8 @@
         <li class="list-inline-item">
           <%= link_to '#' do %>店舗情報<% end %>
         </li>
-      </ul>
+        <%= link_to destroy_customer_session_path, method: :delete do %>ログアウト<% end %>
+
 　　　　<!-- 会員ログイン時 -->
 
 <!--       <li class="welcome-guest list-inline-item text-white">ようこそ会員名さん</li>
@@ -41,7 +43,7 @@
           <%= link_to '#' do %>マイページ<% end %>
         </li>
         <li class="list-inline-item">
-          <%= link_to destroy_customer_session_path do %>ログアウト<% end %>
+          <%= link_to destroy_customer_session_path, method: :delete do %>ログアウト<% end %>
         </li>
         <li class="list-inline-item">
           <%= link_to items_path do %>商品一覧<% end %>
@@ -49,9 +51,10 @@
         <li class="list-inline-item">
           <%= link_to '#' do %>カート<% end %>
         </li>
+
       </ul> -->
     </div>
-     </nav>
+  </nav>
    </header><!-- /header -->
 
 
