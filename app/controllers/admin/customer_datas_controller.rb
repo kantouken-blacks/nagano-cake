@@ -13,7 +13,6 @@ class Admin::CustomerDatasController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    # binding.pry
     if @customer.update(customer_params)
       redirect_to admin_customer_data_path
     else
