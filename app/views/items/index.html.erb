@@ -4,9 +4,12 @@
       <div class="col-3 col-offset-1 mt-4">
       <%= render 'genrebox', genres: @genres %>
       </div>
+      
 	<div class="col-8 my-3">
 	<h2>ケーキ</h2><!--動的ジャンル名設定する-->
-	<p class="genres-count">(全x件)</p><!--動的ジャンル登録アイテム数設定する-->
+	<p>全<%= Item.where(genre_id: 1).count %>件
+	</p>
+	<!-- 動的ジャンル登録アイテム数設定する-->
 	    <div class="row">
 	    <div class="col-3">
 	    	<% @items.each do |item| %>
