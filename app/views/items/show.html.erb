@@ -21,10 +21,12 @@
               <%= form_for (@cart_item) do |f| %>
               <%= f.number_field :quantity, min:1, placeholder: "個数選択" %><span>個</span>
 
+
               <%= f.hidden_field :item_id, :value => @item.id %>
       　　　　　<%= f.submit "カートに入れる", class: "btn btn-primary" %>
     　　　　　　<% end %>
         	　</div>
+
       </div>
 
 
