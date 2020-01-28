@@ -27,18 +27,18 @@
        <% else %>
 
          <ul class="navbar-right list-inline">
-          <li class="welcome-guest list-inline-item text-white">ようこそゲストさん</li>
+          <li class="welcome-guest list-inline-item text-white">ようこそ！ゲストさん！</li>
           <li class="list-inline-item">
-            <%= link_to new_customer_registration_path do %>会員登録<% end %>
+            <%= link_to "会員登録", new_customer_registration_path %>
           </li>
           <li class="list-inline-item">
-            <%= link_to new_customer_session_path do %>ログイン<% end %>
+            <%= link_to "ログイン", new_customer_session_path %>
           </li>
           <li class="list-inline-item">
-            <%= link_to items_path do %>商品一覧<% end %>
+            <%= link_to "商品一覧", items_path %>
           </li>
           <li class="list-inline-item">
-            <%= link_to '#' do %>店舗情報<% end %>
+            <%= link_to "店舗情報", "#" %>
           </li>
         </ul>
 
