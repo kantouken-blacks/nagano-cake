@@ -1,19 +1,17 @@
 class CartItemsController < ApplicationController
   def index
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items
   end
 
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    # エラー
-    # @cart_item.item_id = Item.find(params[:id])
     @cart_item.save
     redirect_to cart_items_path
   end
 
   def update
-    @cart_item = CartItem.find(current_customer)
+    @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)
     redirect_to cart_items_path
   end
