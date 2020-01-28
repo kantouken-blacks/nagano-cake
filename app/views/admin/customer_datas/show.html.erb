@@ -3,45 +3,63 @@
     <h2>会員情報 詳細</h2>
   </div>
 
-  <div class="row">
-    <p>顧客ID</p>
-    <p><%= @customer.id %></p>
+  <div class="row mt-3">
+    <div class="offset-sm-1 col-sm-7">
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td>顧客ID</td>
+          <td><%= @customer.id %>
+            <div class="bg-info d-inline text-white p-1 ml-3 rounded">
+            <% if @customer.is_enabled = true %>
+              有効会員
+            <% else @customer.is_enabled = false %>
+              退会済み
+            <% end %>
+          </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>氏名</td>
+          <td><%= @customer.last_name %>
+            <%= @customer.first_name %></td>
+        </tr>
+
+        <tr>
+          <td>フリガナ</td>
+          <td><%= @customer.last_name_kana %>
+            <%= @customer.first_name_kana %></td>
+        </tr>
+
+        <tr>
+          <td>郵便番号</td>
+          <td><%= @customer.post_code %></td>
+        </tr>
+
+        <tr>
+          <td>住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+
+        <tr>
+          <td>電話番号</td>
+          <td><%= @customer.phone_number %></td>
+        </tr>
+
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   </div>
 
-  <div class="row">
-    <p>氏名</p>
-    <p><%= @customer.last_name %></p>
-    <p><%= @customer.first_name %></p>
-  </div>
-
-  <div class="row">
-    <p>フリガナ</p>
-    <p><%= @customer.last_name_kana %></p>
-    <p><%= @customer.first_name_kana %></p>
-  </div>
-
-  <div class="row">
-    <p>郵便番号</p>
-    <p><%= @customer.post_code %></p>
-  </div>
-
-  <div class="row">
-    <p>住所</p>
-    <p><%= @customer.address %></p>
-  </div>
-
-  <div class="row">
-    <p>電話番号</p>
-    <p><%= @customer.phone_number %></p>
-  </div>
-
-  <div class="row">
-    <p>メールアドレス</p>
-    <p><%= @customer.email %></p>
-  </div>
-
-  <div class="row">
-    <%= link_to "編集する", edit_admin_customer_data_path %>
-    <%= link_to "注文履歴一覧を見る", admin_orders_path %>
+  <div class="row mt-3">
+    <div class="offset-sm-1">
+      <%= link_to "編集する", edit_admin_customer_data_path, class: "btn btn-primary" %>
+      <%= link_to "注文履歴一覧を見る", admin_orders_path, class: "btn btn-primary ml-3" %>
+    </div>
   </div>
 </div>
