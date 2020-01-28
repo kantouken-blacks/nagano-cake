@@ -1,50 +1,48 @@
-
-    <header class="header"><!-- header -->
      <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
       <div class="container">
-         <div class="navbar-header">
-           <p class="navbar-brand">ながのCAKE</p>
-         </div>
-       <!-- 会員ログアウト時 -->
+       <div class="navbar-header">
+         <p class="navbar-brand">ながのCAKE</p>
+       </div>
 
-      <ul class="navbar-right list-inline">
-        <li class="welcome-guest list-inline-item text-white">ようこそゲストさん</li>
-        <li class="list-inline-item">
-          <%= link_to new_customer_registration_path do %>会員登録<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to new_customer_session_path do %>ログイン<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to items_path do %>商品一覧<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to '#' do %>店舗情報<% end %>
-        </li>
+       <% if customer_signed_in? %>
 
-      </ul>
+        <ul class="navbar-right list-inline">
+          <li class="list-inline-item text-white">
+            ようこそ！<%= current_customer.last_name %><%= current_customer.first_name %>さん！
+          </li>
+          <li class="list-inline-item">
+            <%= link_to "マイページ", customer_path(current_customer) %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to "商品一覧", items_path %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to "カート", cart_items_path %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+          </li>
+        </ul>
 
-        <%= link_to destroy_customer_session_path, method: :delete do %>ログアウト<% end %>
+       <% else %>
 
-　　　　<!-- 会員ログイン時 -->
+         <ul class="navbar-right list-inline">
+          <li class="welcome-guest list-inline-item text-white">ようこそゲストさん</li>
+          <li class="list-inline-item">
+            <%= link_to new_customer_registration_path do %>会員登録<% end %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to new_customer_session_path do %>ログイン<% end %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to items_path do %>商品一覧<% end %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to '#' do %>店舗情報<% end %>
+          </li>
+        </ul>
 
+        <% end %>
 
-<!--       <li class="welcome-guest list-inline-item text-white">ようこそ会員名さん</li>
-      <ul class="navbar-right list-inline">
-        <li class="list-inline-item">
-          <%= link_to '#' do %>マイページ<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to destroy_customer_session_path, method: :delete do %>ログアウト<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to items_path do %>商品一覧<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to '#' do %>カート<% end %>
-        </li>
-
-      </ul> -->
     </div>
   </nav>
-   </header><!-- /header -->
