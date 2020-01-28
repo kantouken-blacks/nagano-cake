@@ -11,13 +11,18 @@
   </head>
 
   <body>
-
-    <header>
-      <%= render 'layouts/customers_header' %>
+    <header class="header">
+      <% if request.fullpath.include? "admin"  %>
+        <%= render 'layouts/admin_header' %>
+      <% else%>
+        <%= render 'layouts/customers_header' %>
+      <% end %>
     </header>
 
-<div id="wrapper">
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+
 
 
    <footer class="footer bg-dark text-white">
