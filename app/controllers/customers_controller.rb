@@ -22,4 +22,3 @@ class CustomersController < ApplicationController
   	                                   :phone_number, :email, :password, :post_code, :address)
   end
  end
-end
