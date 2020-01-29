@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
 
     def withdrow #退会画面を表示するアクション
     @customer = Customer.find(params[:id])
-  end 
+  end
 
 
 
