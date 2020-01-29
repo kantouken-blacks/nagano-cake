@@ -71,3 +71,5 @@ gem "refile-mini_magick"
 # bootstrap4
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+
+gem 'pry-byebug'

@@ -11,22 +11,29 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @ship_address_new = ShipAddress.new
     @ship_addresses = current_customer.ship_addresses
+    @ships = []
+    @ship_addresses.each do |ship|
+      @ships.push("〒" + ship.post_code + "  " + ship.address + "  " + ship.last_name + ship.first_name)
+    end
+    @ship_address_new = ShipAddress.new
+    # binding.pry
     @order = Order.new
   end
 
   def create
     @ship_address = ShipAddress.new(ship_address_params)
     @ship_address.save
+    redirect_to orders_confirm_path
   end
 
   def confirm
     @orders = current_customer.orders
   end
 
+
   private
    def ship_address_params
-     params.require(:ship_address).permit(:last_name, :first_name, :post_code, :address)
+     params.permit(:last_name, :first_name, :post_code, :address)
    end
 end
