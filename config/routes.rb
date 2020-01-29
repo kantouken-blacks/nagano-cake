@@ -23,6 +23,7 @@ devise_for :customers, controllers: {
   get '/orders/confirm' => 'orders#confirm'
   delete '/cart_items' => 'cart_items#destroy_all'
   resources :customers, only: [:show, :edit, :update]
+  get '/customers/:id/withdrow' => 'customers#withdrow', as: 'withdrow_customer' #退会画面への遷移
   resources :withdrow, only: [:edit, :update]
   resources :ship_addresses, except: [:new, :show]
   resources :cart_items, except: [:new, :show, :edit]
