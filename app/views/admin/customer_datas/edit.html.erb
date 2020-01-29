@@ -1,63 +1,66 @@
 <div class="container">
   <div class="row">
-
     <h2>会員編集画面</h2>
+  </div>
 
     <div class="row">
-      <p>会員ID</p>
-      <p><%= @customer.id %></p>
-    </div>
 
+      <%= form_for (@customer), url: admin_customer_data_path(@customer) do |f| %>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td>会員ID</td>
+              <td><%= @customer.id %></td>
+            </tr>
 
-    <%= form_for (@customer url: admin_customer_data_path) do |f| %>
-      <div class="row">
-        <%= f.label :氏名 %>
-        <%= f.text_field :name %>
-      </div>
+            <tr>
+              <td><%= f.label :氏名 %></td>
+              <td><%= f.text_field :last_name %>
+                <%= f.text_field :first_name %></td>
+              </tr>
 
-      <div class="row">
-        <%= f.label :氏名 %>
-        <%= f.text_field :last_name %>
-        <%= f.text_field :first_name %>
-      </div>
+              <tr>
+                <td><%= f.label :フリガナ %></td>
+                <td><%= f.text_field :last_name_kana %>
+                  <%= f.text_field :first_name_kana %></td>
+              </tr>
 
-      <div class="row">
-        <%= f.label :フリガナ %>
-        <%= f.text_field :last_name_kana %>
-        <%= f.text_field :first_name_kana %>
-      </div>
+              <tr>
+                <td><%= f.label :郵便番号 %></td>
+                <td><%= f.text_field :post_code %></td>
+              </tr>
 
-      <div class="row">
-        <%= f.label :郵便番号 %>
-        <%= f.text_field :post_code %>
-      </div>
+              <tr>
+                <td><%= f.label :住所 %></td>
+                <td><%= f.text_field :address %></td>
+              </tr>
 
-      <div class="row">
-        <%= f.label :住所 %>
-        <%= f.text_field :address %>
-      </div>
+              <tr>
+                <td><%= f.label :電話番号 %></td>
+                <td><%= f.text_field :phone_number %></td>
+              </tr>
 
-      <div class="row">
-        <%= f.label :電話番号 %>
-        <%= f.text_field :phone_number %>
-      </div>
+              <tr>
+                <td><%= f.label :メールアドレス %></td>
+                <td><%= f.text_field :email %></td>
+              </tr>
 
-      <div class="row">
-        <%= f.label :メールアドレス %>
-        <%= f.text_field :email %>
-      </div>
+              <tr>
+                <td><%= f.label :会員ステータス %></td>
+                <td><%= f.radio_button :is_enabled, :true %>
+                  <%= f.label :is_enabled, "有効会員" %>
+                  <%= f.radio_button :is_enabled, :false %>
+                  <%= f.label :is_enabled, "退会済み" %>
+                  </td>
+              </tr>
 
-      <div class="row">
-        <%= f.radio_button :is_enabled, :true %>
-        <%= f.label :is_enabled, "有効" %>
-        <%= f.radio_button :is_enabled, :false %>
-        <%= f.label :is_enabled, "退会済み" %>
-      </div>
+              <tr>
+                <td><%= f.submit "変更を保存する", class: "btn btn-primary" %></td>
+              </tr>
 
-      <div class="row">
-        <%= f.submit "変更を保存する" %>
-      </div>
-    <% end %>
+          </tbody>
+        </table>
+      <% end %>
 
   </div>
 </div>
