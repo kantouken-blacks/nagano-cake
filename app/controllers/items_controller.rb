@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def index
   	@genres = Genre.all
-  	@items = Item.all
+  	@items = Item.all.order(genre_id: "asc")
   end
 
   def show
