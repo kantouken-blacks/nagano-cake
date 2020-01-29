@@ -16,24 +16,33 @@ class OrdersController < ApplicationController
     @ship_addresses.each do |ship|
       @ships.push("〒" + ship.post_code + "  " + ship.address + "  " + ship.last_name + ship.first_name)
     end
-    @ship_address_new = ShipAddress.new
+    @ship_address = ShipAddress.new
     # binding.pry
     @order = Order.new
   end
 
   def create
     @ship_address = ShipAddress.new(ship_address_params)
-    @ship_address.save
-    redirect_to orders_confirm_path
+    @order = Order.new(order_params)
+    @order.customer_id = current_customer.id
+    # binding.pry
+    @order.save!
+    redirect_to new_order_path
+
   end
 
   def confirm
     @orders = current_customer.orders
   end
 
+  def create_order
+  end 
 
   private
    def ship_address_params
      params.permit(:last_name, :first_name, :post_code, :address)
+   end
+   def order_params
+     params.require(:order).permit(:customer_id, :address, :payment, :carriage, :total_price, :order_status)
    end
 end
