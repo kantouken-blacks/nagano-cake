@@ -159,14 +159,28 @@
 #   quantity: 2,
 #
 # )
-CartItem.create!(
+# CartItem.create!(
+#   customer_id: 1,
+#   item_id: 2,
+#   quantity: 1,
+#
+# )
+# CartItem.create!(
+#   customer_id: 1,
+#   item_id: 3,
+#   quantity: 4,
+# )
+# ShipAddress.create!(
+#   customer_id: 1,
+#   last_name: "赤羽の",
+#   first_name: "諒さん",
+#   post_code: "2222222",
+#   address: "東京都 新宿区 新宿3丁目",
+# )
+ShipAddress.create!(
   customer_id: 1,
-  item_id: 2,
-  quantity: 1,
-
-)
-CartItem.create!(
-  customer_id: 1,
-  item_id: 3,
-  quantity: 4,
+  last_name: "羽の",
+  first_name: "諒",
+  post_code: "3333333",
+  address: "東京都 新宿区 新宿4丁目",
 )

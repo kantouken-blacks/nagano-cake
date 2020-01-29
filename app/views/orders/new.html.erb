@@ -1,51 +1,68 @@
-<h2>注文情報確認</h2>
+<h2>購入情報入力</h2>
 <div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">商品名</th>
-            <th scope="col">単価(税込)</th>
-            <th scope="col">数量</th>
-            <th scope="col">小計</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= image_tag 'sample_image1.jpg', :size => '60x60'%>いちごのケーキ</td>
-            <td>1,100</td>
-            <td>1</td>
-            <td>1,100</td>
-          </tr>
-        </tbody>
-      </table>
+
+    <div class="payment method">
+      <h4>支払い方法</h4>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+        <label class="form-check-label" for="exampleRadios1">クレジットカード</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <label class="form-check-label" for="exampleRadios2">銀行振り込み</label>
+      </div>
     </div>
-    <div class="col-md-4">
-      <table class="table">
-        <tbody>
-          <tr>
-            <td>送料</td>
-            <td>800</td>
-          </tr>
-          <tr>
-            <td>商品合計</td>
-            <td>1,760</td>
-          </tr>
-          <tr>
-            <td>請求金額</td>
-            <td>2,560</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="ship_address">
+      <h4>お届け先</h4>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+        <label class="form-check-label" for="exampleRadios1">ご自身の住所</label><br />
+        <p>〒150-0041 東京都渋谷区神南１丁目１９−１１ パークスクエア２４階<br />山田花子</p>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <label class="form-check-label" for="exampleRadios2">登録済住所から選択</label>
+        <select class="custom-select">
+          <option selected>この選択メニューを開く</option>
+          <option value="1">〒150-0041 東京都渋谷区神南１丁目１９−１１ パークスクエア２４階 山田花子</option>
+          <option value="2">その2</option>
+          <option value="3">その3</option>
+        </select>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+        <label class="form-check-label" for="exampleRadios3">新しいお届け先</label>
+
+        <%#= form_for(@ship_address) do |f| %>
+        <%#= f.label :'郵便番号' %>
+        <%#= f.text_field : post_code %><br />
+        <%#= f.label :'住所' %>
+        <%#= f.text_field : address %><br />
+        <%#= f.label :'宛名 苗字' %> %>
+        <%#= f.text_field : last_name %><br />
+        <%#= f.label :'宛名 名前' %>
+        <%#= f.text_field : first_name %>
+        <%# end %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <h5>支払い方法</h5>
-    <p>銀行振り込み</p>
-  </div>
-  <div class="row">
-    <h5>お届け先</h5>
-    <p>〒150-0041 東京都渋谷区神南１丁目１９−１１ パークスクエア２４階<br />山田花子</p>
-  </div>
+</div>
+
+<div class="container">
+  <%= form_for(@order) do |form| %>
+  <%= form.radio_button :payment, :"0" %>
+  <%= form.label :payment, "クレジットカード", {value: :"0", style: "display: inline-block;"} %><br>
+  <%= form.radio_button :payment, :"1" %>
+  <%= form.label :payment, "銀行振り込み", {value: :"1", style: "display: inline-block;"} %><br>
+
+  <%= form.radio_button :address, :value => current_customer.address %>
+  <%= form.label :payment, "ご自身の住所", {value: :"", style: "display: inline-block;"} %><br>
+  <%= form.radio_button :address, :"" %>
+  <%= form.label :payment, "登録済住所から選択", {value: :"", style: "display: inline-block;"} %><br>
+  <%= form.radio_button :address, :"" %>
+  <%= form.label :payment, "新しいお届け先", {value: :"", style: "display: inline-block;"} %>
+  <%= form.submit "確認画面へ進む", class:"btn btn-primary" %>
+  <% @ship_addresses.each do |ship_address| %>
+  <%= form.select :address, :value => ship_address.address %>
+  <% end %>
+<% end %>
 </div>
