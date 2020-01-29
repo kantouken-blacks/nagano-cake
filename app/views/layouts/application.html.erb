@@ -11,73 +11,23 @@
   </head>
 
   <body>
-    <header class="header"><!-- header -->
-     <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
-      <div class="container">
-         <div class="navbar-header">
-           <p class="navbar-brand">ながのCAKE</p>
-         </div>
-       <!-- 会員ログアウト時 -->
+    <header class="header">
+      <% if request.fullpath.include? "admin"  %>
+        <%= render 'layouts/admin_header' %>
+      <% else%>
+        <%= render 'layouts/customers_header' %>
+      <% end %>
+    </header>
 
-      <ul class="navbar-right list-inline">
-        <li class="welcome-guest list-inline-item text-white">ようこそゲストさん</li>
-        <li class="list-inline-item">
-          <%= link_to new_customer_registration_path do %>会員登録<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to new_customer_session_path do %>ログイン<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to items_path do %>商品一覧<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to '#' do %>店舗情報<% end %>
-        </li>
-
-      </ul>
-
-        <%= link_to destroy_customer_session_path, method: :delete do %>ログアウト<% end %>
-
-　　　　<!-- 会員ログイン時 -->
-
-
-<!--       <li class="welcome-guest list-inline-item text-white">ようこそ会員名さん</li>
-      <ul class="navbar-right list-inline">
-        <li class="list-inline-item">
-          <%= link_to '#' do %>マイページ<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to destroy_customer_session_path, method: :delete do %>ログアウト<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to items_path do %>商品一覧<% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to '#' do %>カート<% end %>
-        </li>
-
-      </ul> -->
-    </div>
-  </nav>
-   </header><!-- /header -->
-
-<div id="wrapper">
-    <%= yield %>
-
+    <main>
+      <%= yield %>
+    </main>
 
    <footer class="footer bg-dark text-white">
     <div class="container">
-     <div class="row">
-      <div class="col-3">
-       <p class="navbar-brand">ながのCAKE</p>
-      </div>
-     <div class="col-8">
-     <p>copyright ©ながのCAKE.all rights reserved.</p>
+     <p>© 2020 関東圏blacks inc.</p>
     </div>
-  </div>
-</div>
    </footer>
-</div>
 
   </body>
 </html>

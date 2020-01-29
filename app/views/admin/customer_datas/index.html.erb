@@ -3,7 +3,8 @@
     <h2>会員情報一覧</h2>
   </div>
 
-  <div class="row">
+  <div class="row mt-3">
+    <div class="offset-sm-1 col-sm-10">
     <table class="table table-hover">
       <thead>
         <tr>
@@ -15,12 +16,23 @@
       </thead>
 
       <tbody>
-          <tr>
-            <td>1</td>
-            <td>上野 栞音</td>
-            <td>kanon@mail</td>
-            <td>有効</td>
-          </tr>
+        <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%= link_to admin_customer_data_path(customer) do %>
+              <%= customer.last_name %>
+              <%= customer.first_name %>
+              <% end %>
+            </td>
+          <td><%= customer.email %></td>
+          <td><% if customer.is_enabled == true %>
+              有効会員
+              <% else %>
+              退会済み
+              <% end %>
+          </td>
+        </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

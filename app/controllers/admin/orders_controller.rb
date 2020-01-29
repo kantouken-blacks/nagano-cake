@@ -28,3 +28,4 @@ class Admin::OrdersController < ApplicationController
     params.require(:order_detail).permit(:item_status)
   end
 end
+

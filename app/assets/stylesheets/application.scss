@@ -21,8 +21,7 @@
   overflow: hidden;
 }
 // フッター最下部固定
-body,
-#wrapper {
+body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
