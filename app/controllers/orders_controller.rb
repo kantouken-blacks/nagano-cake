@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
   end
 
   def confirm
+    @orders = current_customer.orders
   end
 
   private

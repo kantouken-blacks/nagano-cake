@@ -11,7 +11,7 @@
 #               email: "masaharu@mail",
 #               password: "masaharu",
 #               )
-
+#
 
 # # CustomerModel(3)
 
@@ -177,10 +177,18 @@
 #   post_code: "2222222",
 #   address: "東京都 新宿区 新宿3丁目",
 # )
-ShipAddress.create!(
+# ShipAddress.create!(
+#   customer_id: 1,
+#   last_name: "羽の",
+#   first_name: "諒",
+#   post_code: "3333333",
+#   address: "東京都 新宿区 新宿4丁目",
+# )
+Order.create!(
   customer_id: 1,
   last_name: "羽の",
   first_name: "諒",
   post_code: "3333333",
   address: "東京都 新宿区 新宿4丁目",
+  payment: 0,
 )
