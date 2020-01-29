@@ -18,8 +18,16 @@ class CustomersController < ApplicationController
   end
 
     def withdrow #退会画面を表示するアクション
-    @customer = Customer.find(params[:id])
-  end
+       @customer = Customer.find(params[:id])
+    end
+
+    def switch
+       @customer = Customer.find(params[:id])
+       if @customer.update(is_enabled: false)
+          sign_out current_customer #URLを踏ませずにコントローラーから直接サインアウトの指示を出す（device公式)
+       end
+       redirect_to root_path
+    end
 
 
 
