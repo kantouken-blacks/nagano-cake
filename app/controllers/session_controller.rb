@@ -1,11 +1,12 @@
 class SessionController < ApplicationController
+  # ordersコントローラーにコピー済み
   def new
-    @ship_address = Ship_address.new
+    @ship_address = ShipAddress.new
     @order = Order.new
   end
 
   def create
-    @ship_address = Ship_address.new(ship_address_params)
+    @ship_address = ShipAddress.new(ship_address_params)
     @ship_address.save
   end
 

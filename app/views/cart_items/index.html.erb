@@ -23,18 +23,31 @@
       <tbody>
         <tr>
           <td><%= cart_item.item.name %></td>
-          <td><%= cart_item.item.price %></td>
+          <td><%= (cart_item.item.price * 1.1).floor %></td>
           <%= form_for(cart_item) do |f| %>
           <td>
             <%= f.number_field :quantity, min:1 %>
             <%= f.submit "変更", class:"btn btn-primary" %>
           </td>
           <% end %>
-          <td><%= cart_item.item.price * cart_item.quantity %></td>
+          <td><%= (cart_item.item.price * 1.1).floor * cart_item.quantity %></td>
           <td><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-danger" %></td>
         </tr>
       </tbody>
      <% end %>
     </table>
+  </div>
+  <div class="d-flex justify-content-between">
+    <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+    <div>
+      <table class ="table">
+        <tbody>
+          <tr>
+            <td>合計金額</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

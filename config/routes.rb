@@ -20,6 +20,7 @@ devise_for :customers, controllers: {
   #customer
   root 'homes#top'
   get '/thanks' => 'homes#thanks'
+  get '/orders/confirm' => 'orders#confirm'
   delete '/cart_items' => 'cart_items#destroy_all'
   resources :customers, only: [:show, :edit, :update]
   resources :withdrow, only: [:edit, :update]
