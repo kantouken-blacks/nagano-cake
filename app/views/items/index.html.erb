@@ -7,7 +7,7 @@
       
 	<div class="col-9 my-3">
 	<h2>全ての商品</h2><!--動的ジャンル名設定する-->
-	<p>全<%= Item.all.order(id: "asc").count %>件
+	<p>全<%= Item.where(sale_status: "販売可").count %>件
 	</p>
 	<!-- 動的ジャンル登録アイテム数設定する-->
 	    <div class="row">
