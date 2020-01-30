@@ -12,23 +12,21 @@
           </tr>
         </thead>
         <tbody>
-          <% @orders.each do |order| %>
-          <% order.order_details.each do |f| %>
+          <% current_customer.cart_items.each do |cart| %>
           <tr>
             <td>
-              <%= image_tag 'sample_image1.jpg', :size => '60x60'%><%= f.item_name %>
+              <%= image_tag 'sample_image1.jpg', :size => '60x60'%><%= cart.item.name %>
             </td>
             <td>
-              <%= (f.item_price * 1.1).floor %>
+              <%= (cart.item.price * 1.1).floor %>
             </td>
             <td>
-              <%= f.quantity %>
+              <%= cart.quantity %>
             </td>
             <td>
-              <%= (f.item_price * 1.1).floor * f.quantity %>
+              <%= (cart.item.price * 1.1).floor * cart.quantity %>
             </td>
           </tr>
-          <% end %>
           <% end %>
         </tbody>
       </table>
@@ -39,18 +37,19 @@
 
           <tr>
             <td>送料</td>
-            <%# binding.pry %>
-            <td><%= @order.carriage %></td>
+            <td>800</td>
           </tr>
           <tr>
             <td>商品合計</td>
-            <td><%= (@order.order_details.sum(:item_price) * 1.1).floor %></td>
+
+            <td><%= @total_price %></td>
           </tr>
 
           <tr>
             <td>請求金額</td>
-            <td><%= (@order.order_details.sum(:item_price) * 1.1).floor + @order.carriage %></td>
+            <td><%= @total_price + 800 %></td>
           </tr>
+
 
         </tbody>
       </table>

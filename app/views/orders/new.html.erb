@@ -24,7 +24,7 @@
   <%= form.label :payment, "銀行振込", {value: :"銀行振込", style: "display: inline-block;"} %><br>
 
   <h4>お届け先</h4>
-  <%= form.radio_button :address, :value =>　current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name %>
+  <%= form.radio_button :address, :"" %>
   <%= form.label :address, "ご自身の住所", {value: :"", style: "display: inline-block;"} %>
   <%= current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name %>
   <p>
