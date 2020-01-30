@@ -1,7 +1,7 @@
 <div class="container">
   <h2>購入情報入力</h2>
   <h4>新しい配送先登録フォーム</h4>
-  <%= form_for(@ship_address) do |f| %>
+  <%= form_for(@ship_address, url:orders_create_ship_address_path) do |f| %>
 
     <h6>郵便番号</h6>
     <%= f.text_field :post_code, class:"col-md-2" %>
@@ -24,16 +24,15 @@
   <%= form.label :payment, "銀行振込", {value: :"銀行振込", style: "display: inline-block;"} %><br>
 
   <h4>お届け先</h4>
-  <%= form.radio_button :address, :"" %>
-  <%= form.label :address, "ご自身の住所", {value: :"", style: "display: inline-block;"} %>
-  <%= current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name %>
+  <% jeje = current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name %>
+  <%= form.radio_button :carriage, :my_address %>
+  <%= form.label :carriage, "ご自身の住所", {value: :my_address, style: "display: inline-block;"} %>
+  <%= jeje %>
+  <%# carriageは使わない方がいい %>
   <p>
-    <%= form.radio_button :address, :"" %>
+    <%= form.radio_button :carriage, :select_address %>
     <%= form.select :address, @ships , {include_blank: '配送先を選択'} %>
   </p>
-
-  <%= form.radio_button :address, :"" %>
-  <%= form.label :address, "新しいお届け先", {value: :"", style: "display: inline-block;"} %>
   <%= form.submit "確認画面へ進む", class:"btn btn-primary" %>
 <% end %>
 </div>

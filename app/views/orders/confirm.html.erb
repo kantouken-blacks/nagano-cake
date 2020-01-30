@@ -15,7 +15,7 @@
           <% current_customer.cart_items.each do |cart| %>
           <tr>
             <td>
-              <%= image_tag 'sample_image1.jpg', :size => '60x60'%><%= cart.item.name %>
+              <%= attachment_image_tag cart.item, :image, :size => '100x100',fallback: "no_image.jpg" %><%= cart.item.name %>
             </td>
             <td>
               <%= (cart.item.price * 1.1).floor %>

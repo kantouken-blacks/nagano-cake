@@ -22,6 +22,7 @@ devise_for :customers, controllers: {
   get '/thanks' => 'homes#thanks'
   get '/orders/confirm' => 'orders#confirm'
   post '/orders/create_order' => 'orders#create_order'
+  post '/orders/create_ship_address' => 'orders#create_ship_address'
   delete '/cart_items' => 'cart_items#destroy_all'
   resources :customers, only: [:show, :edit, :update]
   get '/customers/:id/withdrow' => 'customers#withdrow', as: 'withdrow_customer' #退会画面への遷移
