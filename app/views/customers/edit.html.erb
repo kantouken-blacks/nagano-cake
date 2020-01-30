@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h2>登録情報編集</h2>
-    <%= link_to "退会する" , edit_withdrow_path(@customer), class: "btn btn-danger" %>
+    <%= link_to "退会する" , withdrow_customer_path(@customer), class: "btn btn-danger" %>
   </div>
   <%= form_for(@customer) do |f| %>
   <table class="table">
