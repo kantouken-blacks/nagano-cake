@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark navbar-fixed-top">
   <div class="container">
     <div class="row">
-      <span class="navbar-brand">ながのcake管理者サイト</span>
+      <%= link_to "ながのcake管理者サイト", admin_root_path, class: "navbar-brand" %>
 
       <% if admin_signed_in? %>
         <ul class="navbar-nav">
