@@ -1,21 +1,24 @@
 class Admin::OrdersController < ApplicationController
+
+  before_action :authenticate_admin!
+
   def index
     @orders = Order.all
   end
 
   def show
     @order = Order.find(params[:id])
-    @order_details = OrderDetail.find(params[:order])
   end
 
   def update
-    @order = Order.find(params[:id])
-    @order_detail = order.find(paras[:id])
-    if @order.update(order_params)
-      redirect_to admin_order(@order)
-    elsif
-      @order_detail.update(order_detail_params)
-      redirect_to admin_order(@order)
+    if params[:order_id]
+      order_detail = OrderDetail.find(params[:id])
+      order_detail.update(order_detail_params)
+      redirect_to admin_order_path(order_detail.order_id)
+    else
+      order = Order.find(params[:id])
+      order.update(order_params)
+      redirect_to admin_order_path(order)
     end
   end
 

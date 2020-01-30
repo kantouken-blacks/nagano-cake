@@ -5,7 +5,7 @@
 
   <div class="row">
     <p>購入者</p>
-    <%= link_to admin_customer_data(@order.customer) do %>
+    <%= link_to admin_customer_data_path(@order.customer) do %>
     <%= @order.last_name %>
     <%= @order.first_name %>
     <% end %>
@@ -23,8 +23,8 @@
 
   <div class="row">
     <p>注文ステータス</p>
-    <%= form_for (@order) do |f| %>
-      <%= f.select :sale_status, [["入金待ち", "入金待ち"], ["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"]], class: "form-control" %>
+    <%= form_for (@order), url: admin_order_path(@order) do |f| %>
+      <%= f.select :order_status, [["入金待ち", "入金待ち"], ["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"]], class: "form-control" %>
       <%= f.submit "更新" %>
     <% end %>
   </div>
@@ -43,22 +43,24 @@
         </tr>
       </thead>
 
-      <tbody>
-        <%= @order_details.each do |order_detail| %>
+      <% @order.order_details.each do |order_detail| %>
+        <tbody>
           <tr>
             <td><%= order_detail.item_name %></td>
-            <td><%= order_detail.item_price * 1.1 %></td>
-            <td><%= order_detail.quentity %></td>
-            <td><%= order_detail.item_price * quentity * 1.1 %></td>
-            <!-- jQueryのやつ :( -->
-            <td><%= form_for (@order_detail) do |f| %>
-              <%= f.select :item_status, [["着手不可", "着手不可"], ["製作待ち","製作待ち"], ["製作中","製作中"], ["製作完了","製作完了"]] %>
+            <td><%= (order_detail.item_price * 1.1).floor %></td>
+            <td><%= order_detail.quantity %></td>
+            <td><%= (order_detail.item_price * order_detail.quantity * 1.1).floor %></td>
+            <td>
+              <%= form_for (order_detail), url: admin_order_path(order_detail, order_id: @order.id) do |f| %>
+                <%= f.select :item_status, [["着手不可", "着手不可"], ["製作待ち","製作待ち"], ["製作中","製作中"], ["製作完了","製作完了"]] %>
             </td>
-            <td><%= f.submit "更新" %></td>
+            <td>
+                <%= f.submit "更新" %>
               <% end %>
+              </td>
           </tr>
-        <% end %>
-      </tbody>
+        </tbody>
+      <% end %>
 
     </table>
   </div>
