@@ -16,7 +16,7 @@
     <%= f.submit '新規登録', class:"btn btn-primary" %>
 
 <% end %>
-  <%= form_for(@order) do |form| %>
+  <%= form_for(@order, url:orders_create_order_path) do |form| %>
   <h4>支払い方法</h4>
   <%= form.radio_button :payment, :クレジットカード %>
   <%= form.label :payment, "クレジットカード", {value: :"クレジットカード", style: "display: inline-block;"} %><br>
@@ -24,7 +24,7 @@
   <%= form.label :payment, "銀行振込", {value: :"銀行振込", style: "display: inline-block;"} %><br>
 
   <h4>お届け先</h4>
-  <%= form.radio_button :address, :value => current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name %>
+  <%= form.radio_button :address, :value =>　current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name %>
   <%= form.label :address, "ご自身の住所", {value: :"", style: "display: inline-block;"} %>
   <%= current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name %>
   <p>

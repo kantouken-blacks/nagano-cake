@@ -36,40 +36,33 @@
     <div class="col-md-4">
       <table class="table">
         <tbody>
-          <% @orders.each do |order| %>
+
           <tr>
             <td>送料</td>
-            <td><%= order.carriage %></td>
+            <%# binding.pry %>
+            <td><%= @order.carriage %></td>
           </tr>
           <tr>
             <td>商品合計</td>
-            <td><%= (order.order_details.sum(:item_price) * 1.1).floor %></td>
+            <td><%= (@order.order_details.sum(:item_price) * 1.1).floor %></td>
           </tr>
 
           <tr>
             <td>請求金額</td>
-            <td><%= (order.order_details.sum(:item_price) * 1.1).floor + order.carriage %></td>
+            <td><%= (@order.order_details.sum(:item_price) * 1.1).floor + @order.carriage %></td>
           </tr>
-          <% end %>
+
         </tbody>
       </table>
     </div>
   </div>
   <div class="row">
-    <h5>支払い方法</h5>
-    <% @orders.each do |order| %>
-    <p><%= order.payment %></p>
-    <% end %>
+    <h5>支払い方法</h5><br>
+    <%= session[:order]["payment"] %>
+
   </div>
   <div class="row">
-    <h5>お届け先</h5>
-
-    <!-- 新しく入力した住所 -->
-    <% @orders.each do |order| %>
-
-    <p><%= order.address %></p>
-    
-    <% end %>
-
+    <h5>お届け先</h5><br>
+    <%= session[:order]["address"] %>
   </div>
 </div>
