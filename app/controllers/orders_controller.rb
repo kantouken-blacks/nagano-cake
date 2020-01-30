@@ -35,6 +35,8 @@ class OrdersController < ApplicationController
   def confirm
       @orders = current_customer.orders
       @order = session[:order]
+      @total_price = test(current_customer)
+
   end
 
   # 入力情報をsessionに格納
@@ -54,4 +56,28 @@ class OrdersController < ApplicationController
    def order_params
      params.require(:order).permit(:customer_id, :address, :payment, :carriage, :total_price, :order_status)
    end
+
+   def calculate(user)
+    total_price = []
+
+      user.cart_items.each do |cart|
+        total_price = [cart.item.price * cart.quantity]
+        return (total_price.sum * 1.1).floor
+      end
+    return total_price
+   end
+
+   def test(user)
+     while user.cart_items.count do
+       total_price = []
+       user.cart_items.each do |cart|
+         return subtotal = cart.item.price * cart.quantity
+       end
+       
+       total_price += subtotal
+
+     end
+     return (total_price.sum * 1.1).floor
+   end
+
 end
