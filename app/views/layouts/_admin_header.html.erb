@@ -21,6 +21,11 @@
             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
           </li>
         </ul>
+
+        <form class="form-inline">
+          <input class="form-control-sm mr-sm-2" type="search" placeholder="検索..." aria-label="検索...">
+          <button type="submit" class="btn btn-light btn-sm my-2 my-sm-0">検索</button>
+        </form>
       <% end %>
 
     </div>
