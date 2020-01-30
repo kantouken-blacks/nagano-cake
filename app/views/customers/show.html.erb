@@ -14,34 +14,36 @@
 
 
 	<div class="row">
-	    <table class="table table-bordered">
+	  <div class=col-6>
+	    <table class="table table-bordered border-dark">
 	       <tr>
-	    	<td>氏名</td>
+	    	<td class="table-active">氏名</td>
 	    	<td><%= @customer.last_name %>
 	    		<%= @customer.first_name %></td>
 	       </tr>
 	       <tr>
-	    	<td>フリガナ</td>
+	    	<td class="table-active">フリガナ</td>
 	    	<td><%= @customer.last_name_kana %>
 	    		<%= @customer.first_name_kana %></td>
 	       </tr>
 	       <tr>
-	    	<td>郵便番号</td>
+	    	<td class="table-active">郵便番号</td>
 	    	<td><%= @customer.post_code %></td>
 	       </tr>
 	       <tr>
-	    	<td>住所</td>
+	    	<td class="table-active">住所</td>
 	    	<td><%= @customer.address %></td>
 	       </tr>
 	       <tr>
-	    	<td>電話番号</td>
+	    	<td class="table-active">電話番号</td>
 	    	<td><%= @customer.phone_number %></td>
 	       </tr>
 	       <tr>
-	    	<td>メールアドレス</td>
+	    	<td class="table-active">メールアドレス</td>
 	        <td><%= @customer.email %></td>
 	       </tr>
 	     </table>
+	   </div>
 	</div>
 
 	<div class="row">
