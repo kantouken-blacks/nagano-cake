@@ -84,14 +84,14 @@
           <tr>
             <td class="p-0">商品合計</td>
             <!-- 合計値を算出するよ -->
-              <% total_price = 0 %>
+              <% items_total_price = 0 %>
               <% @order_details.each do |order_detail| %>
                 <% tax_in_price = (order_detail.item_price * 1.1).floor %>
                 <% sub_total_price = tax_in_price * order_detail.quantity %>
-                <% total_price += sub_total_price %>
+                <% items_total_price += sub_total_price %>
               <% end %>
             <td class="p-0">
-              <%= total_price %><!-- 算出結果 -->
+              <%= items_total_price %><!-- 算出結果 -->
             </td>
           </tr>
 
