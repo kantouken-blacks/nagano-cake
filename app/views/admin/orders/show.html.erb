@@ -32,7 +32,7 @@
             <td>注文ステータス</td>
             <td><%= form_for (@order), url: admin_order_path(@order) do |f| %>
                 <%= f.select :order_status, [["入金待ち", "入金待ち"], ["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"]], class: "form-control" %>
-                <%= f.submit "更新" %>
+                <%= f.submit "更新", class: "btn btn-primary btn-sm" %>
                 <% end %>
             </td>
           </tr>
@@ -69,7 +69,7 @@
                   <%= f.select :item_status, [["着手不可", "着手不可"], ["製作待ち","製作待ち"], ["製作中","製作中"], ["製作完了","製作完了"]] %>
               </td>
               <td>
-                  <%= f.submit "更新" %>
+                  <%= f.submit "更新", class: "btn btn-primary btn-sm" %>
                 <% end %>
                 </td>
             </tr>
@@ -78,11 +78,11 @@
       </table>
     </div>
 
-    <div class="col-sm-2">
-      <table class="table table-borderless">
+    <div class="col-sm-3 d-flex">
+      <table class="table table-borderless align-self-end">
         <tbody>
-          <tr>
-            <td class="p-0">商品合計</td>
+          <tr class="border-bottom border-dark">
+            <td>商品合計</td>
             <!-- 合計値を算出するよ -->
               <% items_total_price = 0 %>
               <% @order_details.each do |order_detail| %>
@@ -90,19 +90,19 @@
                 <% sub_total_price = tax_in_price * order_detail.quantity %>
                 <% items_total_price += sub_total_price %>
               <% end %>
-            <td class="p-0">
+            <td>
               <%= items_total_price %><!-- 算出結果 -->
             </td>
           </tr>
 
-          <tr>
-            <td class="p-0">送料</td>
-            <td class="p-0"><%= @order.carriage %></td>
+          <tr class="border-bottom border-dark">
+            <td>送料</td>
+            <td><%= @order.carriage %></td>
           </tr>
 
-          <tr>
-            <td class="p-0">請求合計金額</td>
-            <td class="p-0"><%= @order.total_price %></td>
+          <tr class="border-bottom border-dark">
+            <td>請求合計金額</td>
+            <td><%= @order.total_price %></td>
           </tr>
         </tbody>
       </table>
