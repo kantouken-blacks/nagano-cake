@@ -21,6 +21,7 @@ devise_for :customers, controllers: {
   root 'homes#top'
   get '/thanks' => 'homes#thanks'
   get '/orders/confirm' => 'orders#confirm'
+  post '/orders/create_order' => 'orders#create_order'
   delete '/cart_items' => 'cart_items#destroy_all'
   resources :customers, only: [:show, :edit, :update]
   get '/customers/:id/withdrow' => 'customers#withdrow', as: 'withdrow_customer' #退会画面への遷移

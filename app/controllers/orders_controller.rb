@@ -11,21 +11,47 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @ship_address_new = ShipAddress.new
     @ship_addresses = current_customer.ship_addresses
+    @ships = []
+    @ship_addresses.each do |ship|
+      @ships.push("〒" + ship.post_code + "  " + ship.address + "  " + ship.last_name + ship.first_name)
+    end
+    @ship_address = ShipAddress.new
+    # binding.pry
     @order = Order.new
   end
 
+  #ここでconfirm画面でボタンを押して情報を保存
   def create
-    @ship_address = ShipAddress.new(ship_address_params)
-    @ship_address.save
+    # @ship_address = ShipAddress.new(ship_address_params)
+    # @order = Order.new(order_params)
+    # @order.customer_id = current_customer.id
+    # # binding.pry
+    # @order.save!
+    # redirect_to new_order_path
+
   end
 
   def confirm
+      @orders = current_customer.orders
+      @order = session[:order]
+  end
+
+  # 入力情報をsessionに格納
+  def create_order
+    session[:order] = Order.new(order_params)
+    # session[:order]["customer_id"] = current_customer.id
+    # session[:order][:total_price] = 800
+    # session[:order] = order_params
+    # binding.pry
+    redirect_to orders_confirm_path
   end
 
   private
    def ship_address_params
-     params.require(:ship_address).permit(:last_name, :first_name, :post_code, :address)
+     params.permit(:last_name, :first_name, :post_code, :address)
+   end
+   def order_params
+     params.require(:order).permit(:customer_id, :address, :payment, :carriage, :total_price, :order_status)
    end
 end
