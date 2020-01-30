@@ -57,7 +57,7 @@
           </tr>
         </thead>
 
-        <% @order.order_details.each do |order_detail| %>
+        <% @order_details.each do |order_detail| %>
           <tbody>
             <tr>
               <td><%= order_detail.item_name %></td>
@@ -75,6 +75,36 @@
             </tr>
           </tbody>
         <% end %>
+      </table>
+    </div>
+
+    <div class="col-sm-2">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td class="p-0">商品合計</td>
+            <!-- 合計値を算出するよ -->
+              <% total_price = 0 %>
+              <% @order_details.each do |order_detail| %>
+                <% tax_in_price = (order_detail.item_price * 1.1).floor %>
+                <% sub_total_price = tax_in_price * order_detail.quantity %>
+                <% total_price += sub_total_price %>
+              <% end %>
+            <td class="p-0">
+              <%= total_price %><!-- 算出結果 -->
+            </td>
+          </tr>
+
+          <tr>
+            <td class="p-0">送料</td>
+            <td class="p-0"><%= @order.carriage %></td>
+          </tr>
+
+          <tr>
+            <td class="p-0">請求合計金額</td>
+            <td class="p-0"><%= @order.total_price %></td>
+          </tr>
+        </tbody>
       </table>
 
     </div>
