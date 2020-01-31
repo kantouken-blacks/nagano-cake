@@ -9,33 +9,31 @@
 
     <table class="table col-8">
 
-      <% @orders.each do |order| %>
       <tbody>
         <tr>
           <td>注文日</td>
-          <td><%= order.created_at %></td>
+          <td><%= @order.created_at %></td>
         </tr>
         <tr>
           <td>配送先</td>
-          <td><%= order.address %></td>
+          <td><%= @order.address %></td>
         </tr>
         <tr>
           <td>支払い方法</td>
-          <td><%= order.payment %></td>
+          <td><%= @order.payment %></td>
         </tr>
         <tr>
           <td>ステータス</td>
-          <td><%= order.order_status %></td>
+          <td><%= @order.order_status %></td>
         </tr>
       </tbody>
-      <% end %>
     </table>
 
     <table class="table col-4">
       <tbody>
         <tr>
           <td>商品合計</td>
-          <td><%= @total_price %></td>
+          <td><%= @order.total_price  %></td>
         </tr>
         <tr>
           <td>配送料</td>
@@ -43,7 +41,7 @@
         </tr>
         <tr>
           <td>ご請求額</td>
-          <td><%= @order.total_price %></td>
+          <td><%= @order.total_price + @order.carriage %></td>
         </tr>
       </tbody>
     </table>
@@ -63,9 +61,9 @@
       <tbody>
         <tr>
           <td><%= d.item_name %></td>
-          <td><%= d.item_price %></td>
+          <td><%= (d.item_price * 1.1).floor %></td>
           <td><%= d.quantity %></td>
-          <td><%= d.item_price * d.quantity %></td>
+          <td><%= ((d.item_price * d.quantity) * 1.1).floor %></td>
         </tr>
       </tbody>
       <% end %>

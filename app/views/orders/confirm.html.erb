@@ -57,11 +57,14 @@
   </div>
   <div class="row">
     <h5>支払い方法</h5><br>
-    <%= session[:order]["payment"] %>
+    <%= session[:payment] %>
 
   </div>
   <div class="row">
     <h5>お届け先</h5><br>
-    <%= session[:order]["address"] %>
+    <%= session[:address] %>
+  </div>
+  <div class="row">
+    <%=link_to "購入を確定する", orders_create_order_path %>
   </div>
 </div>
