@@ -12,13 +12,23 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
-    if params[:order_id]
+    if params[:order_id] # 条件分岐：order_detailが更新されたら
       order_detail = OrderDetail.find(params[:id])
+      order_details = Order.find(params[:order_id]).order_details
       order_detail.update(order_detail_params)
+      if order_details.all? {|order_detail| order_detail.item_status == "製作完了"} == true # 条件分岐：注文に紐付けられている注文詳細の製作ステータスが全て製作完了だったら
+        order_detail.order.update(order_status: "発送準備中") # 注文ステータスを発送準備中に変更する
+      end
       redirect_to admin_order_path(order_detail.order_id)
+
     else
       order = Order.find(params[:id])
       order.update(order_params)
+        if params[:order][:order_status] == "入金確認" # 条件分岐：注文ステータスが"入金確認"だったら
+          order.order_details.each {|order_detail|
+            order_detail.update(item_status: "製作待ち")
+          }
+        end
       redirect_to admin_order_path(order)
     end
   end
