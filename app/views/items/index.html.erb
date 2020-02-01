@@ -6,10 +6,17 @@
       </div>
       
 	<div class="col-9 my-3">
-	<h2><%= @genre.name %><h2>
-	<h2>全ての商品</h2><!--動的ジャンル名設定する-->
-	<p>全<%= Item.where(sale_status: "販売可").count %>件
-	</p>
+       <h2><% if params[:genre_id] %>
+        <%= @genre.name %><!--動的ジャンル名-->
+       <% else %>
+        全ての商品
+       <% end %></h2>
+    
+	   <p><% if params[:genre_id] %>
+	    全<%= @items.order(created_at: :desc).where(sale_status: "販売可").count %>件
+	   <% else %>
+		全<%= Item.where(sale_status: "販売可").count %>件
+       <% end %></p>
 	<!-- 動的ジャンル登録アイテム数設定する-->
 	    <div class="row">
 	    	<% @items.each do |item| %>
