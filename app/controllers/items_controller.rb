@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-  	  @genres = Genre.all
+  	  @genres = Genre.where(is_enabled: true)# ジャンルが有効のみ
 
       # もしURLに[:genre_id]が含まれていたら
     if params[:genre_id]
