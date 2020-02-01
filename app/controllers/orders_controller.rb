@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  
+
   def index
     @orders = Order.all
   end
@@ -12,20 +12,20 @@ class OrdersController < ApplicationController
   def new
     @ship_addresses = current_customer.ship_addresses
     # 配送先の情報を結合し、セレクト画面で使えるように代入
-    @ships = []
-    @ship_addresses.each do |ship|
-      @ships.push("〒" + ship.post_code + "  " + ship.address + "  " + ship.last_name + ship.first_name)
-    end
+    # @ships = []
+    # @ship_addresses.each do |ship|
+    #   @ships.push("〒" + ship.post_code + "  " + ship.address + "  " + ship.last_name + ship.first_name)
+    # end
     @ship_address = ShipAddress.new
     @order = Order.new
   end
 
   #情報入力画面でボタンを押して情報をsessionに保存
   def create
-    session[:payment] = params[:order][:payment]
-    if params[:order][:carriage] == "select_address"
-      session[:address] = params[:order][:address]
-    elsif params[:order][:carriage] == "my_address"
+    session[:payment] = params[:payment]
+    if params[:select] == "select_address"
+      session[:address] = params[:address]
+    elsif params[:select] == "my_address"
       session[:address] = current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name
     end
     redirect_to orders_confirm_path
@@ -34,6 +34,7 @@ class OrdersController < ApplicationController
   def confirm
       @orders = current_customer.orders
       @total_price = calculate(current_customer)
+      @address = ShipAddress.find(session[:address])
   end
 
   # 情報入力画面にて新規配送先の登録

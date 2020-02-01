@@ -62,7 +62,7 @@
   </div>
   <div class="row">
     <h5>お届け先</h5><br>
-    <%= session[:address] %>
+    <%= @address.address %>
   </div>
   <div class="row">
     <%=link_to "購入を確定する", orders_create_order_path %>
