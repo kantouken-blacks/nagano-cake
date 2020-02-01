@@ -1,54 +1,58 @@
+<div class="container my-5">
+    <div class="row">
+      <div class="offset-1">
+        <h2 class="red-border px-3 pb-1">ショッピングカート</h2>
+      </div>
 
-<div class="container">
-  <div class="row d-flex align-items-center cart">
-    <div class="col-md-4">
-      <h2>ショッピングカート</h2>
+      <div class="ml-auto">
+        <%= link_to "カートを空にする", cart_items_path, method: :delete, class: "btn btn-sm btn-outline-danger" %>
+      </div>
     </div>
-    <div class=" offset-md-6 col-md-2">
-      <%= link_to "カートを空にする", cart_items_path, method: :delete, class: "btn btn-danger" %>
-    </div>
-  </div>
-  <div class="row">
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">商品名</th>
-          <th scope="col">単価(税込)</th>
-          <th scope="col">数量</th>
-          <th colspan="2">小計</th>
 
-        </tr>
-      </thead>
-       <% @cart_items.each do |cart_item| %>
-      <tbody>
-        <tr>
-          <td><%= cart_item.item.name %></td>
-          <td><%= (cart_item.item.price * 1.1).floor %></td>
-          <%= form_for(cart_item) do |f| %>
-          <td>
-            <%= f.number_field :quantity, min:1 %>
-            <%= f.submit "変更", class:"btn btn-primary" %>
-          </td>
+    <div class="row mt-5">
+      <div class="offset-2 col-7">
+        <table class="table table-borderless">
+          <thead>
+            <tr class="red-border">
+              <th>商品名</th>
+              <th>単価(税込)</th>
+              <th>数量</th>
+              <th>小計</th>
+            </tr>
+          </thead>
+
+          <% @cart_items.each do |cart_item| %>
+            <tbody>
+              <tr>
+                <td><%= cart_item.item.name %></td>
+                <td><%= (cart_item.item.price * 1.1).floor %></td>
+                <%= form_for(cart_item) do |f| %>
+                <td>
+                  <%= f.number_field :quantity, min:1 %>
+                  <%= f.submit "変更", class:"btn btn-primary" %>
+                </td>
+                <% end %>
+                <td><%= (cart_item.item.price * 1.1).floor * cart_item.quantity %></td>
+                <td><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-danger" %></td>
+              </tr>
+            </tbody>
           <% end %>
-          <td><%= (cart_item.item.price * 1.1).floor * cart_item.quantity %></td>
-          <td><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-danger" %></td>
-        </tr>
-      </tbody>
-     <% end %>
-    </table>
-  </div>
-  <div class="d-flex justify-content-between">
-    <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
-    <div>
-      <table class ="table">
-        <tbody>
-          <tr>
-            <td>合計金額</td>
-            <td><%= @total_price %></td>
-          </tr>
-        </tbody>
-      </table>
+        </table>
+      </div>
+
+      <div class="col-3 d-flex">
+        <strong class="red-border px-3 pb-1 align-self-end">合計金額 <%= @total_price %>円</strong>
+      </div>
+
     </div>
-  </div>
-  <%= link_to "情報入力に進む", new_order_path, class: "btn btn-primary" %>
+
+    <div class="row">
+      <div class="offset-1 col-2">
+        <%= link_to "買い物を続ける", root_path, class: "btn btn-outline-danger mt-5" %>
+      </div>
+
+      <div class="offset-6">
+        <%= link_to "情報入力に進む", new_order_path, class: "btn btn-outline-danger mt-5" %>
+      </div>
+    </div>
 </div>
