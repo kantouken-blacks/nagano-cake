@@ -39,7 +39,7 @@
           <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', fallback: 'noimage.jpg', size: '200x200' %><br>
         <% end %>
         <%= item.name %><br>
-        <%= item.price %>
+        <%= (item.price * 1.1).floor %><span>円</span>
       </div>
     <% end %>
   </div>

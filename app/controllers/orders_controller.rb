@@ -64,8 +64,9 @@ class OrdersController < ApplicationController
       @order_detail.quantity = cart.quantity
       @order_detail.item_status = 0
       @order_detail.save
-    end
 
+    end
+    current_customer.cart_items.destroy_all
     redirect_to thanks_path
   end
 
