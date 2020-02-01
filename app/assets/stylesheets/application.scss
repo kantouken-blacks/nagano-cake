@@ -15,21 +15,39 @@
  @import "bootstrap";
 
 
- // ヘッダーの画像サイズ調整
- div.img-hidden {
-  height: 500px;
+// スライドデザイン
+.carousel{
+  height: 600px;
   overflow: hidden;
 }
+
+
 // フッター最下部固定
 body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-
 footer {
   margin-top: auto;
 }
+
 .cart {
   height: 100px;
+}
+
+// ボタンの色調整
+.btn-outline-danger {
+    border: 1px solid #432c28;
+    color: #432c28;
+}
+
+// 赤いボーダーライン
+.head-border{
+  border-bottom: 1px solid #ff6347;
+}
+
+// テーブル用ボーダーライン
+.table-border{
+  border-bottom: 1px solid #432c28;
 }
