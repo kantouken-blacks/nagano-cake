@@ -28,8 +28,11 @@
 </div><!-- /.carousel -->
 
 <div class="container my-5">
- <h3 class="my-5">New Item</h3>
-  <div class="row mx-5">
+  <div class="row">
+      <h3 class="head-border px-3 pb-1">New Item</h3>
+  </div>
+
+  <div class="row mx-5 mt-3">
     <% @items.last(4).each do |item| %>
       <div class="col-sm-3">
         <%= link_to item_path(item) do %>
