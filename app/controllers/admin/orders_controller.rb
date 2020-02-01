@@ -34,7 +34,7 @@ class Admin::OrdersController < ApplicationController
       order.update(order_params)
         if params[:order][:order_status] == "入金確認" # 条件分岐：注文ステータスが"入金確認"だったら
           order.order_details.each {|order_detail|
-            order_detail.update(item_status: "製作待ち")
+          order_detail.update(item_status: "製作待ち")
           }
         end
       redirect_to admin_order_path(order)

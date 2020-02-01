@@ -19,8 +19,8 @@
           <tr>
             <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M"), admin_order_path(order) %></td>
             <!-- .strftime => created_atの表記を設定 -->
-            <td><%= order.last_name %>
-              <%= order.first_name %>
+            <td><%= order.customer.last_name %>
+              <%= order.customer.first_name %>
             </td>
             <td><%= order.order_details.sum(:quantity) %></td>
             <td><%= order.order_status %></td>

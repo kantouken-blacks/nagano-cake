@@ -11,11 +11,6 @@ class OrdersController < ApplicationController
 
   def new
     @ship_addresses = current_customer.ship_addresses
-    # 配送先の情報を結合し、セレクト画面で使えるように代入
-    # @ships = []
-    # @ship_addresses.each do |ship|
-    #   @ships.push("〒" + ship.post_code + "  " + ship.address + "  " + ship.last_name + ship.first_name)
-    # end
     @ship_address = ShipAddress.new
     @order = Order.new
   end
@@ -26,7 +21,7 @@ class OrdersController < ApplicationController
     if params[:select] == "select_address"
       session[:address] = params[:address]
     elsif params[:select] == "my_address"
-      session[:address] = current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name
+      session[:address] ="〒" +current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name
     end
     redirect_to orders_confirm_path
   end
@@ -34,7 +29,10 @@ class OrdersController < ApplicationController
   def confirm
       @orders = current_customer.orders
       @total_price = calculate(current_customer)
-      @address = ShipAddress.find(session[:address])
+
+      if  session[:address].length <10
+        @address = ShipAddress.find(session[:address])
+      end
   end
 
   # 情報入力画面にて新規配送先の登録
