@@ -74,3 +74,7 @@ gem 'jquery-rails'
 
 gem 'pry-byebug'
 gem 'pry-rails'
+
+# ページネーション
+gem 'kaminari','~> 1.1.1'
+
