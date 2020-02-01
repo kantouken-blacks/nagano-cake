@@ -1,24 +1,17 @@
-<div class="container">
+<div class="container my-5">
 
-  <div class="error">
-    <% if @genre.errors.any? %>
-      <h2><%= pluralize(@genre.errors.count,"error")  %> prohibited this genre from being saved:</h2>
-      <% @genre.errors.full_messages.each do |message| %>
-          <p><%= message %></p>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="row mt-5">
+  <div class="row">
     <h2>ジャンル追加・一覧</h2>
   </div>
 
   <div class="row mt-5">
-    <div class="offset-sm-1 col-sm-3">
+    <div class="offset-sm-1 col-sm-4">
+
+      <div class="form-wrap border rounded p-5 text-center">
+        <p class="font-weight-bold">新規ジャンル登録</p>
 
       <%= form_for(@genre, url: admin_genres_path) do |f| %>
         <div class="form-group">
-          <%= f.label :ジャンル %>
           <%= f.text_field :name, class: "form-control" %>
         </div>
 
@@ -29,12 +22,13 @@
           <%= f.label :is_enabled, "無効" %>
         </div>
 
-        <%= f.submit "追加" %>
+        <%= f.submit "追加", class: "btn btn-primary mt-3" %>
       <% end %>
     </div>
+    </div>
 
-    <div class="offset-sm-1 col-sm-4">
-      <table class="table table-hover">
+    <div class="offset-sm-1 col-sm-5">
+      <table class="table table-hover text-center">
         <thead>
           <tr>
             <th>ジャンル</th>
@@ -47,9 +41,14 @@
           <% @genres.each do |genre| %>
             <tr>
               <td><%= genre.name %></td>
-              <td><%= genre.is_enabled %></td>
-              <!-- status表示が true/falseのまま -->
-              <td><%= link_to "編集する", edit_admin_genre_path(genre) %></td>
+              <td>
+                <% if genre.is_enabled == true %>
+                  有効
+                <% else %>
+                  無効
+                <% end %>
+              </td>
+              <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-primary btn-sm" %></td>
             </tr>
           <% end %>
         </tbody>
