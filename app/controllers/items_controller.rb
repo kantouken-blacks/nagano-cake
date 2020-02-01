@@ -4,9 +4,16 @@ class ItemsController < ApplicationController
 
   def index
   	@genres = Genre.all
-    @items = Item.where(sale_status: "販売可").order(genre_id: "asc")
-    # 販売ステータスが販売可のみの商品を参照　ジャンル作成の昇順
 
+    if params[:genre_id]
+
+      @genre = Genre.find(params[:genre_id])
+
+      @items = @genre.items.order(created_at: :desc).all
+    else
+      @items = Item.where(sale_status: "販売可").order(genre_id: "asc")
+    # 販売ステータスが販売可のみの商品を参照　ジャンル作成の昇順
+    end
   	# @items = Item.all.order(genre_id: "asc")
   end
 

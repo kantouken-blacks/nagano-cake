@@ -29,6 +29,9 @@ devise_for :customers, controllers: {
   resources :ship_addresses, except: [:new, :show]
   resources :cart_items, except: [:new, :show, :edit]
   resources :items, only: [:index, :show]
+  resources :genres, only: [:index] do
+  resources :items, only: [:index]
+  end
   resources :orders, except: [:edit, :update, :destroy]
   resources :session, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
