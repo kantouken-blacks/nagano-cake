@@ -17,7 +17,7 @@
       <% @orders.each do |order| %>
       <tbody>
         <tr>
-          <td><%= order.created_at %></td>
+          <td><%= order.created_at.strftime("%Y-%m-%d %H:%M") %></td>
           <% if order.address.length <10 %>
           <% ship_address = ShipAddress.find(order.address) %>
           <td><%= "〒" + ship_address.post_code + "  " + ship_address.address + "  " + ship_address.last_name + ship_address.first_name %></td>

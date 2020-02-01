@@ -83,7 +83,7 @@ Item.create!(
               name: "洋梨のチーズタルト",
               description: "北海道産の最高級カッテージチーズ＆最高級生クリームを贅沢に使用。",
               price: 1000,
-              sale_status: "販売不可"
+              sale_status: "販売可"
               )
 Item.create!(
               genre_id: 1,
@@ -99,7 +99,7 @@ Item.create!(
               name: "漢方のどあめ",
               description: "のどの痛みを緩和。",
               price: 300,
-              sale_status: "販売不可"
+              sale_status: "販売可"
               )
 Item.create!(
               genre_id: 3,
@@ -107,7 +107,7 @@ Item.create!(
               name: "シェフの気まぐれマドレーヌ",
               description: "フランス産 最高級バターを贅沢に使用。",
               price: 500,
-              sale_status: "販売不可"
+              sale_status: "販売可"
               )
 Item.create!(
               genre_id: 2,
@@ -115,7 +115,7 @@ Item.create!(
               name: "焼きプリン",
               description: "卵の風味が強いプリンを香ばしく焼き上げました。",
               price: 1000,
-              sale_status: "販売不可"
+              sale_status: "販売可"
               )
 #
 # # OrderModel
