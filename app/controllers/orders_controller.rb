@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
     @order.order_status = 0
     @order.save
     # saveができた段階でOrderモデルにorder_idが入る
-    
+
     # オーダー商品ごとの詳細の保存
     current_customer.cart_items.each do |cart|
       @order_detail = OrderDetail.new
@@ -75,9 +75,6 @@ class OrdersController < ApplicationController
    end
    def order_params
      params.require(:order).permit(:customer_id, :address, :payment, :carriage, :total_price, :order_status)
-   end
-   def order_detail_params
-     params.require(:order_detail).permit(:order_id, :item_name, :item_price, :quantity, :item_status)
    end
 
    # 商品合計（税込）の計算
