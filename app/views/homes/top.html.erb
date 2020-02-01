@@ -1,32 +1,33 @@
-  <div class="container-fulied img-hidden">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <!-- インジケータの設定 -->
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    </ol>
-    <!-- スライドさせる画像の設定 -->
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <%= image_tag 'sample_image1.jpg', class: 'd-block w-100' %>
-      </div><!-- /.carousel-item -->
-      <div class="carousel-item">
-        <%= image_tag 'sample_image2.jpg', class: 'd-block w-100' %>
-      </div><!-- /.carousel-item -->
-    <!-- /.carousel-item -->
-    </div><!-- /.carousel-inner -->
-    <!-- スライドコントロールの設定 -->
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      >
-    </a>
-  </div><!-- /.carousel -->
+<div id="carouselExampleIndicators" class="carousel carousel-fade slide" data-ride="carousel">
 
- </div>
+  <!-- スライドさせる画像の設定 -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag 'ninjin_cake.jpg', class: 'd-block w-100' %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'shungiku_cake.jpg', class: 'd-block w-100' %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'valentine_coolies.jpg', class: 'd-block w-100' %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag 'vegetables_cake.jpg', class: 'd-block w-100' %>
+    </div>
+  </div><!-- /.carousel-inner -->
 
-<div class="container">
+  <!-- スライドコントロールの設定 -->
+  <!-- "<"のデザイン -->
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </a>
+  <!-- ">"のデザイン -->
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
+</div><!-- /.carousel -->
+
+<div class="container my-5">
  <h3 class="my-5">New Item</h3>
   <div class="row mx-5">
     <% @items.last(4).each do |item| %>
