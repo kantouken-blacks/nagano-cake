@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
 
-  before_action :authenticate_user!, except: [:top]
+  before_action :authenticate_customer!, except: [:top]
 
   def top
     @items = Item.all
@@ -9,4 +9,3 @@ class HomesController < ApplicationController
   def thanks
   end
 end
-

@@ -15,7 +15,7 @@
           <% current_customer.cart_items.each do |cart| %>
           <tr>
             <td>
-              <%= image_tag 'sample_image1.jpg', :size => '60x60'%><%= cart.item.name %>
+              <%= attachment_image_tag cart.item, :image, :size => '100x100',fallback: "no_image.jpg" %><%= cart.item.name %>
             </td>
             <td>
               <%= (cart.item.price * 1.1).floor %>
@@ -57,11 +57,14 @@
   </div>
   <div class="row">
     <h5>支払い方法</h5><br>
-    <%= session[:order]["payment"] %>
+    <%= session[:payment] %>
 
   </div>
   <div class="row">
     <h5>お届け先</h5><br>
-    <%= session[:order]["address"] %>
+    <%= session[:address] %>
+  </div>
+  <div class="row">
+    <%=link_to "購入を確定する", orders_create_order_path %>
   </div>
 </div>

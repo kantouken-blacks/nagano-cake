@@ -1,83 +1,90 @@
 class OrdersController < ApplicationController
+  
   def index
     @orders = Order.all
   end
 
   def show
-    @orders = Order.all
     @order = Order.find(params[:id])
     @order_details = @order.order_details
-    @total_price = @order_details.sum(:item_price)
   end
 
   def new
     @ship_addresses = current_customer.ship_addresses
+    # 配送先の情報を結合し、セレクト画面で使えるように代入
     @ships = []
     @ship_addresses.each do |ship|
       @ships.push("〒" + ship.post_code + "  " + ship.address + "  " + ship.last_name + ship.first_name)
     end
     @ship_address = ShipAddress.new
-    # binding.pry
     @order = Order.new
   end
 
-  #ここでconfirm画面でボタンを押して情報を保存
+  #情報入力画面でボタンを押して情報をsessionに保存
   def create
-    # @ship_address = ShipAddress.new(ship_address_params)
-    # @order = Order.new(order_params)
-    # @order.customer_id = current_customer.id
-    # # binding.pry
-    # @order.save!
-    # redirect_to new_order_path
-
+    session[:payment] = params[:order][:payment]
+    if params[:order][:carriage] == "select_address"
+      session[:address] = params[:order][:address]
+    elsif params[:order][:carriage] == "my_address"
+      session[:address] = current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name
+    end
+    redirect_to orders_confirm_path
   end
-
+  # 購入確認画面
   def confirm
       @orders = current_customer.orders
-      @order = session[:order]
-      @total_price = test(current_customer)
-
+      @total_price = calculate(current_customer)
   end
 
-  # 入力情報をsessionに格納
+  # 情報入力画面にて新規配送先の登録
+  def create_ship_address
+    @ship_address = ShipAddress.new(ship_address_params)
+    @ship_address.customer_id = current_customer.id
+    @ship_address.save
+    redirect_to new_order_path
+  end
+
+
   def create_order
-    session[:order] = Order.new(order_params)
-    # session[:order]["customer_id"] = current_customer.id
-    # session[:order][:total_price] = 800
-    # session[:order] = order_params
-    # binding.pry
-    redirect_to orders_confirm_path
+    # オーダーの保存
+    @order = Order.new
+    @order.customer_id = current_customer.id
+    @order.address = session[:address]
+    @order.payment = session[:payment]
+    @order.total_price = calculate(current_customer)
+    @order.order_status = 0
+    @order.save
+    # saveができた段階でOrderモデルにorder_idが入る
+
+    # オーダー商品ごとの詳細の保存
+    current_customer.cart_items.each do |cart|
+      @order_detail = OrderDetail.new
+      @order_detail.order_id = @order.id
+      @order_detail.item_name = cart.item.name
+      @order_detail.item_price = cart.item.price
+      @order_detail.quantity = cart.quantity
+      @order_detail.item_status = 0
+      @order_detail.save
+    end
+
+    redirect_to thanks_path
   end
 
   private
    def ship_address_params
-     params.permit(:last_name, :first_name, :post_code, :address)
+     params.require(:ship_address).permit(:customer_id,:last_name, :first_name, :post_code, :address)
    end
    def order_params
      params.require(:order).permit(:customer_id, :address, :payment, :carriage, :total_price, :order_status)
    end
 
+   # 商品合計（税込）の計算
    def calculate(user)
-    total_price = []
-
-      user.cart_items.each do |cart|
-        total_price = [cart.item.price * cart.quantity]
-        return (total_price.sum * 1.1).floor
-      end
-    return total_price
-   end
-
-   def test(user)
-     while user.cart_items.count do
-       total_price = []
-       user.cart_items.each do |cart|
-         return subtotal = cart.item.price * cart.quantity
-       end
-       
-       total_price += subtotal
-
+     total_price = 0
+     user.cart_items.each do |cart_item|
+       total_price += cart_item.quantity * cart_item.item.price
      end
-     return (total_price.sum * 1.1).floor
+     return (total_price * 1.1).floor
    end
 
 end

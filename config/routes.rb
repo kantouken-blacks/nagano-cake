@@ -19,10 +19,11 @@ devise_for :customers, controllers: {
   end
   #customer
   root 'homes#top'
-  get '/thanks' => 'homes#thanks'
-  get '/orders/confirm' => 'orders#confirm'
-  post '/orders/create_order' => 'orders#create_order'
-  delete '/cart_items' => 'cart_items#destroy_all'
+  get '/thanks' => 'homes#thanks' #サンクスページ
+  get '/orders/confirm' => 'orders#confirm', as: 'orders_confirm' #購入確認画面への遷移
+  get '/orders/create_order' => 'orders#create_order' #購入確定のアクション
+  post '/orders/create_ship_address' => 'orders#create_ship_address' #情報入力画面での配送先登録用のアクション
+  delete '/cart_items' => 'cart_items#destroy_all' #カートアイテムを全て削除
   resources :customers, only: [:show, :edit, :update]
   get '/customers/:id/withdrow' => 'customers#withdrow', as: 'withdrow_customer' #退会画面への遷移
   patch '/customers/:id/withdrow' => 'customers#switch', as: 'withdrow_switch_customer' #会員ステータスの切替
@@ -33,6 +34,5 @@ devise_for :customers, controllers: {
   resources :items, only: [:index]
   end
   resources :orders, except: [:edit, :update, :destroy]
-  resources :session, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
