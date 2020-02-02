@@ -36,13 +36,15 @@
                 <td class="align-middle" style="width: 130px;">
                   <%= form_for(cart_item) do |f| %>
                   <div class="row">
-                    <%= f.number_field :quantity, min:1, class: "col-7" %>
+                    <%= f.number_field :quantity, min:1, class: "col-6" %>
                     <%= f.submit "変更", class: "btn btn-sm btn-outline-danger offset-1 col-4" %>
                   </div>
                   <% end %>
                 </td>
 
-                <td class="align-middle"><%= (cart_item.item.price * 1.1).floor * cart_item.quantity %></td>
+                <td class="align-middle">
+                  <%= (cart_item.item.price * 1.1).floor * cart_item.quantity %>
+                </td>
 
                 <td class="align-middle"><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-sm btn-danger" %></td>
               </tr>
