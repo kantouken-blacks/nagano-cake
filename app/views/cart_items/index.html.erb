@@ -5,19 +5,21 @@
       </div>
 
       <div class="ml-auto">
-        <%= link_to "カートを空にする", cart_items_path, method: :delete, class: "btn btn-sm btn-outline-danger" %>
+        <%= link_to "カートを空にする", cart_items_path, method: :delete, class: "btn btn-sm btn-danger" %>
       </div>
     </div>
 
     <div class="row mt-5">
-      <div class="offset-2 col-7">
+      <div class="offset-1 col-8">
         <table class="table table-borderless">
           <thead>
             <tr class="red-border">
               <th>商品名</th>
-              <th>単価(税込)</th>
+              <th>単価<br>
+                  (税込)</th>
               <th>数量</th>
               <th>小計</th>
+              <th colspan="1"></th>
             </tr>
           </thead>
 
@@ -26,14 +28,14 @@
               <tr>
                 <td><%= cart_item.item.name %></td>
                 <td><%= (cart_item.item.price * 1.1).floor %></td>
-                <%= form_for(cart_item) do |f| %>
                 <td>
-                  <%= f.number_field :quantity, min:1 %>
-                  <%= f.submit "変更", class:"btn btn-primary" %>
+                  <%= form_for(cart_item) do |f| %>
+                    <%= f.number_field :quantity, min:1, class: "col-5" %>
+                    <%= f.submit "変更", class: "btn btn-sm btn-outline-danger" %>
+                  <% end %>
                 </td>
-                <% end %>
                 <td><%= (cart_item.item.price * 1.1).floor * cart_item.quantity %></td>
-                <td><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-danger" %></td>
+                <td><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-sm btn-danger" %></td>
               </tr>
             </tbody>
           <% end %>

@@ -1,41 +1,48 @@
-<div class="container">
+<div class="container my-5">
  <div class="row">
-      <div class="col-3 col-offset-1 mt-4">
-      <%= render 'genrebox', genres: @genres %> <!--ジャンル検索-->
-      </div>
+  <div class="col-3 mt-4">
+    <%= render 'genrebox', genres: @genres %> <!--ジャンル検索-->
+  </div>
 
-   <div class="col-8 my-3">
-    <div class="item-box">
-  	 <div class="row">
-	    <div class="col-5 mb-4">
-	  <!--サンプル表示  -->
-	     <%= attachment_image_tag @item, :image, :fill, 300, 300, format: "jpeg", fallback: 'noimage.jpg', size: '300x300' %>
+  <div class="col-9 my-3">
+  	<div class="row">
+
+<!-- 画像 -->
+	    <div class="col-5">
+        <%= attachment_image_tag @item, :image, :fill, 300, 300, format: "jpeg", fallback: 'noimage.jpg', size: '300x300', class: "rounded" %>
 	    </div>
-	   <div class="col-7 mb-4"> <!--item spec box-->
-	    <div class="card-body">
-            <h4 class="card-title"><%= @item.name %></h4>
-            <p class="card-text"><%= @item.description %></p>
-            <h4 class="card-price"><%= (@item.price * 1.1).floor %><span>(税込)</span></h4>
+
+<!-- タイトル -->
+      <div class="col-5">
+        <div class="row">
+          <h4 class="red-border px-3 pb-1"><%= @item.name %></h4>
+        </div>
+
+<!-- 説明 -->
+        <div class="row mt-3">
+          <p class="brown-border px-3"><%= @item.description %></p>
+        </div>
+
+<!-- 価格 -->
+        <div class="row">
+          <strong class="red-border px-3 ml-auto"><%= (@item.price * 1.1).floor %>円 (税込)</strong>
+        </div>
+
       </div>
-     </div>
-
-       <div class="col-5 mb-4"></div>
-       <div class="col-7 mb-4">
-              <%= form_for (@cart_item) do |f| %>
-              <%= f.number_field :quantity, min:1, placeholder: "個数選択" %><span>個</span>
-
-
-              <%= f.hidden_field :item_id, :value => @item.id %>
-
-      　　　　　<%= f.submit "カートに入れる", class: "btn btn-primary" %>
-    　　　　　　 <% end %>
-       </div>
-
-
-	    </div>
-	  </div>
     </div>
-   </div>
-</div>
-</div>
+
+<!-- 個数選択 -->
+    <div class="row">
+      <div class="offset-6">
+
+        <%= form_for (@cart_item) do |f| %>
+          <%= f.number_field :quantity, min:1, placeholder: "個数選択" %><span>個</span>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <%= f.submit "カートに入れる", class: "btn btn-outline-danger align-items-end" %>
+    　　<% end %>
+
+      </div>
+    </div>
+
+  </div>
 </div>
