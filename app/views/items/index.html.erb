@@ -26,7 +26,7 @@
 		        <% end %>
 		        <p class="text-muted"><%= item.genre.name %>
 		        <h6 class="card-title"><%= item.name %></h6>
-		        <p class="card-price"><%= item.price %></p>
+		        <p class="card-price"><%= (item.price * 1.1).floor %><span>円</span></p>
 		     </div>
 	        <% end %>
 	    </div>
