@@ -38,11 +38,11 @@
         <%= link_to item_path(item) do %>
           <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', fallback: 'noimage.jpg', size: '200x200' %><br>
         <% end %>
-        <div class="row brown-border mt-3 text-center">
-          <%= item.name %>
+        <div class="row mt-3">
+          <span class="red-border px-3"><%= item.name %></span>
         </div>
-        <div class="row brown-border mt-1 text-center">
-          <%= (item.price * 1.1).floor %><span>円</span>
+        <div class="row mt-1">
+          <span class="offset-8"><%= (item.price * 1.1).floor %> 円</span>
         </div>
       </div>
     <% end %>
