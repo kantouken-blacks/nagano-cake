@@ -27,6 +27,7 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: 'Hiragino Kaku Gothic ProN',"メイリオ", sans-serif;
 }
 footer {
   margin-top: auto;
@@ -77,3 +78,13 @@ a{
 }
 
 
+
+// サンクスページ
+.thanksbox{
+  margin-top: 50px;
+  width: 50%;
+}
+
+.thankscomment{
+  font-family: 'Hiragino Kaku Gothic ProN',"メイリオ", sans-serif;
+}

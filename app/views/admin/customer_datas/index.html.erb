@@ -36,7 +36,13 @@
       </tbody>
     </table>
   </div>
+ </div>
 
-  <!-- ページネーションを追加 => データ入力できるようになってから -->
 
-</div>
+  <div class="container">
+    <div class="row">
+    <div class="col-md-4 offset-md-4 py-2">
+    <%= paginate @customers, class: "paginate" %>
+    </div>
+    </div>
+  </div> 
