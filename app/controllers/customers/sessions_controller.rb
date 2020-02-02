@@ -30,6 +30,6 @@ class Customers::SessionsController < Devise::SessionsController
     if resource.is_enabled == false    #(resource)に入った値の中で、is_enabledがfalseだったら--
        sign_out resource
     end
-       root_path
+       items_path
   end
 end

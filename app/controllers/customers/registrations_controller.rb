@@ -3,7 +3,7 @@
 class Customers::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
+  before_action :configure_permitted_parameters, if: :devise_controller?
   # GET /resource/sign_up
   # def new
   #   super
@@ -59,4 +59,8 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+    def after_sign_in_path_for(resource)
+       items_path
+  end
 end
