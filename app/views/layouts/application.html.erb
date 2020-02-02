@@ -11,6 +11,7 @@
   </head>
 
   <body>
+<!-- header デザイン分岐 -->
     <header class="header">
       <% if request.fullpath.include? "admin"  %>
         <%= render 'layouts/admin_header' %>
@@ -23,11 +24,18 @@
       <%= yield %>
     </main>
 
-   <footer class="footer text-white", style="background-color: #432c28;">
-    <div class="container text-center mt-3">
-     <p>© 2020 関東圏blacks inc.</p>
-    </div>
-   </footer>
+<!-- footer デザイン分岐 -->
+    <% if request.fullpath.include? "admin"  %>
+      <footer class="footer text-white bg-dark">
+    <% else%>
+      <footer class="footer text-white", style="background-color: #432c28;">
+    <% end %>
+
+      <div class="container text-center mt-3">
+        <p>© 2020 関東圏blacks inc.</p>
+      </div>
+    </footer>
+
 
   </body>
 </html>
