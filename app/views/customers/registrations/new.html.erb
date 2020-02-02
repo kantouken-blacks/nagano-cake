@@ -1,18 +1,20 @@
-<div class="conrainer">
-<div class="col text-center">
+<div class="conrainer-fluid registration">
+<div class="text-center">
   <h2>アカウントを作成</h2>
 </div>
+<div class="d-flex justify-content-center">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <!-- 漢字カナ名前入力フォーム -->
-  <div class="row">
-    <h6>お名前</h6>
-    <div class="col-md-3">
+  <h6>お名前</h6>
+  <div class="d-inline-flex">
+
+    <div class="col-md-6">
       <%= f.label :'姓 last name' %><br />
       <%= f.text_field :last_name, placeholder:"例）長野" %><br />
       <%= f.text_field :last_name_kana, placeholder:"例）ナガノ" %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-6">
       <%= f.label :'名 first name' %><br />
       <%= f.text_field :first_name, placeholder:"例）恵子" %><br />
       <%= f.text_field :first_name_kana, placeholder:"例）ケイコ" %>
@@ -52,8 +54,8 @@
   <div class="actions">
     <%= f.submit "会員登録", class:"col-md-12" %>
   </div>
+  <%= render "customers/shared/links" %>
 <% end %>
 
-<%= render "customers/shared/links" %>
-
+</div>
 </div>
