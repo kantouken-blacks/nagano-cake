@@ -5,7 +5,6 @@ class Order < ApplicationRecord
 	enum payment: [:クレジットカード, :銀行振込]
 
   after_update do
-    binding.pry
     if self.order_status == "入金確認"
       self.order_details.each {|order_detail|
       order_detail.update(item_status: "製作待ち")
