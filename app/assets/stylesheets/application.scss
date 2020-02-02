@@ -32,10 +32,28 @@ footer {
   margin-top: auto;
 }
 
-// ボタンの色調整
+// ボタンの色調整(茶色のやつ)
 .btn-outline-danger {
     border: 1px solid #432c28;
     color: #432c28;
+}
+.btn-outline-danger:hover{
+  border-color: #ff6347;
+  background-color: #ff6347;
+}
+
+// ボタンの色調整(赤いやつ)
+.btn-danger,
+.btn-danger.disabled,
+.btn-danger:disabled {
+  color: #fff;
+  background-color: #ff6347;
+  border-color: #ff6347;
+}
+.btn-danger:hover {
+  color: #fff;
+  background-color: #432c28;
+  border-color: #432c28;
 }
 
 // 赤いボーダーライン
@@ -48,6 +66,7 @@ footer {
   border-bottom: 1px solid #432c28;
 }
 
+// アカウント登録画面の背景
 .registration{
   background-color: #fffafa;
 }
