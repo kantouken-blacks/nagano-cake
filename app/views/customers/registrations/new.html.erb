@@ -21,7 +21,7 @@
   <!-- 郵便番号入力フォーム -->
   <div class="field">
     <%= f.label :'郵便番号' %><br />
-    <%= f.text_field :post_code, class:"col-md-12" %>
+    <%= f.text_field :post_code, placeholder:"例）1510001", class:"col-md-12" %>
   </div>
   <!-- 住所入力フォーム -->
   <div class="field">
@@ -31,12 +31,12 @@
   <!-- 電話番号入力フォーム -->
   <div class="field">
     <%= f.label :'電話番号' %><br />
-    <%= f.text_field :phone_number, class:"col-md-12" %>
+    <%= f.text_field :phone_number, placeholder:"例）08032436501", class:"col-md-12" %>
   </div>
   <!--email入力フォーム -->
   <div class="field">
     <%= f.label :'メールアドレス' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-md-12" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"例）example@mail", class:"col-md-12" %>
   </div>
   <!-- password入力フォーム -->
   <div class="field">
