@@ -30,7 +30,7 @@
 
           <tr>
             <td>注文ステータス</td>
-            <td><%= form_for (@order), url: admin_order_path(@order) do |f| %>
+            <td><%= form_for (@order), url: admin_order_status_path(@order) do |f| %>
                 <%= f.select :order_status, [["入金待ち", "入金待ち"], ["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"]], class: "form-control" %>
                 <%= f.submit "更新", class: "btn btn-primary btn-sm" %>
                 <% end %>
@@ -65,7 +65,7 @@
               <td><%= order_detail.quantity %></td>
               <td><%= (order_detail.item_price * order_detail.quantity * 1.1).floor %></td>
               <td>
-                <%= form_for (order_detail), url: admin_order_path(order_detail, order_id: @order.id) do |f| %>
+                <%= form_for (order_detail), url: admin_item_status_path(order_detail, order_id: @order.id) do |f| %>
                   <%= f.select :item_status, [["着手不可", "着手不可"], ["製作待ち","製作待ち"], ["製作中","製作中"], ["製作完了","製作完了"]] %>
                   <%= f.submit "更新", class: "btn btn-primary btn-sm ml-3" %>
                 <% end %>

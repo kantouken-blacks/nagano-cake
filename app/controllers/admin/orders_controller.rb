@@ -22,19 +22,18 @@ class Admin::OrdersController < ApplicationController
     return @items_total_price
   end
 
-  def update
-    if params[:order_id] # 条件分岐：order_detailが更新されたら
-      order_detail = OrderDetail.find(params[:id])
-      order_detail.update(order_detail_params)
-      # OrderDetailModel after_update => 注文ステータスの自動更新
-      redirect_to admin_order_path(order_detail.order_id)
+  def order_status_update
+    order = Order.find(params[:id])
+    order.update(order_params)
+    # OrderModel after_update => 製作ステータスの自動変更
+    redirect_to admin_order_path(order)
+  end
 
-    else
-      order = Order.find(params[:id])
-      order.update(order_params)
-      # OrderModel after_update => 製作ステータスの自動変更
-      redirect_to admin_order_path(order)
-    end
+  def item_status_update
+    order_detail = OrderDetail.find(params[:id])
+    order_detail.update(order_detail_params)
+    # OrderDetailModel after_update => 注文ステータスの自動更新
+    redirect_to admin_order_path(order_detail.order_id)
   end
 
   private
