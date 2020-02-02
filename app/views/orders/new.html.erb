@@ -1,41 +1,80 @@
-<div class="container">
-  <h2>購入情報入力</h2>
-  <h4>新しい配送先登録フォーム</h4>
-  <%= form_for(@ship_address, url:orders_create_ship_address_path) do |f| %>
+<div class="container my-5">
+  <div class="row">
+    <div class="offset-1">
+      <h2 class="red-border px-3">購入情報入力</h2>
+    </div>
+  </div>
 
-    <h6>郵便番号</h6>
-    <%= f.text_field :post_code, class:"col-md-2" %>
+  <div class="row mt-5">
+    <div class="offset-2 col-5">
 
-    <h6>住所</h6>
-    <%= f.text_field :address, class:"col-md-6" %>
-    <h6>お名前</h6>
-    <%= f.label :'姓 last name' %>
-    <%= f.label :'名 first name' %><br>
-    <%= f.text_field :last_name, placeholder:"例）長野" %>
-    <%= f.text_field :first_name, placeholder:"例）恵子" %><br />
-    <%= f.submit '新規登録', class:"btn btn-primary" %>
+<!-- 支払い方法選択 -->
+      <div class="row">
+        <strong class="red-border px-3">お支払い方法</strong>
+      </div>
 
-<% end %>
-  <%= form_tag(orders_path, method: :post) do %>
-  <h4>支払い方法</h4>
-  <%= radio_button_tag :payment, :クレジットカード %>
-  <%= label_tag :payment, "クレジットカード", {value: :"クレジットカード", style: "display: inline-block;"} %><br>
-  <%= radio_button_tag :payment, :銀行振込 %>
-  <%= label_tag :payment, "銀行振込", {value: :"銀行振込", style: "display: inline-block;"} %><br>
+      <%= form_tag(orders_path, method: :post) do %>
+        <div class="form-check mt-3">
+          <%= radio_button_tag :payment, :クレジットカード %>
+          <%= label_tag :payment, "クレジットカード", {value: :"クレジットカード", style: "display: inline-block;"} %><br>
+          <%= radio_button_tag :payment, :銀行振込 %>
+          <%= label_tag :payment, "銀行振込", {value: :"銀行振込", style: "display: inline-block;"} %>
+        </div>
 
-  <h4>お届け先</h4>
-  <% address = current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name %>
-  <%= radio_button_tag :select, :my_address %>
-  <%= label_tag :select, "ご自身の住所", {value: :my_address, style: "display: inline-block;"} %>
-  <%= address %>
-  <%# carriageは使わない方がいい %>
-  <p>
-    <%= radio_button_tag :select, :select_address %>
+<!-- お届け先選択 -->
+        <div class="row mt-3">
+          <strong class="red-border px-3">お届け先</strong>
+        </div>
 
-    <%= select_tag :address, options_for_select(@ship_addresses.map do |ship|
-    ["〒" + ship.post_code + "  " + ship.address + "  " + ship.last_name + ship.first_name, ship.id]
-    end) , {include_blank: '配送先を選択'} %>
-  </p>
-  <%= submit_tag "確認画面へ進む", class:"btn btn-primary" %>
-<% end %>
+        <div class="form-check mt-3">
+          <% address = current_customer.post_code + current_customer.address + current_customer.last_name + current_customer.first_name %>
+          <%= radio_button_tag :select, :my_address %>
+          <%= label_tag :select, "ご自身の住所", {value: :my_address, style: "display: inline-block;"} %>
+          <%= address %><br>
+          <%# carriageは使わない方がいい %>
+
+          <%= radio_button_tag :select, :select_address %>
+          <%= select_tag :address, options_for_select(@ship_addresses.map do |ship|
+          ["〒" + ship.post_code + "  " + ship.address + "  " + ship.last_name + ship.first_name, ship.id]
+            end), {include_blank: '配送先を選択'} %>
+        </div>
+
+        <div class="row mt-5">
+          <%= submit_tag "確認画面へ進む", class: "btn btn-outline-danger ml-auto" %>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class=" offset-1 col-3">
+
+<!-- 新しいお届け先 -->
+      <div class="row">
+        <strong class="red-border px-3">新しいお届け先を登録する</strong>
+      </div>
+
+        <%= form_for(@ship_address, url:orders_create_ship_address_path) do |f| %>
+
+        <div class="form-group row mt-3">
+          <%= f.text_field :post_code, placeholder: "郵便番号", class: "form-control offset-1 col-10" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.text_field :address, placeholder: "住所", class: "form-control offset-1 col-10" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.text_field :last_name, placeholder:"姓", class: "form-control offset-1 col-5" %>
+          <%= f.text_field :first_name, placeholder:"名", class: "form-control col-5" %>
+        </div>
+
+        <div class="row">
+          <%= f.submit '新規登録', class: "btn btn-sm btn-outline-danger ml-auto" %>
+        </div>
+
+        <% end %>
+    </div>
+
+
+  </div>
 </div>
