@@ -9,7 +9,7 @@
 
 <!-- 画像 -->
 	    <div class="col-5">
-        <%= attachment_image_tag @item, :image, :fill, 300, 300, format: "jpeg", fallback: 'noimage.jpg', size: '300x300', class: "rounded" %>
+        <%= attachment_image_tag @item, :image, size: '50x50', format: "jpeg", fallback: 'noimage.jpg', size: '300x300', class: "rounded" %>
 	    </div>
 
 <!-- タイトル -->
@@ -20,7 +20,7 @@
 
 <!-- 説明 -->
         <div class="row mt-3">
-          <p class="brown-border px-3"><%= @item.description %></p>
+          <p class="ml-5"><%= @item.description %></p>
         </div>
 
 <!-- 価格 -->
