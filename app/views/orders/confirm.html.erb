@@ -63,7 +63,7 @@
   <div class="row">
     <h5>お届け先</h5><br>
     <!-- うけとった文字列が１０けたより少なければ -->
-    <% if  session[:address].length <10 %>
+    <% if  session[:address].length <8 %>
     <%= "〒" + @address.post_code + "  " + @address.address + "  " + @address.last_name + @address.first_name %>
 
     <!-- 受け取った文字列がそれ以外なら -->

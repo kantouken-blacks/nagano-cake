@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
       @orders = current_customer.orders
       @total_price = calculate(current_customer)
 
-      if  session[:address].length <10
+      if  session[:address].length <8
         @address = ShipAddress.find(session[:address])
       end
   end
