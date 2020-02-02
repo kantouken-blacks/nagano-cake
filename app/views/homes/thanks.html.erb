@@ -1,8 +1,17 @@
 <div class="container-fluid">
  <div class="text-center">
 
-  <h1>ご購入ありがとうございました！</h1>
 
-  <%= image_tag 'thank_you.png' %>
+  <%= image_tag 'thank_you.png', class: "thanksbox" %>
+
+  <h3 class="thankscomment">ご購入ありがとうございました！</h3>
+
+  <script>
+  $(function() {
+    $('.thanksbox, .thankscomment').hide().fadeIn(3000)
+
+    });
+</script>
+
  </div>
 </div>
