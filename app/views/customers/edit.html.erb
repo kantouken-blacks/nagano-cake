@@ -45,12 +45,14 @@
         <%= f.email_field :email, class: "form-control offset-1 col-8"%>
       </div>
 
-      <%= f.submit "編集内容を保存する", class: "btn btn-outline-danger btn-block offset-3 col-4 my-3" %>
+      <div class="row">
+        <%= f.submit "編集内容を保存する", class: "btn btn-outline-danger offset-3 mt-3" %>
+      </div>
     <% end %>
 
     </div>
 
     <div class="col-2 d-flex flex-column align-items-end">
-      <%= link_to "退会する" , withdrow_customer_path(@customer), class: "btn btn-outline-danger mt-auto" %>
+      <%= link_to "退会する" , withdrow_customer_path(@customer), class: "btn btn-danger mt-auto" %>
     </div>
 </div>
