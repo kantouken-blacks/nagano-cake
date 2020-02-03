@@ -27,7 +27,7 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: 'Hiragino Kaku Gothic ProN',"メイリオ", sans-serif;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Hiragino Kaku Gothic ProN', YuGothic, 'Yu Gothic Medium', Meiryo, sans-serif;
 }
 footer {
   margin-top: auto;
@@ -75,6 +75,12 @@ footer {
 // リンクの色
 a{
   color: #432c28;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff6347;
+  text-decoration: none;
 }
 
 
@@ -85,9 +91,12 @@ a{
   width: 50%;
 }
 
+// ページネーションデザイン
+
 .pagination>li>a {
   border: none;     /*枠線をなくす*/
   color: #432c28;   /*文字の色を変える*/
+  margin-left: 5px;
 }
 
 /* 表示しているページ番号のデザイン */
