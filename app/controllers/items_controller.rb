@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
 
       # 含まれていなければ
     else
-      @items = Item.where(sale_status: "販売可").order(genre_id: "asc").page(params[:page]).per(8)
+      @items = Item.where(sale_status: "販売可").page(params[:page]).per(12)
      # 販売ステータスが販売可のみの商品を参照 ジャンル作成の昇順
     end
   end
