@@ -85,6 +85,43 @@ a{
   width: 50%;
 }
 
-.thankscomment{
-  font-family: 'Hiragino Kaku Gothic ProN',"メイリオ", sans-serif;
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #432c28;   /*文字の色を変える*/
 }
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background-color: #ff6347;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #ff6347;
+  border-color: #ff6347;
+}
+
+.page-item:first-child .page-link {
+  border-radius: 50%;
+}
+
+.page-item:last-child .page-link {
+  border-radius: 50%;
+}
+
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 50%;    /*角を丸くする*/
+  background-color: #ff6347;     /*背景の色を変える*/
+  border-color: #ff6347;
+  color: #fff;
+}
+
+/*クリック時のデザイン*/
+.page-link:focus {
+  box-shadow: 0 0 0 0.2rem #d25c67; /*ボックス周りの影の色*/
+}
+
