@@ -9,36 +9,31 @@ class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details.all
+    @items_total_price = calculate(@order)
+  end
 
-    # 商品合計の算出
+  def calculate(items_total_price) # 商品合計を算出するメソッド
     @items_total_price = 0
     @order_details.each {|order_detail|
     tax_in_price = (order_detail.item_price * 1.1).floor
     sub_total_price = tax_in_price * order_detail.quantity
     @items_total_price += sub_total_price
     }
+    return @items_total_price
   end
 
-  def update
-    if params[:order_id] # 条件分岐：order_detailが更新されたら
-      order_detail = OrderDetail.find(params[:id])
-      order_details = Order.find(params[:order_id]).order_details
-      order_detail.update(order_detail_params)
-      if order_details.all? {|order_detail| order_detail.item_status == "製作完了"} == true # 条件分岐：注文に紐付けられている注文詳細の製作ステータスが全て製作完了だったら
-        order_detail.order.update(order_status: "発送準備中") # 注文ステータスを発送準備中に変更する
-      end
-      redirect_to admin_order_path(order_detail.order_id)
+  def order_status_update
+    order = Order.find(params[:id])
+    order.update(order_params)
+    # OrderModel after_update => 製作ステータスの自動変更
+    redirect_to admin_order_path(order)
+  end
 
-    else
-      order = Order.find(params[:id])
-      order.update(order_params)
-        if params[:order][:order_status] == "入金確認" # 条件分岐：注文ステータスが"入金確認"だったら
-          order.order_details.each {|order_detail|
-          order_detail.update(item_status: "製作待ち")
-          }
-        end
-      redirect_to admin_order_path(order)
-    end
+  def item_status_update
+    order_detail = OrderDetail.find(params[:id])
+    order_detail.update(order_detail_params)
+    # OrderDetailModel after_update => 注文ステータスの自動更新
+    redirect_to admin_order_path(order_detail.order_id)
   end
 
   private

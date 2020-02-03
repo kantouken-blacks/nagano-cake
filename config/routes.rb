@@ -15,7 +15,9 @@ devise_for :customers, controllers: {
     resources :customer_datas, only: [:show, :index, :edit, :update]
     resources :items, except: [:destroy]
     resources :genres, except: [:new, :show, :destroy]
-    resources :orders, only: [:index, :show, :update]
+    resources :orders, only: [:index, :show]
+    patch '/orders/:id/order_status' => 'orders#order_status_update', as: "order_status" # 注文ステータスupdate
+    patch '/orders/:id/item_status' => 'orders#item_status_update', as: "item_status" # 製作ステータスupdate
   end
   #customer
   root 'homes#top'
