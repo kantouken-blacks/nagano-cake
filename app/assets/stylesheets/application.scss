@@ -85,11 +85,18 @@ a:hover {
 
 
 
+
 // サンクスページ
 .thanksbox{
   margin-top: 50px;
   width: 50%;
 }
+
+
+.thankscomment{
+  font-family: 'Hiragino Kaku Gothic ProN',"メイリオ", sans-serif;
+}
+
 
 // ページネーションデザイン
 
@@ -133,4 +140,5 @@ a:hover {
 .page-link:focus {
   box-shadow: 0 0 0 0.2rem #d25c67; /*ボックス周りの影の色*/
 }
+
 
