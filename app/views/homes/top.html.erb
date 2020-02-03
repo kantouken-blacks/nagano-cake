@@ -36,7 +36,7 @@
     <% @items.last(4).each do |item| %>
       <div class="mx-auto">
         <%= link_to item_path(item) do %>
-          <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', fallback: 'noimage.jpg', size: '200x200' %><br>
+          <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', fallback: 'noimage.jpg', size: '200x200', class: "rounded" %><br>
         <% end %>
         <div class="row mt-3">
           <span class="red-border px-3"><%= item.name %></span>

@@ -1,4 +1,7 @@
 <div class="container my-5">
+  <% if flash[:cart_item_error] %>
+    <%= flash[:cart_item_error] %>
+  <% end %>
  <div class="row">
   <div class="col-3 mt-4">
     <%= render 'genrebox', genres: @genres %> <!--ジャンル検索-->
