@@ -14,7 +14,7 @@
         <table class="table table-borderless">
           <thead>
             <tr class="red-border">
-              <th>商品名</th>
+              <th >商品名</th>
               <th>単価(税込)</th>
               <th>数量</th>
               <th>小計</th>
@@ -27,12 +27,9 @@
               <tr class="brown-border">
                 <td class="align-middle">
                   <%= attachment_image_tag cart_item.item, :image, size: "50x50", fallback: "no_image.jpg" %>
-                  <span> </span>
-                  <%= cart_item.item.name %>
+                  <span><%= cart_item.item.name %></span>
                 </td>
-
                 <td class="align-middle"><%= (cart_item.item.price * 1.1).floor %></td>
-
                 <td class="align-middle" style="width: 130px;">
                   <%= form_for(cart_item) do |f| %>
                   <div class="row">
