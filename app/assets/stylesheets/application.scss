@@ -91,9 +91,12 @@ a:hover {
   width: 50%;
 }
 
+// ページネーションデザイン
+
 .pagination>li>a {
   border: none;     /*枠線をなくす*/
   color: #432c28;   /*文字の色を変える*/
+  margin-left: 5px;
 }
 
 /* 表示しているページ番号のデザイン */
