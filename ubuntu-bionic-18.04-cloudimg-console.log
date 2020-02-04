@@ -1,40 +1,40 @@
-[    0.000000] Linux version 4.15.0-76-generic (buildd@lcy01-amd64-029) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #86-Ubuntu SMP Fri Jan 17 17:24:28 UTC 2020 (Ubuntu 4.15.0-76.86-generic 4.15.18)
-[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-4.15.0-76-generic root=UUID=aac03293-c0ac-4bf0-a829-be8d31d9d5f4 ro console=tty1 console=ttyS0
-[    0.000000] KERNEL supported cpus:
-[    0.000000]   Intel GenuineIntel
-[    0.000000]   AMD AuthenticAMD
-[    0.000000]   Centaur CentaurHauls
-[    0.000000] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
-[    0.000000] x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
-[    0.000000] x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
-[    0.000000] x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
-[    0.000000] x86/fpu: Enabled xstate features 0x7, context size is 832 bytes, using 'standard' format.
-[    0.000000] e820: BIOS-provided physical RAM map:
-[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
-[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
-[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
-[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003ffeffff] usable
-[    0.000000] BIOS-e820: [mem 0x000000003fff0000-0x000000003fffffff] ACPI data
-[    0.000000] BIOS-e820: [mem 0x00000000fec00000-0x00000000fec00fff] reserved
-[    0.000000] BIOS-e820: [mem 0x00000000fee00000-0x00000000fee00fff] reserved
-[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
-[    0.000000] NX (Execute Disable) protection: active
-[    0.000000] SMBIOS 2.5 present.
+[   0.00000]Linu verion .15.-72-enerc (buidd@ly01-md64026)(gccversion 7..0 (bunt 7.40-1ubutu1~8.041)) 81-Uunu SM TueNov 26 12:20:2 UTC 2019 (Ubuntu 4.15.0-72.81generi 4.1.18)
+[   0.00000]Comandline: BOOTIMAG=/bootvminuz4.150-72geneic rot=LABL=clouimg-rootfs ro console=tty1 onsoe=ttS0
+[    0.00000 KEREL sppored cus:
+[    0.000000]   Intel GenineItel
+[    0.0000]   AMD utheticAMD
+[    0.000000]  Centur CntaurHuls
+[   0.00000 x86/fpu Suporing SAVE feature 0001:'x87 floating point regster'
+[   .00000] 86/fu: Spportig XSAV feaure x002: SSE egistes'
+    .00000] x8/fpu Suportig XAVE eatue 0x04: AVX egisers'
+[   0.00000] x86/fpu: xstate_offset[2]:  576, xtatesize[2]:  56
+    .000000] x86/fpu: nabled xstate fetures 0x, cotextsize i 832byte, usng 'tandrd' formt.
+    0.000000 e82: BIS-prvided physicalRAM map:
+    .00000] IOS-820:[mem0x00000000000000-0x0000000009fbff] usable
+[    0.00000 BIO-e82: [mm 0x0000000009fc0-0x000000000ffff resrved
+[   0.00000 BIOS-e820: mem x000000000f000-0000000000fffff] reserved
+[    0.000000] BIOS-e820: mem x000000000000000x0000003ffefff]usabe
+[   0.0000] BIS-e80: [em 0x000000003ff0000-0x0000003ffffff] ACPI data
+[   0.00000] IOS-82: [mm 0x0000000fec0000-x0000000ec00ff] esered
+    .00000] IOS-820: [mem 0x00000000fee00000-0x0000000fe00ff] rservd
+[   0.000000 BIO-e82: [mm 0x0000000ffc000-0000000fffffff]reserved
+[    0.000000] NX (Execute Dsabl) prtecton: active
+[   0.00000 SMBOS 25 prsent.
 [    0.000000] DMI: innotek GmbH VirtualBox/VirtualBox, BIOS VirtualBox 12/01/2006
-[    0.000000] Hypervisor detected: KVM
+[    0.000000] Hypervisor detectted: KVM
 [    0.000000] e820: last_pfn = 0x3fff0 max_arch_pfn = 0x400000000
 [    0.000000] MTRR: Disabled
-[    0.000000] x86/PAT: MTRRs disabled, skipping PAT initialization too.
-[    0.000000] CPU MTRRs all blank - virtualized system.
-[    0.000000] x86/PAT: Configuration [0-7]: WB  WT  UC- UC  WB  WT  UC- UC  
-[    0.000000] found SMP MP-table at [mem 0x0009fff0-0x0009ffff]
-[    0.000000] Scanning 1 areas for low memory corruption
-[    0.000000] RAMDISK: [mem 0x35969000-0x36cabfff]
-[    0.000000] ACPI: Early table checksum verification disabled
-[    0.000000] ACPI: RSDP 0x00000000000E0000 000024 (v02 VBOX  )
-[    0.000000] ACPI: XSDT 0x000000003FFF0030 00003C (v01 VBOX   VBOXXSDT 00000001 ASL  00000061)
-[    0.000000] ACPI: FACP 0x000000003FFF00F0 0000F4 (v04 VBOX   VBOXFACP 00000001 ASL  00000061)
-[    0.000000] ACPI: DSDT 0x000000003FFF0470 0022EA (v02 VBOX   VBOXBIOS 00000002 INTL 20100528)
+[   0.00000]x86/AT: TRRsdisaled, sipping PAT initaliztiontoo.
+[    .000000] CU MTRR allblan - vrtuaizd systm.
+    0.00000] 86/PT: Cnfiguration [0-7]: WB  WT  UC- UC  WB  W  UC-UC  
+[    .00000] fond SP MPtabl at mem x000fff00x009fff]
+[   0.000000] Scanning 1 areas for low memory corruption
+[    0.000000] RAMDISK: [mem 0x35a6f000-0x36d2efff]
+[    0.000000 ACPI: Early table checksum verification disabled
+[    0.000000] ACPI: RDP 0000000000E0000 00024 (02 VOX  
+[   0.00000]ACPI XSD 0x0000000FFF0030 0003C (v01 VBX   VBOXXSDT0000001 ASL 0000061)
+[    .00000] CPI:FACP x00000003FF0F0 000F (v0 VBOX   VBOXFACP 0000001AS  0000061)
+    .00000] CPI:DSDT x0000000FFF047 002FF (02 VBOX   VBOXBIOS0000002 INTL2010528)
 [    0.000000] ACPI: FACS 0x000000003FFF0200 000040
 [    0.000000] ACPI: FACS 0x000000003FFF0200 000040
 [    0.000000] ACPI: APIC 0x000000003FFF0240 00005C (v02 VBOX   VBOXAPIC 00000001 ASL  00000061)
@@ -74,23 +74,23 @@
 [    0.000000] setup_percpu: NR_CPUS:8192 nr_cpumask_bits:2 nr_cpu_ids:2 nr_node_ids:1
 [    0.000000] percpu: Embedded 45 pages/cpu s147456 r8192 d28672 u1048576
 [    0.000000] PV qspinlock hash table entries: 256 (order: 0, 4096 bytes)
-[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 257913
-[    0.000000] Policy zone: DMA32
-[    0.000000] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-4.15.0-76-generic root=UUID=aac03293-c0ac-4bf0-a829-be8d31d9d5f4 ro console=tty1 console=ttyS0
-[    0.000000] Memory: 982556K/1048120K available (12300K kernel code, 2481K rwdata, 4260K rodata, 2428K init, 2704K bss, 65564K reserved, 0K cma-reserved)
-[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
-[    0.000000] Kernel/User page tables isolation: enabled
-[    0.000000] ftrace: allocating 39322 entries in 154 pages
-[    0.004000] Hierarchical RCU implementation.
-[    0.004000] 	RCU restricting CPUs from NR_CPUS=8192 to nr_cpu_ids=2.
-[    0.004000] 	Tasks RCU enabled.
-[    0.004000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
-[    0.004000] NR_IRQS: 524544, nr_irqs: 440, preallocated irqs: 16
-[    0.004000] Console: colour VGA+ 80x25
-[    0.004000] console [tty1] enabled
-[    0.004000] console [ttyS0] enabled
-[    0.004000] ACPI: Core revision 20170831
-[    0.004000] ACPI: 2 ACPI AML tables successfully acquired and loaded
+[    0.000000] Built 1 zonelists, mobility grupng o.  Total pags: 27913
+[   0.00000]Poliy zone DMA2
+[    0.00000] erne comand ine:BOOT_IMAGE=/boot/vmlinuz-4.15.0-72-generic root=LABEL=cloudimg-rootfs ro console=tt1 consolettyS0
+[    0.0000] Meory:98336K/14812K vailble 1200K erne cod, 241K rdata, 426K roata, 2428K init, 2388K bss, 64724K reserved, 0K cma-reserved)
+[   000000] SUB: Walin=64 Ordr=0-, MiObjets=0 CPUs2, Ndes=
+[   0.000000] Kernl/User page tables isolation: enabled
+[    0.000000] ftrace: allocating 39318 entries in 154 pages
+[   0.04000 Hiearhica RCUimplemntaton.
+[   0004000] RCU estricing PUs from N_CPU=8192 o nrcpu_ds=2.
+[   0.00000]	TasksRCU nabld.
+[    .00400] CU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=
+[   0.0400] NR_IRQS: 524544, nr_irqs: 440, prealocatedirs: 1
+[   0.0400] Cosole colur VA+ 8x25
+[   0.00000] console [tty1] enabled
+[   0.0400] cosole[tty0] enaled
+[   0.04000 ACP: Cor revsion20170831
+[    0.04000 ACP: 2 CPI ML tbles successfully acquired and loaded
 [    0.004000] APIC: Switch to symmetric I/O mode setup
 [    0.004000] x2apic enabled
 [    0.004000] Switched APIC routing to physical x2apic.
@@ -470,8 +470,8 @@ ntrol File System...
          Starting Wait for Network to be Configured...
          Starting Network Name Resolution...
 [[0;32m  OK  [0m] Started Network Name Resolution.
-[[0;32m  OK  [0m] Reached target Network.
 [[0;32m  OK  [0m] Reached target Host and Network Name Lookups.
+[[0;32m  OK  [0m] Reached target Network.
 [[0;32m  OK  [0m] Started Wait for Network to be Configured.
          Starting Initial cloud-init job (metadata service crawler)...
 [    9.721288] cloud-init[672]: Cloud-init v. 19.3-41-gc4735dd3-0ubuntu1~18.04.1 running 'init' at Mon, 03 Feb 2020 14:03:20 +0000. Up 9.60 seconds.
@@ -559,10 +559,16 @@ ntrol File System...
          Starting Hold until boot process finishes up...
          Starting Terminate Plymouth Boot Screen...
 [[0;32m  OK  [0m] Started Hold until boot process finishes up.
+[[0;32m  OK  [0m] Started Terminate Plymouth Boot Screen.
+[[0;32m  OK  [0m] Started LSB: automatic crash report generation.
+[[0;32m  OK  [0m] Started Authorization Manager.
+[[0;32m  OK  [0m] Started Accounts Service.
          Starting Set console scheme...
 [[0;32m  OK  [0m] Started Serial Getty on ttyS0.
-[[0;32m  OK  [0m] Started Terminate Plymouth Boot Screen.
+[[0;32m  OK  [0m] Started vboxadd.service.
+[[0;32m  OK  [0m] Started LSB: Record successful boot for GRUB.
 [[0;32m  OK  [0m] Started Set console scheme.
+[[0;32m  OK  [0m] Created slice User Slice of vagrant.
 [[0;32m  OK  [0m] Created slice system-getty.slice.
 [[0;32m  OK  [0m] Started Getty on tty1.
 [[0;32m  OK  [0m] Reached target Login Prompts.
@@ -572,12 +578,17 @@ ntrol File System...
 [[0;32m  OK  [0m] Started LSB: automatic crash report generation.
 [[0;32m  OK  [0m] Started Virtualbox guest utils.
 [[0;32m  OK  [0m] Started Snappy daemon.
+[[0;32m  OK  [0m] Started LXD - container startup/shutdown.
+[[0;32m  OK  [0m] Started vboxadd-service.service.
+[[0;32m  OK  [0m] Started Session 1 of user vagrant.
+         Starting User Manager for UID 1000...
          Starting Wait until snapd is fully seeded...
 [[0;32m  OK  [0m] Started Wait until snapd is fully seeded.
          Starting Apply the settings specified in cloud-config...
 [[0;32m  OK  [0m] Reached target Multi-User System.
 [[0;32m  OK  [0m] Reached target Graphical Interface.
          Starting Update UTMP about System Runlevel Changes...
+[[0;32m  OK  [0m] Started User Manager for UID 1000.
 [[0;32m  OK  [0m] Started Update UTMP about System Runlevel Changes.
 [   11.322857] cloud-init[1155]: Cloud-init v. 19.3-41-gc4735dd3-0ubuntu1~18.04.1 running 'modules:config' at Mon, 03 Feb 2020 14:03:22 +0000. Up 11.23 seconds.
 [[0;32m  OK  [0m] Started Apply the settings specified in cloud-config.
@@ -586,7 +597,8 @@ ntrol File System...
 [   11.740273] cloud-init[1220]: Cloud-init v. 19.3-41-gc4735dd3-0ubuntu1~18.04.1 finished at Mon, 03 Feb 2020 14:03:22 +0000. Datasource DataSourceNoCloud [seed=/dev/sdb][dsmode=net].  Up 11.73 seconds
 [[0;32m  OK  [0m] Started Execute cloud user/final scripts.
 [[0;32m  OK  [0m] Reached target Cloud-init target.
-
+
+
 Ubuntu 18.04.3 LTS ubuntu-bionic ttyS0
 
 ubuntu-bionic login:          Stopping Session 5 of user vagrant.

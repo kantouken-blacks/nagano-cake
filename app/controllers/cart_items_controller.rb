@@ -10,13 +10,10 @@ class CartItemsController < ApplicationController
    @cart_item = CartItem.new(cart_item_params)
    @cart_item.customer_id = current_customer.id
    cart_items = current_customer.cart_items
-   if params[:cart_item][:quantity] == ""
-      flash[:cart_item_error] = "個数を入力してカートに入れてください"
+   @validate_into_cart = @cart_item.validate_into_cart
+   if @validate_into_cart == false
+      flash[:into_cart_error] = "個数が選択されていないか、すでにカートに追加されているアイテムです。"
       redirect_to item_path(params[:cart_item][:item_id])
-
-   elsif cart_items.any? {|cart_item| cart_item.item_id.to_s == cart_item_params[:item_id]} == true
-      flash[:cart_item_error] = "すでにカートに追加されています"
-      redirect_to item_path(cart_item_params[:item_id])
    else
      @cart_item.save
      redirect_to cart_items_path

@@ -10,15 +10,11 @@
         <%= f.text_field :name, class: "form-control" %>
       </div>
 
-      <div class="form-check row">
-        <div class="custom-control custom-radio custom-control-inline ml-3">
-          <%= f.radio_button :is_enabled, :true, class: "custom-control-input" %>
-          <%= f.label :is_enabled, "有効", class: "custom-control-label" %>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline ml-5">
-          <%= f.radio_button :is_enabled, :false, class: "custom-control-input" %>
-          <%= f.label :is_enabled, "無効", class: "custom-control-label" %>
-        </div>
+      <div class="form-check">
+        <%= f.radio_button :is_enabled, :true %>
+        <%= f.label :is_enabled, "有効" %>
+        <%= f.radio_button :is_enabled, :false %>
+        <%= f.label :is_enabled, "無効" %>
       </div>
 
       <div class="row">

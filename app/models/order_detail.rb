@@ -4,8 +4,10 @@ class OrderDetail < ApplicationRecord
 
   after_update do
     order_details = Order.find(order_id).order_details
-    if order_details.all? {|order_detail| order_detail.item_status == "製作完了"} == true # 条件分岐：注文に紐付けられている注文詳細の製作ステータスが全て製作完了だったら
-      Order.find(order_id).update(order_status: "発送準備中") # 注文ステータスを発送準備中に変更する
+    if order_details.any? {|order_detail| order_detail.item_status == "製作中"} == true # 条件分岐：製作ステータスが1つでも製作中にだったら
+      Order.find(order_id).update(order_status: "製作中") # 注文ステータスを製作中に変更する
+    elsif order_details.all? {|order_detail| order_detail.item_status == "製作完了"} == true # 条件分岐：製作ステータスが全て製作完了だったら
+          Order.find(order_id).update(order_status: "発送準備中") # 注文ステータスを発送準備中に変更する
     end
   end
 end
