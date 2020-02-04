@@ -12,15 +12,20 @@
             <td>購入者</td>
             <td>
               <%= link_to admin_customer_data_path(@order.customer) do %>
-              <%= @order.last_name %>
-              <%= @order.first_name %>
+              <%= @order.customer.last_name %>
+              <%= @order.customer.first_name %>
               <% end %>
             </td>
           </tr>
 
           <tr>
             <td>配送先</td>
+            <% if @order.address.length <8 %>
+            <% ship_address = ShipAddress.find(@order.address) %>
+            <td><%= "〒" + ship_address.post_code + "  " + ship_address.address + "  " + ship_address.last_name + ship_address.first_name %></td>
+            <% else %>
             <td><%= @order.address %></td>
+            <% end %>
           </tr>
 
           <tr>
