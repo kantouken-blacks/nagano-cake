@@ -4,7 +4,7 @@ class Genre < ApplicationRecord
 
 	after_update do
 		items = Genre.find(id).items
-		if (is_enabled) == true
+		if (is_enabled) == false
 			items.each {|item|
 				item.update(sale_status: "販売不可")
 			}
