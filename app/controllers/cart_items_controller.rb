@@ -11,6 +11,7 @@ class CartItemsController < ApplicationController
    @cart_item.customer_id = current_customer.id
    cart_items = current_customer.cart_items
    if params[:cart_item][:quantity] == ""
+      flash[:cart_item_error] = "個数を入力してカートに入れてください"
       redirect_to item_path(params[:cart_item][:item_id])
 
    elsif cart_items.any? {|cart_item| cart_item.item_id.to_s == cart_item_params[:item_id]} == true

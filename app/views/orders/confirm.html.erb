@@ -80,11 +80,11 @@
         <span class="brown-border px-3">
           <!-- うけとった文字列が8けたより少なければ -->
           <% if  session[:address].length < 8 %>
-           <%= "〒" + @address.post_code + "  " + @address.address + "  " + @address.last_name + @address.first_name %>
+           <%= "〒" + @address.post_code + "  " + @address.address + "  " + @address.last_name + @address.first_name %><span>様</span>
 
           <!-- 受け取った文字列がそれ以外なら -->
           <% else %>
-            <%= session[:address] %>
+            <%= session[:address] %><span>様</span>
           <% end %>
         </span>
       </div>
