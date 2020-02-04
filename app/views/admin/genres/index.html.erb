@@ -7,8 +7,16 @@
   <div class="row mt-5">
     <div class="offset-sm-1 col-sm-4">
 
-      <div class="form-wrap border rounded p-5 text-center">
-        <p class="font-weight-bold">新規ジャンル登録</p>
+      <div class="form-wrap border rounded p-5">
+        <div class="row d-flex justify-content-center">
+          <strong>新規ジャンル登録</strong>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+          <% if flash[:genre_created_error] %>
+            <span class="text-danger"><%= flash[:genre_created_error] %></span>
+          <% end %>
+        </div>
 
       <%= form_for(@genre, url: admin_genres_path) do |f| %>
         <div class="form-group">
@@ -22,7 +30,9 @@
           <%= f.label :is_enabled, "無効" %>
         </div>
 
-        <%= f.submit "追加", class: "btn btn-primary mt-3" %>
+        <div class="row">
+          <%= f.submit "追加", class: "btn btn-primary mt-3 mx-auto" %>
+        </div>
       <% end %>
     </div>
     </div>

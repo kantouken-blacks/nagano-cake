@@ -12,9 +12,8 @@ class Admin::GenresController < ApplicationController
     if  @genre.save
       redirect_to admin_genres_path
     else
-      @genre = Genre.new
-      @genres = Genre.all
-      render :index
+      flash[:genre_created_error] = "ジャンル名を入力してください。"
+      redirect_to 
     end
   end
 
@@ -24,8 +23,12 @@ class Admin::GenresController < ApplicationController
 
   def update
     genre = Genre.find(params[:id])
-    genre.update(genre_params)
-    redirect_to admin_genres_path
+    if genre.update(genre_params)
+      redirect_to admin_genres_path
+    else
+      flash[:genre_updated_error] = "ジャンル名を入力してください"
+      redirect_to edit_admin_genre_path(genre)
+    end
   end
 
   private

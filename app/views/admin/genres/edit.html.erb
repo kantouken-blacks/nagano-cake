@@ -3,6 +3,12 @@
     <h2>ジャンル編集画面</h2>
   </div>
 
+  <div class="row my-3 d-flex justify-content-center">
+    <% if flash[:genre_updated_error] %>
+      <span class="text-danger"><%= flash[:genre_updated_error] %></span>
+    <% end %>
+  </div>
+
   <div class="row flex-column align-items-center mt-3">
     <%= form_for(@genre, url: admin_genre_path) do |f| %>
       <div class="form-group row">
