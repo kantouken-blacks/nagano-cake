@@ -3,7 +3,18 @@ class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @orders = Order.page(params[:page]).per(10)
+
+
+    if params[:id]
+      @orders = Customer.find(params[:id]).orders
+    elsif request.fullpath.include? "today"
+      @orders = Order.where(created_at:  Time.zone.now.all_day)  
+    elsif request.fullpath.include? "yesterday"
+      @orders = Order.where(created_at: 1.day.ago.all_day)
+    else
+      @orders = Order.all
+    end
+    # @orders = Order.page(params[:page]).per(10)
   end
 
   def show
