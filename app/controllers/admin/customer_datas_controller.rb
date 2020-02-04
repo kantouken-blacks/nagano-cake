@@ -19,6 +19,7 @@ class Admin::CustomerDatasController < ApplicationController
     if @customer.update(customer_params)
       redirect_to admin_customer_data_path
     else
+      flash[:customer_updated_error] = "会員情報が正常に保存されませんでした。"
       redirect_to edit_admin_customer_data_path(@customer)
     end
   end
