@@ -7,8 +7,13 @@ class ShipAddressesController < ApplicationController
   def create
     @ship_address = ShipAddress.new(ship_address_params)
     @ship_address.customer_id = current_customer.id
-    @ship_address.save
-    redirect_to ship_addresses_path
+    if @ship_address.save
+       redirect_to ship_addresses_path
+    else
+       @ship_address_new = ShipAddress.new
+       @ship_addresses = current_customer.ship_addresses
+       render :index
+    end
   end
 
   def edit

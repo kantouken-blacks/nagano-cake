@@ -4,14 +4,13 @@
 		  <h2 class="red-border px-3 pb-1">配送先</h2>
     </div>
 	</div>
-
+     <%#= render 'layouts/error_messages', model: @ship_address %>
 	<div class="row my-3">
     <div class="offset-2 col-3">
 
       <div class="row my-3">
         <strong class="red-border">配送先を追加</strong>
       </div>
-
     	<%= form_for(@ship_address_new) do |f| %>
         <div class="form-group row">
       		<%= f.text_field :post_code, class: "form-control", placeholder: "郵便番号" %>
