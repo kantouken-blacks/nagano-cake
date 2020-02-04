@@ -29,7 +29,9 @@ class Customers::SessionsController < Devise::SessionsController
     def after_sign_in_path_for(resource)
     if resource.is_enabled == false    #(resource)に入った値の中で、is_enabledがfalseだったら--
        sign_out resource
-    end
+       root_path
+    else
        items_path
+    end
   end
 end

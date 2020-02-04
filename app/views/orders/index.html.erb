@@ -23,7 +23,7 @@
             <tr class="brown-border">
               <td class="align-middle"><%= order.created_at.strftime("%Y-%m-%d %H:%M") %></td>
 
-              <% if order.address.length <10 %>
+              <% if order.address.length <8 %>
               <% ship_address = ShipAddress.find(order.address) %>
               <td class="align-middle">
                 <%= "〒" + ship_address.post_code + "  " + ship_address.address + "  " + ship_address.last_name + ship_address.first_name %>
