@@ -67,6 +67,8 @@ class OrdersController < ApplicationController
 
     end
     current_customer.cart_items.destroy_all
+    session.delete(:address)
+    session.delete(:payment)
     redirect_to thanks_path
   end
 
