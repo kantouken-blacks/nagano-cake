@@ -12,8 +12,8 @@
             <td>購入者</td>
             <td>
               <%= link_to admin_customer_data_path(@order.customer) do %>
-              <%= @order.last_name %>
-              <%= @order.first_name %>
+              <%= @order.customer.last_name %>
+              <%= @order.customer.first_name %>
               <% end %>
             </td>
           </tr>
