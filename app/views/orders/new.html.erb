@@ -1,6 +1,7 @@
 <div class="container my-5">
   <div class="row">
     <div class="offset-1">
+      <%= flash[:order_new] %>
       <h2 class="red-border px-3">購入情報入力</h2>
     </div>
   </div>
@@ -43,6 +44,7 @@
           <%= submit_tag "確認画面へ進む", class: "btn btn-outline-danger ml-auto" %>
         </div>
       <% end %>
+
 
     </div>
 

@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
     if session[:address].present? && session[:payment].present?
       redirect_to orders_confirm_path
     else
+      flash[:order_new] = "支払い方法と配送先を選択して下さい"
       redirect_to new_order_path
     end
 

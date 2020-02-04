@@ -21,7 +21,7 @@ Customer.create!(
                   first_name: "諒",
                   last_name_kana: "アカハ",
                   first_name_kana: "リョウ",
-                  phone_number: "000-0000-0000",
+                  phone_number: "00000000000",
                   email: "akaharyou@mail",
                   password: "akaharyou",
 
@@ -35,7 +35,7 @@ Customer.create!(
                   first_name: "魁登",
                   last_name_kana: "サトウ",
                   first_name_kana: "カイト",
-                  phone_number: "111-1111-1111",
+                  phone_number: "11111111111",
                   email: "satoukaito@mail",
                   password: "satoukaito",
 
@@ -49,7 +49,7 @@ Customer.create!(
                   first_name: "栞音",
                   last_name_kana: "ウエノ",
                   first_name_kana: "カノン",
-                  phone_number: "222-2222-2222",
+                  phone_number: "22222222222",
                   email: "uenokanon@mail",
                   password: "uenokanon",
 
@@ -117,8 +117,16 @@ Item.create!(
               price: 1000,
               sale_status: "販売可"
               )
-#
-# # OrderModel
+Item.create!(
+              genre_id: 1,
+              image_id: nil,
+              name: "クリスマスドームケーキ",
+              description: "クリスマスに豪華な一品をどうぞ。",
+              price: 2000,
+              sale_status: "販売可"
+              )
+
+# OrderModel
 # Order.create!(
 #               customer_id: 3,
 #               last_name: "上野",
@@ -130,9 +138,9 @@ Item.create!(
 #               total_price: 3400,
 #               order_status: "入金待ち"
 #               )
-#
-#
-# # OrderDetailModel
+
+
+# OrderDetailModel
 # OrderDetail.create!(
 #                       order_id: 1,
 #                       item_name: "シェフの気まぐれマドレーヌ",
