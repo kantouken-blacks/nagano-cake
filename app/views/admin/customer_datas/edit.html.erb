@@ -44,11 +44,14 @@
           <%= f.email_field :email, class: "form-control col-sm-8" %>
         </div>
 
-        <div class="form-check">
-          <%= f.radio_button :is_enabled, :true %>
-          <%= f.label :is_enabled, "有効会員" %>
-          <%= f.radio_button :is_enabled, :false %>
-          <%= f.label :is_enabled, "退会済み" %>
+        <div class="row">
+          <%= f.label :会員ステータス, class: "ml-3" %>
+          <div class="form-check ml-4">
+            <%= f.radio_button :is_enabled, :true %>
+            <%= f.label :is_enabled, "有効会員" %>
+            <%= f.radio_button :is_enabled, :false %>
+            <%= f.label :is_enabled, "退会済み" %>
+          </div>
         </div>
 
         <div class="row">
