@@ -1,7 +1,4 @@
 <div class="container my-5">
-  <% if flash[:cart_item_error] %>
-    <%= flash[:cart_item_error] %>
-  <% end %>
  <div class="row">
   <div class="col-3 mt-4">
     <%= render 'genrebox', genres: @genres %> <!--ジャンル検索-->
@@ -38,11 +35,17 @@
     <div class="row">
       <div class="offset-6">
 
-        <%= form_for (@cart_item) do |f| %>
-          <%= f.number_field :quantity, min:1, placeholder: "個数選択" %><span>個</span>
-          <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.submit "カートに入れる", class: "btn btn-outline-danger align-items-end" %>
-    　　<% end %>
+        <div class="row">
+          <%= form_for (@cart_item) do |f| %>
+            <%= f.number_field :quantity, min:1, placeholder: "個数選択" %><span>個</span>
+            <%= f.hidden_field :item_id, :value => @item.id %>
+            <%= f.submit "カートに入れる", class: "btn btn-outline-danger" %>
+      　　<% end %>
+        </div>
+
+        <div class="row">
+          <%= flash[:into_cart_error] %>
+        </div>
 
       </div>
     </div>
