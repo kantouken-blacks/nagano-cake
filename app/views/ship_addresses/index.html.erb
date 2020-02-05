@@ -1,0 +1,67 @@
+<div class="container my-5">
+	<div class="row">
+    <div class="offset-1">
+		  <h2 class="red-border px-3 pb-1">配送先</h2>
+    </div>
+	</div>
+     <%#= render 'layouts/error_messages', model: @ship_address %>
+	<div class="row my-3">
+    <div class="offset-2 col-3">
+
+      <div class="row my-3">
+        <strong class="red-border">配送先を追加</strong>
+      </div>
+    	<%= form_for(@ship_address_new) do |f| %>
+        <div class="form-group row">
+      		<%= f.text_field :post_code, class: "form-control", placeholder: "郵便番号" %>
+        </div>
+
+        <div class="form-group row">
+      		<%= f.text_field :address, class: "form-control", placeholder: "住所" %>
+        </div>
+
+        <div class="form-group row">
+      		<%= f.text_field :last_name, class: "form-control col-6", placeholder: "姓" %>
+      		<%= f.text_field :first_name, class: "form-control col-6", placeholder: "名" %>
+        </div>
+
+        <div class="row">
+    		  <%= f.submit "登録する", class: "btn btn-primary btn-outline-danger mx-auto" %>
+        </div>
+    	<% end %>
+    </div>
+
+    <div class="offset-1 col-6">
+    <table class="table table-borderless table-hover">
+      <thead>
+       <tr class="red-border">
+         <th>郵便番号</th>
+         <th>住所</th>
+         <th>宛名</th>
+         <th></th>
+       <tr>
+      </thead>
+
+     <tbody>
+    <% @ship_addresses.each do |ship_address| %>
+    <tr class="brown-border">
+     	<td><%= ship_address.post_code %></td>
+     	<td><%= ship_address.address %></td>
+     	<td><%= ship_address.last_name %><%= ship_address.first_name %></td>
+     	<td><%= link_to "編集する", edit_ship_address_path(ship_address),  class: "btn btn-sm btn-outline-danger" %>
+          <%= link_to "削除する", ship_address_path(ship_address), method: :delete ,data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger" %>
+        </td>
+     </tr>
+  <% end %>
+     </tbody>
+    </table>
+  </tr>
+</tr>
+</thead>
+</table>
+</div>
+
+
+   </div>
+</div>
+

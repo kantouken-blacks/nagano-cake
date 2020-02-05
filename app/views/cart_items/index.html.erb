@@ -1,0 +1,70 @@
+<div class="container my-5">
+    <div class="row">
+      <div class="offset-1">
+        <h2 class="red-border px-3 pb-1">ショッピングカート</h2>
+      </div>
+
+      <div class="ml-auto">
+        <%= link_to "カートを空にする", cart_items_path, method: :delete, class: "btn btn-sm btn-danger" %>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="offset-1 col-9">
+        <table class="table table-borderless">
+          <thead>
+            <tr class="red-border">
+              <th>商品名</th>
+              <th>単価(税込)</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th colspan="1"></th>
+            </tr>
+          </thead>
+
+          <% @cart_items.each do |cart_item| %>
+            <tbody>
+              <tr class="brown-border">
+                <td class="align-middle">
+                  <%= attachment_image_tag cart_item.item, :image, size: "50x50", fallback: "no_image.jpg" %>
+                  <span><%= cart_item.item.name %></span>
+                </td>
+                <td class="align-middle"><%= (cart_item.item.price * 1.1).floor %></td>
+                <td class="align-middle" style="width: 130px;">
+                  <%= form_for(cart_item) do |f| %>
+                  <div class="row">
+                    <%= f.number_field :quantity, min:1,class: "col-6" %>
+                    <%= f.submit "変更", class: "btn btn-sm btn-outline-danger offset-1 col-4" %>
+                  </div>
+                  <% end %>
+                </td>
+
+                <td class="align-middle">
+                  <%= (cart_item.item.price * 1.1).floor * cart_item.quantity %>
+                </td>
+
+                <td class="align-middle"><%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-sm btn-danger" %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+    </div>
+
+      <div class="row my-3">
+        <div class="offset-9">
+          <strong class="red-border px-3 pb-1">合計金額 <%= @total_price %>円</strong>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="offset-1 col-2">
+        <%= link_to "買い物を続ける", items_path, class: "btn btn-outline-danger mt-5" %>
+      </div>
+      <% if @cart_items != [] %>
+      <div class="offset-6">
+        <%= link_to "情報入力に進む", new_order_path, class: "btn btn-outline-danger mt-5" %>
+      <% end %>
+      </div>
+    </div>
+</div>

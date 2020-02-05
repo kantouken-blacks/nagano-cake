@@ -1,0 +1,35 @@
+<div class="container my-5">
+	<div class="row">
+		<div class="offset-1">
+			<h2 class="red-border px-3 pb-1">配送先を編集する</h2>
+		</div>
+	</div>
+
+ <div class="row mt-3">
+ 	<div class="offset-4 col-4">
+	 <%= form_for(@ship_address) do |f| %>
+	 	<div class="form-group">
+			<%= f.label :"郵便番号", class: "brown-border px-3 pb-1" %>
+			<%= f.text_field :post_code, class: "form-control offset-1 col-10" %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :"住所", class: "brown-border px-3 pb-1" %>
+			<%= f.text_field :address, class: "form-control offset-1 col-10" %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :"宛名", class: "brown-border px-3 pb-1" %>
+			<div class="row">
+			<%= f.text_field :last_name, class: "form-control offset-1 col-5" %>
+			<%= f.text_field :first_name, class: "form-control col-5" %>
+		</div>
+		</div>
+
+		<div class="row">
+			<%= f.submit "編集する", class: "btn btn-outline-danger mx-auto mt-3" %>
+		</div>
+	<% end %>
+ </div>
+
+</div>

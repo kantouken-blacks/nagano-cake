@@ -4,17 +4,17 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
   def change
     create_table :customers do |t|
       ## Database authenticatable
-      t.boolean :is_enabled         default: true, null: false
+      t.boolean :is_enabled,        default: true, null: false
       # ↑会員ステータスカラム TRUE =有効　FALSE =退会済
-      t.string :last_name           null: false, default: ""
-      t.string :first_name          null: false, default: ""
-      t.string :last_name_kana      null: false, default: ""
-      t.string :first_name_kana     null: false, default: ""
-      t.string :phone_number        null: false, default: ""
+      t.string :last_name,          null: false, default: ""
+      t.string :first_name,         null: false, default: ""
+      t.string :last_name_kana,     null: false, default: ""
+      t.string :first_name_kana,    null: false, default: ""
+      t.string :phone_number,       null: false, default: ""
       t.string :email,              null: false, default: "", unique: true
       t.string :encrypted_password, null: false, default: ""
-      t.string :post_code           null: false, default: ""
-      t.text   :address             null: false, default: ""
+      t.string :post_code,          null: false, default: ""
+      t.text   :address,            null: false, default: ""
       
 
       ## Recoverable

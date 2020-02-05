@@ -1,0 +1,43 @@
+<div class="container my-5">
+  <div class="row">
+    <h2>注文一覧画面</h2>
+  </div>
+
+  <div class="row mt-5">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>注文個数</th>
+          <th>注文ステータス</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M"), admin_order_path(order) %></td>
+            <!-- .strftime => created_atの表記を設定 -->
+            <td><%= order.customer.last_name %>
+              <%= order.customer.first_name %>
+            </td>
+            <td><%= order.order_details.sum(:quantity) %></td>
+            <td><%= order.order_status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+ </div>
+
+  <!-- ページネーション -->
+
+
+  <div class="container">
+    <div class="row">
+     <div class="col-md-4 offset-md-4 py-2  mt-5">
+      <%= paginate @orders %>
+     </div>
+    </div>
+  </div>

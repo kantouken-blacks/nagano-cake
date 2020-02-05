@@ -1,0 +1,56 @@
+<div class="container my-5">
+  <div class="row">
+    <h2>商品 新規登録画面</h2>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <% if flash[:item_created_error] %>
+      <span class="text-danger"><%= flash[:item_created_error] %></span>
+    <% end %>
+  </div>
+
+  <%= form_for(@item, url: admin_items_path) do |f| %>
+
+    <div class="row mt-5">
+      <div class="col-sm-4">
+        <%= f.label :商品画像 %>
+        <%= f.attachment_field :image %>
+      </div>
+
+      <div class="col-sm-5">
+        <div class="form-group row">
+          <%= f.label :商品名, class: "col-sm-4" %>
+          <%= f.text_field :name, class: "form-control col-sm-8" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :商品説明, class: "col-sm-4" %>
+          <%= f.text_area :description, class: "form-control col-sm-8" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :ジャンル, class: "col-sm-4" %>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, class: "form-control col-sm-8" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :税抜き価格, class: "col-sm-4" %>
+          <%= f.text_field :price, class: "form-control col-sm-7" %>
+          <span class="mt-auto ml-3">円</span>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :販売ステータス, class: "col-sm-4" %>
+          <%= f.select :sale_status, [["販売可", "販売可"], ["販売不可","販売不可"]], class: "form-control col-sm-8" %>
+        </div>
+      </div>
+
+      <div class="col-sm-2 mt-auto ml-5">
+        <%= f.submit :新規登録, class: "btn btn-primary" %>
+      </div>
+
+    </div>
+
+  <% end %>
+
+</div>

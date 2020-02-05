@@ -1,0 +1,113 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="offset-1">
+      <h2 class="red-border px-3">注文履歴詳細</h2>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="offset-1 col-4">
+
+      <div class="row">
+        <strong class="red-border px-3">注文情報</strong>
+      </div>
+
+      <div class="row mt-3">
+        <table class="table table-borderless offset-1">
+          <tbody>
+            <tr class="brown-border">
+              <td>注文日</td>
+              <td><%= @order.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+            </tr>
+
+            <tr class="brown-border">
+              <td>配送先</td>
+              <% if @order.address.length <8 %>
+              <% ship_address = ShipAddress.find(@order.address) %>
+              <td>
+                <%= "〒" + ship_address.post_code + "  " + ship_address.address + "  " + ship_address.last_name + ship_address.first_name %>
+              </td>
+              <% else %>
+              <td><%= @order.address %></td>
+              <% end %>
+            </tr>
+
+            <tr class="brown-border">
+              <td>支払い方法</td>
+              <td><%= @order.payment %></td>
+            </tr>
+
+            <tr class="brown-border">
+              <td>ステータス</td>
+              <td><%= @order.order_status %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="offset-1 col-4">
+      <div class="row">
+        <strong class="red-border px-3">請求情報</strong>
+      </div>
+
+      <div class="row mt-3">
+        <table class="table table-borderless offset-1">
+          <tbody>
+            <tr class="brown-border">
+              <td>商品合計</td>
+              <td><%= @order.total_price  %></td>
+            </tr>
+
+            <tr class="brown-border">
+              <td>配送料</td>
+              <td><%= @order.carriage %></td>
+            </tr>
+
+            <tr class="brown-border">
+              <td>ご請求額</td>
+              <td><%= @order.total_price + @order.carriage %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="offset-1">
+      <strong class="red-border px-3">注文内容</strong>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="offset-1 col-9">
+
+      <table class="table table-borderless">
+        <thead>
+          <tr class="red-border">
+            <th>商品</th>
+            <th>単価(税込)</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+
+        <% @order_details.each do |d| %>
+        <tbody>
+          <tr class="brown-border">
+            <td><%= d.item_name %></td>
+            <td><%= (d.item_price * 1.1).floor %></td>
+            <td><%= d.quantity %></td>
+            <td><%= ((d.item_price * d.quantity) * 1.1).floor %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,98 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="offset-1">
+      <h2 class="red-border px-3">ご注文内容</h2>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="offset-1 col-7">
+
+<!-- 注文商品の情報 -->
+      <table class="table table-borderless table-sm ">
+        <thead>
+          <tr class="red-border">
+            <th>商品</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% current_customer.cart_items.each do |cart| %>
+            <tr class="brown-border">
+              <td>
+                <%= attachment_image_tag cart.item, :image, :size => '50x50',fallback: "no_image.jpg" %>
+                <span> </span>
+                <%= cart.item.name %>
+              </td>
+
+              <td class="align-middle"><%= (cart.item.price * 1.1).floor %></td>
+
+              <td class="align-middle"><%= cart.quantity %></td>
+
+              <td class="align-middle"><%= (cart.item.price * 1.1).floor * cart.quantity %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+
+<!-- 金額の情報 -->
+    <div class="col-2 d-flex">
+
+      <table class="table table-sm table-borderless align-self-end">
+        <tbody>
+          <tr class="brown-border">
+            <td>送料</td>
+            <td>800</td>
+          </tr>
+
+          <tr class="brown-border">
+            <td>商品合計</td>
+            <td><%= @total_price %></td>
+          </tr>
+
+          <tr class="brown-border">
+            <td>請求金額</td>
+            <td><%= @total_price + 800 %></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+
+<!-- その他情報 -->
+  <div class="row mt-5">
+    <div class="offset-2 col-6">
+      <div class="row mt-3">
+        <strong class="red-border px-3 mr-3">お支払い方法</strong>
+        <span class="brown-border px-3"><%= session[:payment] %></span>
+      </div>
+
+      <div class="row mt-3">
+        <strong class="red-border px-3 mr-3">　お届け先　</strong>
+        <span class="brown-border px-3">
+          <!-- うけとった文字列が8けたより少なければ -->
+          <% if  session[:address].length < 8 %>
+           <%= "〒" + @address.post_code + "  " + @address.address + "  " + @address.last_name + @address.first_name %><span>様</span>
+
+          <!-- 受け取った文字列がそれ以外なら -->
+          <% else %>
+            <%= session[:address] %><span>様</span>
+          <% end %>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <%=link_to "購入を確定する", orders_create_order_path, class: "btn btn-lg btn-danger ml-auto" %>
+    </div>
+
+  </div>
+</div>

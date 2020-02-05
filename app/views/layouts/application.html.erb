@@ -5,11 +5,37 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'  %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+<!-- header デザイン分岐 -->
+    <header class="header">
+      <% if request.fullpath.include? "admin"  %>
+        <%= render 'layouts/admin_header' %>
+      <% else%>
+        <%= render 'layouts/customers_header' %>
+      <% end %>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+<!-- footer デザイン分岐 -->
+    <% if request.fullpath.include? "admin"  %>
+      <footer class="footer text-white bg-dark">
+    <% else%>
+      <footer class="footer text-white", style="background-color: #432c28;">
+    <% end %>
+
+      <div class="container text-center mt-3">
+        <p>© 2020 関東圏blacks inc.</p>
+      </div>
+    </footer>
+
+
   </body>
 </html>

@@ -1,0 +1,16 @@
+<div class="offset-1 col-10">
+	<div class="row d-flex aline-items-center">
+		<strong class="red-border px-3 pb-1">ジャンル検索</strong>
+	</div>
+
+	    <div class="row mx-auto mt-3">
+		<span class="brown-border text-center"><%= link_to "すべての商品", items_path %></span>
+		</div>
+	    <% genres.each do |genre| %>
+		<%= link_to genre_items_path(genre) do %>
+			<div class="row mx-auto mt-3">
+			<span class="brown-border text-center"><%= genre.name %></span>
+			</div>
+		<% end %>
+	  <% end %>
+</div>

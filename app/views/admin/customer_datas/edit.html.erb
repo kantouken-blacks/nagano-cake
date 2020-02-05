@@ -1,0 +1,70 @@
+<div class="container my-5">
+  <div class="row">
+    <h2>会員編集画面</h2>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <% if flash[:customer_updated_error] %>
+      <span class="text-danger"><%= flash[:customer_updated_error] %></span>
+    <% end %>
+  </div>
+
+    <div class="row mt-3 flex-column align-items-center">
+
+      <%= form_for (@customer), url: admin_customer_data_path(@customer) do |f| %>
+
+        <div class="form-group row">
+          <%= f.label :会員id, class: "col-sm-4" %>
+          <%= f.label @customer.id, class: "col-sm-8" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :氏名, class: "col-sm-4" %>
+          <%= f.text_field :last_name, class: "form-control col-sm-4" %>
+          <%= f.text_field :first_name, class: "form-control col-sm-4" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :フリガナ, class: "col-sm-4" %>
+          <%= f.text_field :last_name_kana, class: "form-control col-sm-4" %>
+          <%= f.text_field :first_name_kana, class: "form-control col-sm-4" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :郵便番号, class: "col-sm-4" %>
+          <%= f.text_field :post_code, class: "form-control col-sm-8" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :住所, class: "col-sm-4" %>
+          <%= f.text_field :address, class: "form-control col-sm-8" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :電話番号, class: "col-sm-4" %>
+          <%= f.text_field :phone_number, class: "form-control col-sm-8" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :メールアドレス, class: "col-sm-4" %>
+          <%= f.email_field :email, class: "form-control col-sm-8" %>
+        </div>
+
+        <div class="row">
+          <%= f.label :会員ステータス, class: "ml-3" %>
+          <div class="form-check ml-4">
+            <%= f.radio_button :is_enabled, :true %>
+            <%= f.label :is_enabled, "有効会員" %>
+            <%= f.radio_button :is_enabled, :false %>
+            <%= f.label :is_enabled, "退会済み" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <%= f.submit "変更を保存する", class: "btn btn-primary mt-3 mx-auto" %>
+        </div>
+
+      <% end %>
+
+  </div>
+</div>

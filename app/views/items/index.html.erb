@@ -1,0 +1,67 @@
+<div class="container my-5">
+ <div class="row">
+    <div class="col-3">
+      <%= render 'genrebox', genres: @genres %>
+    </div>
+
+    <div class="col-9">
+
+<!--動的ジャンル名-->
+      <div class="row">
+        <h2 class="red-border px-3">
+          <% if params[:genre_id] %>
+            <%= @genre.name %>
+          <% else %>
+            すべての商品
+          <% end %>
+        </h2>
+      </div>
+
+<!-- 販売件数 -->
+      <div class="row my-3 ml-1">
+        <strong class="brown-border">
+          全
+          <% if params[:genre_id] %>
+    	     <%= @items.order(created_at: :desc).where(sale_status: "販売可").count %>
+          <% else %>
+    		    <%= Item.where(sale_status: "販売可").count %>
+          <% end %>
+          件
+        </strong>
+      </div>
+
+<!-- 動的ジャンル登録アイテム数設定する-->
+	    <div class="row">
+	    	<% @items.each do |item| %>
+          <div class="col-3 mt-3"> <!--ひとつのブロックをラップしてカラムを指定する-->
+		        <%= link_to item_path(item) do %><!--それをeach文で回す-->
+		          <%= attachment_image_tag item, :image, size: "150x150", format: 'jpeg', fallback: "noimage.jpg", class: 'rounded' %>
+		        <% end %><br>
+		        <span class="text-muted"><%= link_to item.genre.name, genre_items_path(item.genre_id) %></span><br>
+		        <strong class="red-border"><%= item.name %></strong><br>
+		        <span class="ml-auto"><%= (item.price * 1.1).floor %>円</span><br>
+          </div>
+        <% end %>
+	    </div>
+
+
+   </div>
+  </div>
+
+
+
+
+
+  	<!-- ページネーション -->
+ <div class="container">
+	<div class="row">
+	 <div class="col-md-4 offset-md-4 py-2 mt-5">
+	 	<%= paginate @items %>
+	 </div>
+	</div>
+ </div>
+ 	<!-- ページネーション -->
+
+ </div>
+
+
