@@ -12,9 +12,8 @@ class Admin::GenresController < ApplicationController
     if  @genre.save
       redirect_to admin_genres_path
     else
-      @genre = Genre.new
-      @genres = Genre.all
-      render :index
+      flash[:genre_created_error] = "ジャンル名を入力してください。"
+      redirect_to 
     end
   end
 
@@ -24,8 +23,13 @@ class Admin::GenresController < ApplicationController
 
   def update
     genre = Genre.find(params[:id])
-    genre.update(genre_params)
-    redirect_to admin_genres_path
+    if genre.update(genre_params)
+      # Model:Genres.rb after_update => 無効にしたら関連商品の販売ステータスを販売不可に変更
+      redirect_to admin_genres_path
+    else
+      flash[:genre_updated_error] = "ジャンル名を入力してください"
+      redirect_to edit_admin_genre_path(genre)
+    end
   end
 
   private

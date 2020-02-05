@@ -3,6 +3,12 @@
     <h2>会員編集画面</h2>
   </div>
 
+  <div class="row d-flex justify-content-center">
+    <% if flash[:customer_updated_error] %>
+      <span class="text-danger"><%= flash[:customer_updated_error] %></span>
+    <% end %>
+  </div>
+
     <div class="row mt-3 flex-column align-items-center">
 
       <%= form_for (@customer), url: admin_customer_data_path(@customer) do |f| %>
@@ -44,11 +50,14 @@
           <%= f.email_field :email, class: "form-control col-sm-8" %>
         </div>
 
-        <div class="form-check">
-          <%= f.radio_button :is_enabled, :true %>
-          <%= f.label :is_enabled, "有効会員" %>
-          <%= f.radio_button :is_enabled, :false %>
-          <%= f.label :is_enabled, "退会済み" %>
+        <div class="row">
+          <%= f.label :会員ステータス, class: "ml-3" %>
+          <div class="form-check ml-4">
+            <%= f.radio_button :is_enabled, :true %>
+            <%= f.label :is_enabled, "有効会員" %>
+            <%= f.radio_button :is_enabled, :false %>
+            <%= f.label :is_enabled, "退会済み" %>
+          </div>
         </div>
 
         <div class="row">

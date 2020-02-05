@@ -3,6 +3,11 @@
     <h2>商品編集</h2>
   </div>
 
+    <div class="row d-flex justify-content-center">
+      <% if flash[:item_updated_error] %>
+        <span class="text-danger"><%= flash[:item_updated_error] %></span>
+      <% end %>
+    </div>
     <%= form_for(@item, url: admin_item_path) do |f| %>
     <div class="row mt-3">
       <div class="col-sm-3">

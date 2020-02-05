@@ -3,9 +3,8 @@ class Genre < ApplicationRecord
 	has_many :items
 
 	after_update do
-		items = Genre.find(id).items
 		if (is_enabled) == false
-			items.each {|item|
+			self.items.each {|item|
 				item.update(sale_status: "販売不可")
 			}
 		end
