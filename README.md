@@ -66,5 +66,5 @@ $ rails s -b 0.0.0.0
   - 管理者サイト
   - ECサイトデザイン
 
-### 2020 Kantouken-blacks inc.
+### ©2020 Kantouken-blacks inc.
 短い間だったけど お疲れ様でした！ありがとう！ by kanon2580
