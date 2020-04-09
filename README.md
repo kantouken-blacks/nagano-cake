@@ -48,19 +48,21 @@ $ rails s -b 0.0.0.0
 スローガンは「勝って学ぶ、それこそが経験」  
 強気なことを言っているが、オールブラックスの丸パクリである。
 - [15765-akaha](https://github.com/15765-akaha)
-  - Model、Controllerの詳細設計
+  - Model、Controller詳細設計
   - Model初期設定
   - ヘッダー/フッター・TOPページ・サンクスページ
   - 商品一覧/詳細/ジャンル検索
   - マイページ/会員情報編集ページ
   - 退会ページ
 - [xkilaboshix](https://github.com/xkilaboshix)
-  - Model、Controllerの詳細設計
+  - Model、Controller詳細設計
   - Route初期設定
   - カートに商品を入れて注文確定するまでのシステム
   - 会員登録/ログイン
   - 注文履歴一覧/詳細
 - [kanon2580](https://github.com/kanon2580)
+  - Route、Controller詳細設計
+  - Controller初期設定
   - 管理者サイト
   - ECサイトデザイン
 
